@@ -106,9 +106,21 @@ class AdminController extends Controller {
         $lastactivities        = 1;
         $data['topUsersList']  = AdminUser::getUserList(array('lastActivities'=>$lastactivities));
         /* End */
-
         return \View::make('admin.dashboard')->with('data', $data);
     }
+
+
+	/*
+        * name:    logout
+        * params:
+        * return:
+        * desc:    logout admin
+        */
+	public function logout(){
+		//Auth::logout();
+		Session::flush();
+		return Redirect::intended('admin/login');
+	}
 
 
 }
