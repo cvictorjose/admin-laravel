@@ -1,0 +1,44 @@
+.mandatory {
+    color:#f00;
+}
+
+#tabs	{
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    zoom: 1;
+    position:relative;
+    top:2px;
+    z-index: 1;
+}
+
+#tabs li {
+    display: block;
+    list-style: none;
+    margin: 0;
+    margin-right: 1px;
+    padding: 0;
+    float: left;
+}
+
+#tabs li a {
+    display: block;
+    padding: 2px 10px;
+    border: 1px solid #3c8dbc;
+    border-radius: 5px;
+    border-bottom: 0 none;
+    text-align: center;
+    text-decoration: none;
+}
+
+.tab-section {
+    background:#fff;
+    padding: 10px;
+    border: 1px solid #3c8dbc;
+}
+
+#tabs li a.current {
+    background: #3c8dbc;
+    color: #fff;
+    border-bottom: 1px solid #d4efff;
+}
