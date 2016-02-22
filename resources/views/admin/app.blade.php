@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>Safe Bag | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -31,7 +31,7 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link href="{{ asset('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet" type="text/css" />
 
-    <link href="{{ asset('/public/css/safeadmin.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/css/safeadmin.css') }}" rel="stylesheet" type="text/css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,9 +55,9 @@
     <script src="{{ asset('/plugins/datatables/dataTables.bootstrap.min.js') }}" type="text/javascript"></script>
 
     <!-- JQuery Forms Validation SCRIPT -->
-    <script src="{{ asset('/public/js/jquery.validate.js') }}"></script>
+    <script src="{{ asset('/js/jquery.validate.js') }}"></script>
 
-    <script src="{{ asset('/public/js/jquery.bpopup.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.bpopup.min.js') }}" type="text/javascript"></script>
 
     <![endif]-->
 </head>
