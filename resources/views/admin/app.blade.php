@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>Safe Bag | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+
     <!-- Bootstrap 3.3.2 -->
     <link href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- FontAwesome 4.3.0 -->
@@ -59,6 +62,16 @@
 
     <script src="{{ asset('/js/jquery.bpopup.min.js') }}" type="text/javascript"></script>
 
+
+    <!-- Setup token for Post ajax -->
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
+
     <![endif]-->
 </head>
 <body class="skin-blue sidebar-mini">
@@ -80,7 +93,7 @@
         <div class="pull-right hidden-xs">
             <b>Version</b> 1.0
         </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://www.safe-bag.com.com">Safe Bag</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2016 <a href="http://www.safe-bag.com.com">Safe Bag</a>.</strong> All rights reserved.
     </footer>
 </div><!-- ./wrapper -->
 
@@ -108,10 +121,7 @@
 <script src="{{ asset('/plugins/fastclick/fastclick.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/dist/js/app.min.js') }}" type="text/javascript"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('/dist/js/pages/dashboard.js') }}" type="text/javascript"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('/dist/js/demo.js') }}" type="text/javascript"></script>
+
 
 
 </body>

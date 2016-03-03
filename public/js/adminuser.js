@@ -224,10 +224,12 @@ function changestatus(userid, obj)   {
    var agree = confirm("Are you sure to "+ optstring +" this User?");
     if(agree)   {
         $.ajax({
+
             url: 'userstatuschange',
             dataType: 'json',
             type: 'post',
             data: dataString,
+
             success: function (data, textStatus, jQxhr) {
                 if(data.stat == 'ok'){
                     alert("User "+ optstring +"d Successfully!");

@@ -46,6 +46,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ URL::to('admin/userlist') }}"><i class="fa fa-list"></i> List Users</a></li>
+                    <li><a href="{{ URL::to('admin/useradd') }}"><i class="fa fa-user-plus"></i> Add Users</a></li>
                 </ul>
             </li>
         </ul>

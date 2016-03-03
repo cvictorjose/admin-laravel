@@ -22,7 +22,18 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::get('dashboard',                     'AdminController@dashboard');
 	Route::get('logout',                        'AdminController@logout');
 
+	/* Admin User Functionalities */
+	Route::get('userlist',                      'AdminUserController@userlist');
 
+	Route::get('useradd',                       'AdminUserController@useradd');
+	Route::post('useradd',                      'AdminUserController@useradd');
+
+	Route::get('edituser/{id}',                 'AdminUserController@edituser');
+	Route::post('edituser/{id}',                'AdminUserController@edituser');
+
+
+	Route::post('useremailcheck',               'AdminUserController@useremailcheck');
+	Route::post('userstatuschange',             'AdminUserController@userstatuschange');
 
 });
 
