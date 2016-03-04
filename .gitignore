@@ -1,7 +1,15 @@
+/bootstrap/compiled.php
 /vendor
-/node_modules
-.env
+composer.phar
+composer.lock
+.env.*.php
+.env.php
+.DS_Store
+Thumbs.db
 
+# Images stuff:
+adminpictures/
+images/
 
 # User-specific stuff:
 .idea/workspace.xml
