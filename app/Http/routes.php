@@ -27,13 +27,15 @@ Route::group(['prefix' => 'admin'], function() {
 
 	Route::get('useradd',                       'AdminUserController@useradd');
 	Route::post('useradd',                      'AdminUserController@useradd');
-
 	Route::get('edituser/{id}',                 'AdminUserController@edituser');
 	Route::post('edituser/{id}',                'AdminUserController@edituser');
-
-
 	Route::post('useremailcheck',               'AdminUserController@useremailcheck');
 	Route::post('userstatuschange',             'AdminUserController@userstatuschange');
+
+    /* Airlines Functionalities */
+    Route::get('airlineslist',                  'AdminAirlineController@airlineslist');
+
+
 
 });
 

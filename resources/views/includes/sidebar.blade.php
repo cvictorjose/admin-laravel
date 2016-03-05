@@ -49,6 +49,18 @@
                     <li><a href="{{ URL::to('admin/useradd') }}"><i class="fa fa-user-plus"></i> Add Users</a></li>
                 </ul>
             </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-rocket"></i>
+                    <span>Airlines</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ URL::to('admin/airlineslist') }}"><i class="fa fa-list"></i> List Airlines </a></li>
+
+                </ul>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->
