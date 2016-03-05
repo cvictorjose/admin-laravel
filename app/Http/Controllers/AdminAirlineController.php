@@ -31,5 +31,32 @@ class AdminAirlineController  extends Controller {
     }
 
 
+    /*
+     * name:    airlinestatuschange
+     * params:
+     * return:
+     * desc:    Change the status of the Airline admin
+     */
+    public function  airlinestatuschange() {
+        $inputData  = Input::all();
+        $status     =  array('stat'=>'error', 'msg'=>'Something went wrong');
+        if(!empty($inputData) && count($inputData)> 0 && isset($inputData['alstat']) && $inputData['alstat']>= 0) {
+            // Applying validation rules.
+            $rules = array('alstat'          => 'required', 'airlineid'  => 'required');
+            $validator = Validator::make($inputData, $rules);
+            if ($validator->fails()) {
+                // If validation falis
+                $status   =  array('stat'=>'error', 'msg'=>$validator);
+                return json_encode($status);
+            } else {
+                $status  = AdminAirlines::changeAirlineStatus($inputData['alstat'], $inputData['airlineid']);
+            }
+        }   else {
+            $status   =  array('stat'=>'error', 'msg'=>'Details missing to change the status.');
+        }
+        return json_encode($status);
+    }
+
+
 
 }

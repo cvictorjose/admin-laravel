@@ -29,6 +29,20 @@ class AdminAirlines  extends Model {
         return $airlineslist;
     }
 
+    /*
+     * name:    changeAirlineStatus
+     * params:  $stat, $airlineid
+     * return:
+     * desc:    change the status of the Airline
+     */
+    public static function changeAirlineStatus($stat, $airlineid)   {
+        $status     = array('stat'=>'error', 'msg'=>'Something went wrong');
+        DB::table('airlines')->where('idairline', $airlineid)->update(array('stato' => $stat));
+        $status     = array('stat'=>'ok', 'msg'=>'');
+        return $status;
+
+    }
+
 
 
 }

@@ -36,6 +36,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('airlineslist',                  'AdminAirlineController@airlineslist');
 
 
+    Route::post('airlinestatuschange',          'AdminAirlineController@airlinestatuschange');
+
+
 
 });
 
