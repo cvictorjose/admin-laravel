@@ -64,7 +64,18 @@ class AdminAirlines  extends Model {
         return $status;
     }
 
-
+    /*
+         * name:    updateAdminAirlines
+         * params:  $aldata, $airlineid
+         * return:
+         * desc:    change the details of the Airline Admin
+         */
+    public static function updateAdminAirlines($aldata, $airlineid)    {
+        $status     = array('stat'=>'error', 'msg'=>'Something went wrong');
+        DB::table('airlines')->where('idairline', $airlineid)->update( $aldata );
+        $status     = array('stat'=>'ok', 'msg'=>'Airline Edited Successfully');
+        return $status;
+    }
 
 
 

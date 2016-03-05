@@ -36,6 +36,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('airlineslist',                  'AdminAirlineController@airlineslist');
     Route::get('airlineadd',                    'AdminAirlineController@airlineadd');
     Route::post('airlineadd',                   'AdminAirlineController@airlineadd');
+    Route::get('editairline/{id}',              'AdminAirlineController@editairline')->where('id', '[0-9]+');
+    Route::post('editairline/{id}',             'AdminAirlineController@editairline')->where('id', '[0-9]+');
 
 
     Route::post('airlinestatuschange',          'AdminAirlineController@airlinestatuschange');

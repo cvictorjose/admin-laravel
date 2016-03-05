@@ -94,6 +94,47 @@ class AdminAirlineController  extends Controller {
         return \View::make('admin.airlineadd')->with('data', $data);
     }
 
+    /*
+    * name:    editairline
+    * params:
+    * return:
+    * desc:    editairline admin
+    */
+    public function editairline($alid){
+        $inputData  = Input::all();
+        $data       = array('mode'=>'edit');
+        if(!empty($inputData) && count($inputData)> 0 && isset($inputData['addairline'])) {
+            // Applying validation rules.
+            $rules = array(
+                'al_name'           => array('required', 'min:3'),
+                'al_code'           => array('required', 'alpha_num'),
+                'al_country'        => 'required',
+            );
+            $validator = Validator::make($inputData, $rules);
+            if ($validator->fails()) {
+                // If validation falis
+                $status   =  array('stat'=>'error', 'msg'=>$validator);
+                return json_encode($status);
+            } else {
+                $airlinedata = array(
+                    'name_airline'           => Input::get('al_name'),
+                    'code_airline'           => Input::get('al_code'),
+                    'country_airline'        => Input::get('al_country'),
+                    'stato'                 => (Input::get('al_status'))? Input::get('al_status') : '0',
+                );
+                $status  = AdminAirlines::updateAdminAirlines($airlinedata, Input::get('al_id'));
+                return json_encode($status);
+            }
+        }
+        $countrylist                 =   AdminUser::getCountriesList();
+        $data['countriesList']       =   $countrylist;
+        $aldetails                   =   AdminAirlines::getAirlinesList(array('alId'=>$alid));
+        if($aldetails)
+            $data['alDetails']       = $aldetails[0];
+        else $data['alDetails']   = (object) array();
+        return \View::make('admin.airlineadd')->with('data', $data);
+    }
+
 
 
 }
