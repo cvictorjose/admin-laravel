@@ -109,9 +109,19 @@ class AdminUser extends Model
         DB::table('sfb_admin')->where('id', $userid)->update(array('status' => $stat));
         $status = array('stat' => 'ok', 'msg' => '');
         return $status;
-
     }
 
-
+    /*
+         * name:    getCountriesList
+         * params:  $array
+         * return:
+         * desc:    get the List of Countries Admin
+         */
+    public static function  getCountriesList()
+    {
+        $countrieslist = array();
+        $countrieslist = DB::table('country')->orderBy('country_name', 'asc')->get();
+        return $countrieslist;
+    }
 
 }

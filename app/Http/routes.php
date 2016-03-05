@@ -34,6 +34,8 @@ Route::group(['prefix' => 'admin'], function() {
 
     /* Airlines Functionalities */
     Route::get('airlineslist',                  'AdminAirlineController@airlineslist');
+    Route::get('airlineadd',                    'AdminAirlineController@airlineadd');
+    Route::post('airlineadd',                   'AdminAirlineController@airlineadd');
 
 
     Route::post('airlinestatuschange',          'AdminAirlineController@airlinestatuschange');

@@ -58,7 +58,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ URL::to('admin/airlineslist') }}"><i class="fa fa-list"></i> List Airlines </a></li>
-
+                    <li><a href="{{ URL::to('admin/airlineadd') }}"><i class="fa fa-rocket"></i> Add Airline </a></li>
                 </ul>
             </li>
         </ul>

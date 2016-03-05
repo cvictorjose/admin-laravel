@@ -43,6 +43,30 @@ class AdminAirlines  extends Model {
 
     }
 
+    /*
+         * name:    insertAdminAirlines
+         * params:  $airlinesdata
+         * return:
+         * desc:    insertAdminAirlines admin
+         */
+    public static function insertAdminAirlines($airlinesdata)
+    {
+
+        $status = array('stat' => 'error', 'msg' => 'Something went wrong');
+        $id = 0;
+
+        $id = DB::table('airlines')->insertGetId($airlinesdata);
+        if ($id > 0) {
+            $status = array('stat' => 'ok', 'msg' => 'Airlines Added Successfully');
+        } else {
+            $status = array('stat' => 'error', 'msg' => 'Airlines Addition Failed');
+        }
+        return $status;
+    }
+
+
+
+
 
 
 }
