@@ -42,8 +42,11 @@ Route::group(['prefix' => 'admin'], function() {
 
     /* Airports Functionalities */
     Route::get('airportslist',                  'AdminAirportController@airportslist');
+    Route::get('airportadd',                    'AdminAirportController@airportadd');
+    Route::post('airportadd',                   'AdminAirportController@airportadd');
 
     Route::post('airportstatuschange',          'AdminAirportController@airportstatuschange');
+    Route::post('airportiatacheck',             'AdminAirportController@airportiatacheck');
 
 
 

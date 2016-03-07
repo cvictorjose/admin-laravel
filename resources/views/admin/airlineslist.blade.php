@@ -19,7 +19,7 @@
                 <div class="box-header">
                     <h3 class="box-title">Airlines</h3>
                     <a href="{{ URL::to('admin/airlineadd') }}" class="btn btn-app" style="float: right;">
-                        <i class="fa fa-rocket"></i> Add new Airline
+                        <i class="fa fa-plane"></i> Add new Airline
                     </a>
                 </div><!-- /.box-header -->
                 <div class="box-body">

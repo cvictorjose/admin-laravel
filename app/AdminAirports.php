@@ -45,5 +45,45 @@ class AdminAirports extends Model {
     }
 
 
+    /*
+     * name:    insertAirport
+     * params:
+     * return:
+     * desc:    insertAirport admin
+     */
+    public static function insertAirport($portData){
+
+        $status     = array('stat'=>'error', 'msg'=>'Something went wrong');
+        $id = 0;
+
+        $id = DB::table('airports_all')->insertGetId( $portData );
+        if($id>0){
+            $status     = array('stat'=>'ok', 'msg'=>'Airport Added Successfully');
+        } else {
+            $status     = array('stat'=>'error', 'msg'=>'Airport Addition Failed');
+        }
+        return $status;
+    }
+
+    /*
+     * name:    checkAirportIata
+     * params:  $iata
+     * return:
+     * desc:    check if airport iata already exists
+     */
+    public static function checkAirportIata($iata){
+        $status     = array('stat'=>'error', 'msg'=>'Something went wrong');
+        $ports      = array();
+
+        $ports = DB::table('airports_all')->where('iata', strtoupper($iata) )->select('id')->orderBy('id', 'desc')->take(1)->get();
+        if(count($ports)>0){
+            $status     = array('stat'=>'error', 'msg'=>'Iata already exists');
+        } else {
+            $status     = array('stat'=>'ok', 'msg'=>'');
+        }
+        return $status;
+    }
+
+
 
 }

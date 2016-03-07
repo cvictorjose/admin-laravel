@@ -52,13 +52,13 @@
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-rocket"></i>
+                    <i class="fa fa-plane"></i>
                     <span>Airlines</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ URL::to('admin/airlineslist') }}"><i class="fa fa-list"></i> List Airlines </a></li>
-                    <li><a href="{{ URL::to('admin/airlineadd') }}"><i class="fa fa-rocket"></i> Add Airline </a></li>
+                    <li><a href="{{ URL::to('admin/airlineadd') }}"><i class="fa fa-plane"></i> Add Airline </a></li>
                 </ul>
             </li>
 
@@ -70,7 +70,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ URL::to('admin/airportslist') }}"><i class="fa fa-list"></i> List Airports </a></li>
-
+                    <li><a href="{{ URL::to('admin/airportadd') }}"><i class="fa fa-rocket"></i> Add Airport </a></li>
                 </ul>
             </li>
         </ul>
