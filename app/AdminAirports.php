@@ -30,5 +30,20 @@ class AdminAirports extends Model {
     }
 
 
+    /*
+    * name:    changeAirportStatus
+    * params:  $stat, $airportid
+    * return:
+    * desc:    change the status of the Airport
+    */
+    public static function changeAirportStatus($stat, $airportid)   {
+        $status     = array('stat'=>'error', 'msg'=>'Something went wrong');
+        DB::table('airports_all')->where('id', $airportid)->update(array('stato' => $stat));
+        $status     = array('stat'=>'ok', 'msg'=>'');
+        return $status;
+
+    }
+
+
 
 }

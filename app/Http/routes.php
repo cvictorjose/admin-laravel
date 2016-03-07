@@ -43,6 +43,8 @@ Route::group(['prefix' => 'admin'], function() {
     /* Airports Functionalities */
     Route::get('airportslist',                  'AdminAirportController@airportslist');
 
+    Route::post('airportstatuschange',          'AdminAirportController@airportstatuschange');
+
 
 
 });
