@@ -44,12 +44,10 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('airportslist',                  'AdminAirportController@airportslist');
     Route::get('airportadd',                    'AdminAirportController@airportadd');
     Route::post('airportadd',                   'AdminAirportController@airportadd');
-
+    Route::get('editairport/{id}',              'AdminAirportController@editairport');
+    Route::post('editairport/{id}',             'AdminAirportController@editairport');
     Route::post('airportstatuschange',          'AdminAirportController@airportstatuschange');
     Route::post('airportiatacheck',             'AdminAirportController@airportiatacheck');
-
-
-
 });
 
 
