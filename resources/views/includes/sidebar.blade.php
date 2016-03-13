@@ -73,6 +73,19 @@
                     <li><a href="{{ URL::to('admin/airportadd') }}"><i class="fa fa-rocket"></i> Add Airport </a></li>
                 </ul>
             </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-fighter-jet"></i>
+                    <span>Content Airport Products</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ URL::to('admin/airportproductlist') }}"><i class="fa fa-list"></i> List Content Airport Products </a></li>
+                    <li><a href="{{ URL::to('admin/airportproductadd') }}"><i class="fa fa-fighter-jet"></i> Add Content Airport Product </a></li>
+                </ul>
+            </li>
+
         </ul>
     </section>
     <!-- /.sidebar -->

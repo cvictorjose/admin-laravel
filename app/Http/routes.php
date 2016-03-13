@@ -48,6 +48,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('editairport/{id}',             'AdminAirportController@editairport');
     Route::post('airportstatuschange',          'AdminAirportController@airportstatuschange');
     Route::post('airportiatacheck',             'AdminAirportController@airportiatacheck');
+
+	/* Product Airports Functionalities */
+	Route::get('airportproductlist',            'AdminAirportProductController@airportproductlist');
 });
 
 
