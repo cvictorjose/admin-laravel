@@ -1,5 +1,5 @@
 <?php
-//$pacth="/var/www/html/adminsb/public/";
+//$pacth="/var/www/laravel2/public/";
 $pacth="";
 /* Admin User Designations */
 return [
@@ -11,6 +11,15 @@ return [
         '4' => 'Person In-Charge',
         '5' => 'Head of Operators'),
 
+    'apLanguages'           =>  array(  'en' => 'English',
+        'it' => 'Italy',
+        'fr' => 'French'),
+
     'adminUserFotoPath'     =>  $pacth.'adminpictures/',
 
+    //'adminAPImagePath'      =>  '/var/www/html/safe-bag/cmproducts/images/',
+    'adminAPImagePath'      =>  $pacth.'airproductpictures/',
+
 ];
+
+
