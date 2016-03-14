@@ -128,4 +128,73 @@ class AdminAirportProductController  extends Controller {
 
 
 
+
+    /*
+     * name:    editairportproduct
+     * params:  $apid
+     * return:
+     * desc:    Change the details of the Airport Product admin
+     */
+    public function  editairportproduct($apid)  {
+        $inputData      = Input::all();
+        $data           = array('mode'=>'edit');
+        if(!empty($inputData) && count($inputData)> 0 && isset($inputData['addap'])) {
+            // Applying validation rules.
+            $rules = array(
+                'ap_product_code'                => 'required',
+                'ap_priority'                    => 'required',
+                'ap_title'                       => 'required',
+                'ap_web_desc'                    => 'required',
+                'ap_lang'                        => 'required',
+                'ap_airport_sales'               => 'required',
+            );
+            $validator = Validator::make($inputData, $rules);
+            if ($validator->fails()) {
+                // If validation falis
+                $status   =  array('stat'=>'error', 'msg'=>$validator);
+                return json_encode($status);
+            } else {
+                $imagename   = '';
+                if(isset($_FILES['ap_image']['name']))
+                    if ( 0 < $_FILES['ap_image']['error'] ) {
+                        $status   =  array('stat'=>'error', 'msg'=>$_FILES['ap_image']['error']);
+                        Session::flash('statmsg', $status['msg']);
+                        Session::flash('status', $status['stat']);
+                    }
+                    else {
+                        $imagename   = time().$_FILES['ap_image']['name'];
+                        move_uploaded_file($_FILES['ap_image']['tmp_name'], config('constants.adminAPImagePath') . $imagename);
+                    }
+
+                $apdata = array(
+                    'codice_prodotto'                   => $inputData['ap_product_code'],
+                    'priority'                          => $inputData['ap_priority'],
+                    'titolo'                            => $inputData['ap_title'],
+                    'descrizione_web'                   => $inputData['ap_web_desc'],
+                    'stato'                             => (Input::get('ap_status'))? Input::get('ap_status') : '0',
+                    'lingua'                            => $inputData['ap_lang'],
+                    'aeroporto_di_vendita'              => implode(',', Input::get('ap_airport_sales')),
+                );
+
+                if(!empty($imagename))
+                    $apdata['image']       = $imagename;
+
+                $status  = AdminAirportProduct::updateAirportProduct($apdata, $apid);
+                //return json_encode($status);
+                Session::flash('statmsg', $status['msg']);
+                Session::flash('status', $status['stat']);
+            }
+        }
+        $airproductslist                 =   AdminAirportProduct::getAirportProductList(array('apId'=>$apid));
+        if($airproductslist)
+            $data['apDetails']           = $airproductslist[0];
+        else $data['apDetails']          = (object) array();
+        $data['airproductsList']         = $airproductslist;
+        $data['airportsList']            = AdminSBAirports::getAirportsList();
+       
+        return \View::make('admin.airportproductadd')->with('data', $data);
+    }
+
+
+
 }
