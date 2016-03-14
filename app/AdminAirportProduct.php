@@ -25,6 +25,21 @@ class AdminAirportProduct extends Model {
         return $aplist;
     }
 
+    /*
+     * name:    changeAirportProductStatus
+     * params:  $stat, $apid
+     * return:
+     * desc:    change the status of the Airport Product
+     */
+    public static function changeAirportProductStatus($stat, $apid)   {
+        $apstatus     = ($stat == '1')?'1':'0';
+        $status     = array('stat'=>'error', 'msg'=>'Something went wrong');
+        DB::table('airports_products')->where('id_prodotto', $apid)->update(array('stato' => $apstatus));
+        $status     = array('stat'=>'ok', 'msg'=>'');
+        return $status;
+
+    }
+
 
 
 

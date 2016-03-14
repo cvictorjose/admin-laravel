@@ -51,6 +51,7 @@ Route::group(['prefix' => 'admin'], function() {
 
 	/* Product Airports Functionalities */
 	Route::get('airportproductlist',            'AdminAirportProductController@airportproductlist');
+	Route::post('airportproductstatuschange',   'AdminAirportProductController@airportproductstatuschange');
 });
 
 
