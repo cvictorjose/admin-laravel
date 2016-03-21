@@ -101,6 +101,18 @@
                 </ul>
             </li>
 
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-file-text-o"></i>
+                    <span>Content Services</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ URL::to('admin/servicecontentlist') }}"><i class="fa fa-list"></i> List Content Services </a></li>
+                    <li><a href="{{ URL::to('admin/servicecontentadd') }}"><i class="fa fa-file-text-o"></i> Add Content Service </a></li>
+                </ul>
+            </li>
+
         </ul>
     </section>
     <!-- /.sidebar -->

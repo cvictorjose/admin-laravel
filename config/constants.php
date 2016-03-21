@@ -21,6 +21,11 @@ return [
     //'adminAPImagePath'      =>  '/var/www/html/safe-bag/cmproducts/images/',
     'adminAPImagePath'      =>  $pacth.'airproductpictures/',
 
+
+    'scLanguages'           =>  array(  'en' => 'English',
+        'fr' => 'French',
+        'it' => 'Italy'),
+
 ];
 
 
