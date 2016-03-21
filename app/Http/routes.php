@@ -69,6 +69,7 @@ Route::group(['prefix' => 'admin'], function() {
 
     /* Content Service Functionalities */
     Route::get('servicecontentlist',            'AdminServiceContentController@servicecontentlist');
+    Route::post('filterservicecontentlist',     'AdminServiceContentController@filterservicecontentlist');
 
 });
 
