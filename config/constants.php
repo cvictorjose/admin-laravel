@@ -1,6 +1,7 @@
 <?php
 //$pacth="/var/www/laravel2/public/";
 $pacth="";
+$root="test.safe-bag.com";
 /* Admin User Designations */
 return [
 

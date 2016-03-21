@@ -74,6 +74,21 @@
                 </ul>
             </li>
 
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-rocket"></i>
+                    <span>Safe Bag Airports</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ URL::to('admin/sbairportslist') }}"><i class="fa fa-list"></i> List SB Airports
+                        </a></li>
+                    <li><a href="{{ URL::to('admin/sbairportadd') }}"><i class="fa fa-rocket"></i> Add SB Airport
+                        </a></li>
+                </ul>
+            </li>
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-fighter-jet"></i>

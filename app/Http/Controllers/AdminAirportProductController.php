@@ -191,7 +191,7 @@ class AdminAirportProductController  extends Controller {
         else $data['apDetails']          = (object) array();
         $data['airproductsList']         = $airproductslist;
         $data['airportsList']            = AdminSBAirports::getAirportsList();
-       
+
         return \View::make('admin.airportproductadd')->with('data', $data);
     }
 
