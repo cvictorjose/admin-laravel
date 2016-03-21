@@ -9,8 +9,7 @@ $( document ).ready(function() {
                     minlength: 3,
                     maxlength: 3
                 },
-                ap_city: "required",
-                ap_rank: "required"
+                ap_city: "required"
             },
             messages: {
                 ap_iata: {
@@ -18,15 +17,14 @@ $( document ).ready(function() {
                     minlength: "Iata must consist of at least 3 characters",
                     maxlength: "Iata must consist 3 characters",
                 },
-                ap_city: "Please enter City",
-                ap_rank: "Please enter your Smart Rank"
+                ap_city: "Please enter City"
             },
             submitHandler: function (form) {
                 var chkval  = $('#chkiata').val();
                 if(chkval == 1) {
                     var dataString =  $("#addairportfrm").serialize();
                     $.ajax({
-                        url: 'airportadd',
+                        url: 'sbairportadd',
                         dataType: 'json',
                         type: 'post',
                         data: dataString,

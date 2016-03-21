@@ -18,7 +18,7 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Safe Bag Airports</h3>
-                    <a href="{{ URL::to('admin/airportadd') }}" class="btn btn-app" style="float: right;">
+                    <a href="{{ URL::to('admin/sbairportadd') }}" class="btn btn-app" style="float: right;">
                         <i class="fa fa-rocket"></i> Add new Safe Bag Airport
                     </a>
                 </div><!-- /.box-header -->

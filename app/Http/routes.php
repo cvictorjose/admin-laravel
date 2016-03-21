@@ -61,6 +61,9 @@ Route::group(['prefix' => 'admin'], function() {
     /* SAfe bag Airports Functionalities */
     Route::get('sbairportslist',                  'AdminSBAirportController@airportslist2');
     Route::post('sbairportstatuschange',          'AdminSBAirportController@airportstatuschange');
+    Route::get('sbairportadd',                    'AdminSBAirportController@airportadd');
+    Route::post('sbairportadd',                   'AdminSBAirportController@airportadd');
+    Route::post('sbairportiatacheck',             'AdminSBAirportController@airportiatacheck');
 
 });
 

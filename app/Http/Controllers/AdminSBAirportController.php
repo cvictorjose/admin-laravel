@@ -70,8 +70,7 @@ class AdminSBAirportController extends Controller {
             // Applying validation rules.
             $rules = array(
                 'ap_iata' => 'required',
-                'ap_city' => 'required',
-                'ap_rank' => 'required'
+                'ap_city' => 'required'
             );
             $validator = Validator::make($inputData, $rules);
             if ($validator->fails()) {
@@ -80,16 +79,15 @@ class AdminSBAirportController extends Controller {
                 return json_encode($status);
             } else {
                 $portdata = array(
-                    'iata'          => strtoupper(Input::get('ap_iata')),
+                    'depport'          => strtoupper(Input::get('ap_iata')),
                     'city'          => strtoupper(Input::get('ap_city')).'-'.strtoupper(Input::get('ap_iata')),
-                    'smart_rank'    => Input::get('ap_rank'),
                     'stato'                 => (Input::get('ap_status'))? Input::get('ap_status') : '0',
                 );
-                $status  = AdminAirports::insertAirport($portdata);
+                $status  = AdminSBAirports::insertAirport($portdata);
                 return json_encode($status);
             }
         }
-        return \View::make('admin.airportadd')->with('data', $data);
+        return \View::make('admin.sbairportadd')->with('data', $data);
     }
 
 
@@ -111,7 +109,7 @@ class AdminSBAirportController extends Controller {
                 $status   =  array('stat'=>'error', 'msg'=>$validator);
                 return json_encode($status);
             } else {
-                $status  = AdminAirports::checkAirportIata($inputData['iata']);
+                $status  = AdminSBAirports::checkAirportIata($inputData['iata']);
             }
         }   else {
             $status   =  array('stat'=>'error', 'msg'=>'Please enter the valid Iata');
