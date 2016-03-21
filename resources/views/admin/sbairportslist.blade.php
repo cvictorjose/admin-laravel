@@ -42,7 +42,7 @@
                             <td>{{ $ports->depport }}</td>
                             <td>{{ $ports->city }}</td>
                             <td>@if ($ports->stato == 1)  <i class="fa fa-check-circle" onclick="changeairportstatus({{ $ports->iddepport }}, this);" style="cursor:pointer;"></i>  @else  <i class="fa fa-circle-o" onclick="changeairportstatus({{ $ports->iddepport }}, this);" style="cursor:pointer;"></i>  @endif </td>
-                            <td><a href="{{ URL::to('admin/editairport') }}/{{ $ports->iddepport }}"><i class="fa fa-edit"></i></a> &nbsp; <!--a href=""><i class="fa fa-trash-o"></i></a--></td>
+                            <td><a href="{{ URL::to('admin/sbeditairport') }}/{{ $ports->iddepport }}"><i class="fa fa-edit"></i></a> &nbsp; <!--a href=""><i class="fa fa-trash-o"></i></a--></td>
                         </tr>
                     @endforeach
                     </tbody>

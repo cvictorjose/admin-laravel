@@ -12,7 +12,7 @@
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Home</a></li>
         <li>Airports </li>
-        <li><a href="{{ URL::to('admin/airportslist') }}">Safe Bag Airports List</a></li>
+        <li><a href="{{ URL::to('admin/sbairportslist') }}">Safe Bag Airports List</a></li>
         @if($mode == 'edit')
             <li class="active">Safe Bag Airport Edit</li>
         @else
@@ -20,7 +20,9 @@
         @endif
     </ol>
 @endsection
-<?php if((isset($portDetails) && count($portDetails)>0 && isset($portDetails->id) && $portDetails->id>0) || $mode == 'add')  {   ?>
+<?php if((isset($portDetails) && count($portDetails)>0 && isset($portDetails->iddepport) && $portDetails->iddepport>0) ||
+$mode ==
+'add')  {   ?>
 @section('content')
     <script type="text/javascript" src="{{ asset('/js/sbairports.js') }}" ></script>
     <div class="row">
@@ -29,7 +31,7 @@
             <div class="box box-primary">
                 <div class="box-header">
                     @if($mode == 'edit')
-                        <h3 class="box-title">Edit Airport</h3>
+                        <h3 class="box-title">Edit Safe Bag Airport</h3>
                     @else
                         <h3 class="box-title">Add New Safe Bag Airport</h3>
                     @endif

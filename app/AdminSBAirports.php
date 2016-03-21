@@ -114,9 +114,18 @@ class AdminSBAirports extends Model {
         return $status;
     }
 
-
-
-
+    /*
+     * name:    updateAdminAirport
+     * params:  $portdata, $airportid
+     * return:
+     * desc:    change the details of the Airport Admin
+     */
+    public static function updateAdminAirport($portdata, $airportid)    {
+        $status     = array('stat'=>'error', 'msg'=>'Something went wrong');
+        DB::table('airports')->where('iddepport', $airportid)->update( $portdata );
+        $status     = array('stat'=>'ok', 'msg'=>'Airport Edited Successfully');
+        return $status;
+    }
 
 
 

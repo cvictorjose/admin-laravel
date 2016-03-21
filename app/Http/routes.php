@@ -64,6 +64,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('sbairportadd',                    'AdminSBAirportController@airportadd');
     Route::post('sbairportadd',                   'AdminSBAirportController@airportadd');
     Route::post('sbairportiatacheck',             'AdminSBAirportController@airportiatacheck');
+    Route::get('sbeditairport/{id}',              'AdminSBAirportController@editairport');
+    Route::post('sbeditairport/{id}',             'AdminSBAirportController@editairport');
 
 });
 
