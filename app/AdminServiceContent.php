@@ -51,5 +51,28 @@ class AdminServiceContent extends Model {
     }
 
 
+    /*
+     * name:    checkServiceContentTitle
+     * params:  $titleen, $scid
+     * return:
+     * desc:    check if Service Content Title already exists
+     */
+    public static function checkServiceContentTitle($titleen, $scid=''){
+        $status         = array('stat'=>'error', 'msg'=>'Something went wrong');
+        $contents       = array();
+
+        $contents = DB::table('sfb_site_contents')->where('cont_title_en', $titleen)->select('id');
+        if(!empty($scid) && $scid>0)
+            $contents = $contents->whereNotIn('id',array($scid));
+        $contents = $contents->orderBy('id', 'desc')->take(1)->get();
+        if(count($contents)>0){
+            $status     = array('stat'=>'error', 'msg'=>'Title in English already exists');
+        } else {
+            $status     = array('stat'=>'ok', 'msg'=>'');
+        }
+        return $status;
+    }
+
+
 
 }

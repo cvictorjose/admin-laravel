@@ -53,8 +53,7 @@
                 @endif
                     <input type="hidden" name="chkurl" id="chkurl" value="{{ URL::to('admin/servicecontenttitlecheck') }}" />
                     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                    <input type="hidden" name="chktitle" id="chktitle" @if($mode == 'edit') value="1" @else value="1"
-                        @endif">
+                    <input type="hidden" name="chktitle" id="chktitle" @if($mode == 'edit') value="1" @else value="0" @endif">
                     <div class="box-body">
 
                         <div class="div-group">
@@ -71,7 +70,7 @@
                                         <input type="text" class="form-control" id="sc_title_{{ $k }}"
                                                name="sc_title[{{ $k }}]" @if($mode == 'edit') value="{{
                                                $scDetails->$varname }}" @endif   placeholder="Enter Title in {{
-                                               $sclang }}" @if($k=='en') required="required" @endif ">
+                                               $sclang }}" @if($k=='en') required="required" @endif onblur="checksctitleexists();">
                                         <span id="errortitle"></span>
                                     </div>
 

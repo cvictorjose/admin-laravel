@@ -99,6 +99,9 @@ class AdminServiceContentController  extends Controller {
                       move_uploaded_file($_FILES['sc_image']['tmp_name'], config('constants.adminSCImagePath') . $imagename);
                   }*/
 
+                if(empty($inputData['sc_title']['fr'])) {$inputData['sc_title']['fr']=$inputData['sc_title']['en'];}
+                if(empty($inputData['sc_title']['it'])) {$inputData['sc_title']['it']=$inputData['sc_title']['en'];}
+
                 $scdata = array(
                     'cont_title_en'         => $inputData['sc_title']['en'],
                     'cont_title_fr'         => $inputData['sc_title']['fr'],
@@ -116,6 +119,34 @@ class AdminServiceContentController  extends Controller {
             }
         }
         return \View::make('admin.servicecontentadd')->with('data', $data);
+    }
+
+
+
+    /*
+     * name:    servicecontenttitlecheck
+     * params:
+     * return:
+     * desc:    Check Duplication for Service Content Title admin
+     */
+    public function  servicecontenttitlecheck() {
+        $inputData  = Input::all();
+        $status     =  array('stat'=>'error', 'msg'=>'Something went wrong');
+        if(!empty($inputData) && count($inputData)> 0 && isset($inputData['titleen']) && !empty($inputData['titleen'])) {
+            // Applying validation rules.
+            $rules = array('titleen'          => 'required');
+            $validator = Validator::make($inputData, $rules);
+            if ($validator->fails()) {
+                // If validation falis
+                $status   =  array('stat'=>'error', 'msg'=>$validator);
+                return json_encode($status);
+            } else {
+                $status  = AdminServiceContent::checkServiceContentTitle($inputData['titleen'], $inputData['scid']);
+            }
+        }   else {
+            $status   =  array('stat'=>'error', 'msg'=>'Please enter the valid Title in English');
+        }
+        return json_encode($status);
     }
 
 

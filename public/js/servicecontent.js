@@ -46,6 +46,39 @@ function filtercontent(){
     });
 }
 
+function checksctitleexists() {
+    var titleen     = $('#sc_title_en').val();
+    var chkurl      = $('#chkurl').val();
+    var dataString  = "titleen="+titleen;
+    if($('#ad_scid'))
+        if($('#ad_scid').val() > 0) {
+            dataString  += "&scid="+$('#ad_scid').val();
+        }   else dataString  += "&scid=";
+
+    $.ajax({
+        url: chkurl,
+        dataType: 'json',
+        type: 'post',
+        data: dataString,
+        success: function (data, textStatus, jQxhr) {
+            if(data.stat == 'ok'){
+                if($('#title-error'))   {
+                    $('#title-error').remove();
+                    $('#chktitle').val('1');
+                }
+            } else {
+                $("#errortitle").html('<label class="control-label" for="inputError" id="title-error"><i class="fa fa-times-circle-o"></i> '+ data.msg + '</label>');
+                $('#chktitle').val('0');    return false;
+            }
+
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            $("#errortitle").html(errorThrown);  $('#chktitle').val('0');     return false;
+        }
+    });
+
+}
+
 
 
 
