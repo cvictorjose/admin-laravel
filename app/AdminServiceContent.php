@@ -24,9 +24,30 @@ class AdminServiceContent extends Model {
             }
         }   else
             $sclist->where('status', '1');
-            $sclist->orderBy('cont_title_it', 'asc');
+            $sclist->orderBy('id', 'desc');
         $sclist   = $sclist->get();
         return $sclist;
+    }
+
+    /*
+    *
+    * name:    insertServiceContent
+    * params:  $scdata
+    * return:
+    * desc:    insertServiceContent admin
+    */
+    public static function insertServiceContent($scdata){
+
+        $status     = array('stat'=>'error', 'msg'=>'Something went wrong');
+        $id = 0;
+
+        $id = DB::table('sfb_site_contents')->insertGetId( $scdata );
+        if($id>0){
+            $status     = array('stat'=>'ok', 'msg'=>'Service Content Added Successfully');
+        } else {
+            $status     = array('stat'=>'error', 'msg'=>'Service Content Addition Failed');
+        }
+        return $status;
     }
 
 

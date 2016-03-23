@@ -71,6 +71,8 @@
         $(function () {
             $("#example1").dataTable();
         });
+
+
         function openpopup(cid, lang){
             $('.contenttooltip'+cid+lang).css("width", "600px");
             $('.contenttooltip'+cid+lang).css("height", "500px");

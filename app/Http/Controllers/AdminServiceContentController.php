@@ -58,11 +58,64 @@ class AdminServiceContentController  extends Controller {
             return $sections['content']; // this will only return whats in the content section
 
         }
-
         // just a regular request so return the whole view
-
         return $view;
         exit;
+    }
+
+
+    /*
+     * name:    servicecontentadd
+     * params:
+     * return:
+     * desc:    servicecontentadd admin
+     */
+    public function servicecontentadd(){
+        $inputData  = Input::all();
+        $data       = array('mode'=>'add');
+        if(!empty($inputData) && count($inputData)> 0 && isset($inputData['addsc'])) {
+            // Applying validation rules.
+            $rules = array(
+                'sc_title.en'       => 'required',
+                'sc_content.en'     => 'required',
+            );
+            $validator = Validator::make($inputData, $rules);
+            if ($validator->fails()) {
+                // If validation falis
+                $status   =  array('stat'=>'error', 'msg'=>'Please Enter the Valid Details');
+                //return json_encode($status);
+                Session::flash('statmsg', $status['msg']);
+                Session::flash('status', $status['stat']);
+            } else {
+                /*$imagename   = '';
+                if(isset($_FILES['sc_image']['name']))
+                if ( 0 < $_FILES['sc_image']['error'] ) {
+                      $status   =  array('stat'=>'error', 'msg'=>$_FILES['sc_image']['error']);
+                      Session::flash('statmsg', $status['msg']);
+                      Session::flash('status', $status['stat']);
+                  }
+                  else {
+                      $imagename   = time().$_FILES['sc_image']['name'];
+                      move_uploaded_file($_FILES['sc_image']['tmp_name'], config('constants.adminSCImagePath') . $imagename);
+                  }*/
+
+                $scdata = array(
+                    'cont_title_en'         => $inputData['sc_title']['en'],
+                    'cont_title_fr'         => $inputData['sc_title']['fr'],
+                    'cont_title_it'         => $inputData['sc_title']['it'],
+                    'contents_en'           => $inputData['sc_content']['en'],
+                    'contents_fr'           => $inputData['sc_content']['fr'],
+                    'contents_it'           => $inputData['sc_content']['it'],
+                    'status'                   => '1',
+
+                );
+                $status  = AdminServiceContent::insertServiceContent($scdata);
+                Session::flash('statmsg', $status['msg']);
+                Session::flash('status', $status['stat']);
+
+            }
+        }
+        return \View::make('admin.servicecontentadd')->with('data', $data);
     }
 
 
