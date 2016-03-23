@@ -36,11 +36,9 @@
                     <thead>
                     <tr>
                         <th>S.No</th>
-                        <th>Image</th>
                         <th>Title</th>
                         <th>Content</th>
                         <th>Action</th>
-
                     </tr>
                     </thead>
                     <tbody>
@@ -50,9 +48,6 @@
                         <?php $i++; ?>
                         <tr>
                             <td>{{ $i }}</td>
-                            <td align="center">
-                                @if($content->image != '') <img src="{{ asset('/public/scontentpictures') }}/{{ $content->image }}" height="100" width="100" class="img-circle"></td>
-                            @else   <img src="{{ asset('/images/content.gif') }}" height="30" width="30" class="img-circle">         @endif
                             <td><?php $varname   = "cont_title_".$filter_lang;  ?> {{ $content->$varname }}</td>
                             <td><a class="morecontent" onclick="openpopup({{ $content->id }}, '{{ $filter_lang }}');"
                                    style="cursor: pointer;">...read...</a>
