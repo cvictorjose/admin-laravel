@@ -71,7 +71,16 @@
 
                                     <div class="form-group col-md-6">
                                         <label for="ap_priority">Priority</label>
-                                        <input type="text" class="form-control" id="ap_priority" name="ap_priority"  placeholder="Enter Priority" @if($mode == 'edit') value="{{ $apDetails->priority }}" @endif required="required">
+                                        {{--<input type="text" class="form-control" id="ap_priority" name="ap_priority"  placeholder="Enter Priority" @if($mode == 'edit') value="{{ $apDetails->priority }}" @endif required="required">--}}
+
+                                        <select class="form-control"  id="ap_priority" name="ap_priority">
+                                            <option value="">Select Priority</option>
+                                            @for($i = 1; $i <= 10; $i++)
+                                                <option value="{{ $i }}" @if($mode == 'edit') @if($i ==  $apDetails->priority ) selected="selected" @endif @endif  >{{ $i }}</option>
+                                            @endfor
+                                        </select>
+
+
                                     </div>
 
 
