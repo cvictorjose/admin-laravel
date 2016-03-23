@@ -19,7 +19,7 @@ class AdminServiceContent extends Model {
         if(count($qryArray)>0)  {
             if(isset($qryArray['scId']) && $qryArray['scId']>'0'){
 
-                /*$sclist->where('id', $qryArray['scId']);*/
+                $sclist->where('id', $qryArray['scId']);
                 $sclist->take(1);
             }
         }   else
@@ -70,6 +70,19 @@ class AdminServiceContent extends Model {
         } else {
             $status     = array('stat'=>'ok', 'msg'=>'');
         }
+        return $status;
+    }
+
+    /*
+     * name:    updateServiceContent
+     * params:  $scdata, $scid
+     * return:
+     * desc:    change the details of the Service Content Admin
+     */
+    public static function updateServiceContent($scdata, $scid)    {
+        $status     = array('stat'=>'error', 'msg'=>'Something went wrong');
+        DB::table('sfb_site_contents')->where('id', $scid)->update( $scdata );
+        $status     = array('stat'=>'ok', 'msg'=>'Service Content Edited Successfully');
         return $status;
     }
 

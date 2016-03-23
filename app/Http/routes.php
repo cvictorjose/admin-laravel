@@ -73,6 +73,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('servicecontentadd',             'AdminServiceContentController@servicecontentadd');
     Route::post('servicecontentadd',            'AdminServiceContentController@servicecontentadd');
     Route::post('servicecontenttitlecheck',     'AdminServiceContentController@servicecontenttitlecheck');
+    Route::get('editservicecontent/{id}',       'AdminServiceContentController@editservicecontent');
+    Route::post('editservicecontent/{id}',      'AdminServiceContentController@editservicecontent');
 
 });
 
