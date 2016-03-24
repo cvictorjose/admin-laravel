@@ -38,7 +38,7 @@ if(empty($filter_lang))
                             <?php $i++; ?>
                             <tr>
                                 <td>{{ $i }}</td>
-                               <td><?php $varname   = "cont_title_".$filter_lang;  ?> {{ $content->$varname }}</td>
+                                <td><?php $varname   = "cont_title_".$filter_lang;  ?> {{ $content->$varname }}</td>
                                 <td><a class="morecontent" onclick="openpopup({{ $content->id }}, '{{ $filter_lang
                                 }}');">...Read...</a>
                                     <!-- tooltip element -->
@@ -46,7 +46,7 @@ if(empty($filter_lang))
                                         <?php $varname   = "contents_".$filter_lang; echo html_entity_decode(mb_convert_encoding($content->$varname, 'HTML-ENTITIES', 'UTF-8'));  ?>
                                     </div>
                                 </td>
-                               <td><a href="{{ URL::to('admin/editservicecontent') }}/{{ $content->id }}"><i class="fa fa-edit"></i></a> &nbsp; <!--a href=""><i class="fa fa-trash-o"></i></a--></td>
+                                <td><a href="{{ URL::to('admin/editservicecontent') }}/{{ $content->id }}"><i class="fa fa-edit"></i></a> &nbsp; <!--a href=""><i class="fa fa-trash-o"></i></a--></td>
 
                             </tr>
                         @endforeach
@@ -93,7 +93,6 @@ if(empty($filter_lang))
                 amsl:0,
             });
         }
-
     </script>
 
 @endsection

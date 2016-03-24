@@ -79,7 +79,7 @@ Route::group(['prefix' => 'admin'], function() {
 
     /* Content Airports Functionalities */
     Route::get('airportcontentlist',            'AdminAirportContentController@airportcontentlist');
-
+    Route::post('filterairportcontentlist',     'AdminAirportContentController@filterairportcontentlist');
 });
 
 

@@ -11,10 +11,13 @@ class AdminAirportContent extends Model {
      * return:
      * desc:    getAirportContentList admin
      */
+
     public static function getAirportContentList($qryArray=array()){
         $aclist         = array();
         $wheredata      = array();
-        $aclist         = DB::table('airports_postazione');
+        $aclist         = DB::table('airports_postazione')
+            ->join('airports', 'airports_postazione.id_airport', '=', 'airports.iddepport')
+            ->select('airports_postazione.*', 'airports.city') ;
         if(count($qryArray)>0)  {
             if(isset($qryArray['acId']) && $qryArray['acId']>'0'){
                 $aclist->where('id_postazione', $qryArray['acId']);
@@ -24,6 +27,25 @@ class AdminAirportContent extends Model {
         $aclist         = $aclist->get();
         return $aclist;
     }
+
+    public static function getAirportContentList2($qryArray=array()){
+        $aclist         = array();
+        $wheredata      = array();
+        $aclist         = DB::table('airports_postazione')
+            ->join('airports', 'airports_postazione.id_airport', '=', 'airports.iddepport')
+            ->select('airports_postazione.*', 'airports.city') ;
+
+        if(count($qryArray)>0)  {
+            if(isset($qryArray['acId']) && $qryArray['acId']>'0'){
+                $aclist->where('id_postazione', $qryArray['acId']);
+                $aclist->take(1);
+            }
+        }   else $aclist->orderBy('name_airport', 'asc');
+        $aclist         = $aclist->get();
+        return $aclist;
+    }
+
+
 
 
 
