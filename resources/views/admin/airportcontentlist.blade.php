@@ -27,7 +27,17 @@
                             @foreach($acLanguages as $k=>$aclang)
                                 <option value="{{ $k }}" >{{ $aclang }}</option>
                             @endforeach
-                        </select><span class="input-group-btn">
+                        </select>
+
+                        <select name="ap_airport_sales" id="ap_airport_sales" style="float: right;width: 250px;
+                        "class="form-control">
+                            <option value="0"> Select the Airport Sales </option>
+                            @foreach($airportsList as $ports)
+                                <option value="{{ $ports->iddepport }}">{{ $ports->city }}</option>
+                            @endforeach
+                        </select>
+
+                        <span class="input-group-btn">
                       <button class="btn btn-info btn-flat" name="filter_btn" id="filter_btn" type="button" onclick="filteracontent();">Go!</button>
                     </span>
                     </div>

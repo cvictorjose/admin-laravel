@@ -28,6 +28,7 @@ class AdminAirportContent extends Model {
         return $aclist;
     }
 
+
     public static function getAirportContentList2($qryArray=array()){
         $aclist         = array();
         $wheredata      = array();
@@ -35,13 +36,11 @@ class AdminAirportContent extends Model {
             ->join('airports', 'airports_postazione.id_airport', '=', 'airports.iddepport')
             ->select('airports_postazione.*', 'airports.city') ;
 
-        if(count($qryArray)>0)  {
-            if(isset($qryArray['acId']) && $qryArray['acId']>'0'){
-                $aclist->where('id_postazione', $qryArray['acId']);
-                $aclist->take(1);
-            }
-        }   else $aclist->orderBy('name_airport', 'asc');
-        $aclist         = $aclist->get();
+        if(isset($qryArray['Id']) && $qryArray['Id']>'0'){
+            $aclist->where('id_airport',$qryArray['Id']);
+        }   else
+            $aclist->orderBy('name_airport', 'asc');
+        $aclist = $aclist->get();
         return $aclist;
     }
 
