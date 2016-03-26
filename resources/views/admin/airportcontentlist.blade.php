@@ -72,7 +72,7 @@
                             <td><?php $varname   = "descrizione_".$filter_lang; echo html_entity_decode(mb_convert_encoding($content->$varname, 'HTML-ENTITIES', 'UTF-8')); ?></td>
 
 
-                            <td>@if ($content->status == '1')  <i class="fa fa-check-circle" onclick="changeacontentstatus({{ $content->id_postazione }}, this);" style="cursor:pointer;"></i>  @else  <i class="fa fa-circle-o" onclick="changescontentstatus({{ $content->id_postazione }}, this);" style="cursor:pointer;"></i>  @endif </td>
+                            <td>@if ($content->status == '1')  <i class="fa fa-check-circle" onclick="changeacontentstatus({{ $content->id_postazione }}, this);" style="cursor:pointer;"></i>  @else  <i class="fa fa-circle-o" onclick="changeacontentstatus({{ $content->id_postazione }}, this);" style="cursor:pointer;"></i>  @endif </td>
                             <td><a href="{{ URL::to('admin/editairportcontent') }}/{{ $content->id_postazione }}"><i class="fa fa-edit"></i></a> &nbsp; <!--a href=""><i class="fa fa-trash-o"></i></a--></td>
                             <td>Mon: {{ $content->lun }} <br />Tue: {{ $content->mar }} <br />Wed: {{ $content->mer }} <br />Thu: {{ $content->gio }} <br />Fri: {{ $content->ven }} <br />Sat: {{ $content->sab }} <br />Sun: {{ $content->dom }}<br /></td>
                         </tr>

@@ -80,5 +80,18 @@ class AdminAirportContent extends Model {
 
     }
 
+    /*
+     * name:    updateAirportContent
+     * params:  $acdata, $acid
+     * return:
+     * desc:    change the details of the Airport Content Admin
+     */
+    public static function updateAirportContent($acdata, $acid)    {
+        $status     = array('stat'=>'error', 'msg'=>'Something went wrong');
+        DB::table('airports_postazione')->where('id_postazione', $acid)->update( $acdata );
+        $status     = array('stat'=>'ok', 'msg'=>'Airport Content Edited Successfully');
+        return $status;
+    }
+
 
 }
