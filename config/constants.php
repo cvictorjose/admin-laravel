@@ -26,6 +26,14 @@ return [
         'fr' => 'French',
         'it' => 'Italy'),
 
+    'acDays'                =>  array(  'lun'=> 'Monday',
+        'mar'=> 'Tuesday',
+        'mer'=> 'Wednesday',
+        'gio'=> 'Thursday',
+        'ven'=> 'Friday',
+        'sab'=> 'Saturday',
+        'dom'=> 'Sunday'),
+
 ];
 
 

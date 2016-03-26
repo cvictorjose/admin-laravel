@@ -44,6 +44,26 @@ class AdminAirportContent extends Model {
         return $aclist;
     }
 
+    /*
+     * name:    insertAirportContent
+     * params:  $acdata
+     * return:
+     * desc:    insertAirportContent admin
+     */
+    public static function insertAirportContent($acdata){
+
+        $status     = array('stat'=>'error', 'msg'=>'Something went wrong');
+        $id = 0;
+
+        $id = DB::table('airports_postazione')->insertGetId( $acdata );
+        if($id>0){
+            $status     = array('stat'=>'ok', 'msg'=>'Airport Content Added Successfully');
+        } else {
+            $status     = array('stat'=>'error', 'msg'=>'Airport Content Addition Failed');
+        }
+        return $status;
+    }
+
 
 
 

@@ -53,7 +53,7 @@
                         <th>Description</th>
                         <th>Status</th>
                         <th>Action</th>
-                        <th style="width: 100px;">Open Timings</th>
+                        <th style="width: 200px;">Open Timings</th>
                     </tr>
                     </thead>
                     <tbody>
