@@ -65,7 +65,7 @@
                             <td>{{ $i }}</td>
                             <td align="center">
                                 @if($content->image != '') <img src="http://www.safe-bag.com/safebag-airports/images/points/{{ $content->image }}" height="100" width="100" class="img-circle"></td>
-                            @else   <img src="{{ asset('/public/images/content.gif') }}" height="30" width="30" class="img-circle">         @endif
+                            @else   <img src="{{ asset('/images/content.gif') }}" height="30" width="30" class="img-circle">         @endif
                             <td>{{ $content->city  }}</td>
 
                             <td><?php $varname   = "testo_intro_".$filter_lang; echo $content->$varname; ?></td>

@@ -65,7 +65,20 @@ class AdminAirportContent extends Model {
     }
 
 
+    /*
+         * name:    changeAirportContentStatus
+         * params:  $stat, $acid
+         * return:
+         * desc:    change the status of the Airport Content
+         */
+    public static function changeAirportContentStatus($stat, $acid)   {
+        $acstatus     = ($stat == '1')?'1':'0';
+        $status     = array('stat'=>'error', 'msg'=>'Something went wrong');
+        DB::table('airports_postazione')->where('id_postazione', $acid)->update(array('status' => $acstatus));
+        $status     = array('stat'=>'ok', 'msg'=>'');
+        return $status;
 
+    }
 
 
 }

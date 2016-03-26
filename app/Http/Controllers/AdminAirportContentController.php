@@ -160,4 +160,35 @@ class AdminAirportContentController  extends Controller {
         $data['airportsList']  = AdminSBAirports::getAirportsList();
         return \View::make('admin.airportcontentadd')->with('data', $data);
     }
+
+
+
+/*
+     * name:    airportcontentstatuschange
+     * params:
+     * return:
+     * desc:    Change the status of the Airport Content admin
+     */
+    public function  airportcontentstatuschange() {
+        $inputData  = Input::all();
+        $status     =  array('stat'=>'error', 'msg'=>'Something went wrong');
+        if(!empty($inputData) && count($inputData)> 0 && isset($inputData['acstat']) && $inputData['acstat']>= 0) {
+            // Applying validation rules.
+            $rules = array('acstat'          => 'required', 'acid'  => 'required');
+            $validator = Validator::make($inputData, $rules);
+            if ($validator->fails()) {
+                // If validation falis
+                $status   =  array('stat'=>'error', 'msg'=>$validator);
+                return json_encode($status);
+            } else {
+                $status  = AdminAirportContent::changeAirportContentStatus($inputData['acstat'], $inputData['acid']);
+            }
+        }   else {
+            $status   =  array('stat'=>'error', 'msg'=>'Details missing to change the status.');
+        }
+    return json_encode($status);
+    }
+
+
+
 }
