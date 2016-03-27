@@ -101,6 +101,18 @@
                 </ul>
             </li>
 
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-fighter-jet"></i>
+                    <span>Price x Product by Airport</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ URL::to('admin/pricexairportlist') }}"><i class="fa fa-list"></i> List Airport Products </a></li>
+                    <li><a href="{{ URL::to('admin/airportproductadd') }}"><i class="fa fa-fighter-jet"></i> Add Airport Product </a></li>
+                </ul>
+            </li>
+
 
 
             <li class="treeview">

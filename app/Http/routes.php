@@ -86,6 +86,14 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('editairportcontent/{id}',       'AdminAirportContentController@editairportcontent');
     Route::post('editairportcontent/{id}',      'AdminAirportContentController@editairportcontent');
 
+
+    /* Price x Airports */
+    Route::get('pricexairportlist',            'AdminPriceAirportController@pricexairportlist');
+    Route::post('pricexairportstatuschange',   'AdminPriceAirportController@pricexairportstatuschange');
+
+
+
+
 });
 
 

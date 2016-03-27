@@ -12,7 +12,7 @@
 @endsection
 <?php foreach($data as $k=>$v) $$k=$v; $filter_lang="en";?>
 @section('content')
-    <script type="text/javascript" src="{{ asset('/js/airportproduct.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('/js/priceairport.js') }}" ></script>
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
@@ -23,15 +23,20 @@
                     </a>
                 </div><!-- /.box-header -->
                 <div class="box-body" >
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table id="example1" class="table table-bordered table-striped" style="font-size:xx-small ">
                     <thead>
                     <tr>
-                        <th>S.No</th>
+                        <th>Id</th>
                         <th>Image</th>
                         <th>Title</th>
-                        <th>Language</th>
-                        <th>Priority</th>
-                        <th>Web Description</th>
+                        <th>Lang</th>
+                        <th>Currency</th>
+                        <th>Price Web</th>
+                        <th>Price Airport</th>
+                        <th>Airports - Booking</th>
+                        <th>Data di scandenza</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -40,19 +45,33 @@
                     <?php $i = 0; ?>
                     @foreach ($apList as $products)
                         <?php $i++; ?>
-                        <tr>
+                        <tr  >
                             <td>{{ $i }}</td>
                             <td><img src="http://www.safe-bag.com/cmproducts/images/{{$products->image }}" width="25%"></td>
-                            <td>{{ $products->titolo }}</td>
-                            <td>{{ $products->lingua }}</td>
-                            <td>{{ $products->priority }}</td>
-
-                            <td>  <a class="moredesc" onclick="opendesc({{ $products->id_prodotto }}, '{{ $filter_lang }}');" style="cursor: pointer;">...More...</a>
+                            <td><a class="moredesc" onclick="opendesc({{ $products->id_prodotto }}, '{{ $filter_lang }}');" style="cursor: pointer;">{{ $products->titolo }}</a>
                                 <!-- tooltip element -->
                                 <div class="desctooltip{{ $products->id_prodotto }}{{ $filter_lang }}"  style="display: none;">
                                     <?php echo html_entity_decode(mb_convert_encoding($products->descrizione_web, 'HTML-ENTITIES', 'UTF-8'));  ?>
-                                </div>
+                                </div></td>
+                            <td>{{ $products->lingua }}</td>
+                            <td>{{ $products->currency }}</td>
+                            <td>{{ $products->prezzo_web_app }}</td>
+                            <td>{{ $products->prezzo_aeroporto }}</td>
+
+
+                            <td><?php
+
+                                $exArr = @explode(',', $products->aeroporto_di_vendita);
+
+                                foreach($exArr as $key=>$value){
+                                    echo $exArr[$key].', ';
+                                }
+
+                               ?>
                             </td>
+                            <td>{{ date('d-m-Y', strtotime($products->data_di_scandenza)) }}</td>
+                            <td>{{ date('d-m-Y', $products->start_date) }}</td>
+                            <td>{{ date('d-m-Y', $products->end_date) }}</td>
                             <td>@if ($products->stato == 1)  <i class="fa fa-check-circle" onclick="changeairproductstatus({{ $products->id_prodotto }}, this);" style="cursor:pointer;"></i>  @else  <i class="fa fa-circle-o" onclick="changeairproductstatus({{ $products->id_prodotto }}, this);" style="cursor:pointer;"></i>  @endif </td>
                             <td><a href="{{ URL::to('admin/editairportproduct') }}/{{ $products->id_prodotto }}"><i class="fa fa-edit"></i></a> &nbsp; <!--a href=""><i class="fa fa-trash-o"></i></a--></td>
                         </tr>
