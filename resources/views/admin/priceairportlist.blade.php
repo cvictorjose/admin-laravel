@@ -18,7 +18,7 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Airport Products</h3>
-                    <a href="{{ URL::to('admin/airportproductadd') }}" class="btn btn-app" style="float: right;">
+                    <a href="{{ URL::to('admin/pricexairportadd') }}" class="btn btn-app" style="float: right;">
                         <i class="fa fa-rocket"></i> Add new Airport Product
                     </a>
                 </div><!-- /.box-header -->
@@ -58,15 +58,11 @@
                             <td>{{ $products->prezzo_web_app }}</td>
                             <td>{{ $products->prezzo_aeroporto }}</td>
 
-
                             <td><?php
-
                                 $exArr = @explode(',', $products->aeroporto_di_vendita);
-
                                 foreach($exArr as $key=>$value){
                                     echo $exArr[$key].', ';
                                 }
-
                                ?>
                             </td>
                             <td>{{ date('d-m-Y', strtotime($products->data_di_scandenza)) }}</td>

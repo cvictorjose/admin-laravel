@@ -38,7 +38,26 @@ class AdminPriceAirport extends Model {
         DB::table('sfb_products')->where('id_prodotto', $apid)->update(array('stato' => $apstatus));
         $status     = array('stat'=>'ok', 'msg'=>'');
         return $status;
+    }
 
+    /*
+    * name:    insertAirportProduct
+    * params:  $apdata
+    * return:
+    * desc:    insertAirportProduct admin
+    */
+    public static function insertAirportProduct($apdata){
+
+        $status     = array('stat'=>'error', 'msg'=>'Something went wrong');
+        $id = 0;
+
+        $id = DB::table('sfb_products')->insertGetId( $apdata );
+        if($id>0){
+            $status     = array('stat'=>'ok', 'msg'=>'Airport Product Added Successfully');
+        } else {
+            $status     = array('stat'=>'error', 'msg'=>'Airport Product Addition Failed');
+        }
+        return $status;
     }
 
 

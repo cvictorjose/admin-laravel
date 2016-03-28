@@ -90,7 +90,8 @@ Route::group(['prefix' => 'admin'], function() {
     /* Price x Airports */
     Route::get('pricexairportlist',            'AdminPriceAirportController@pricexairportlist');
     Route::post('pricexairportstatuschange',   'AdminPriceAirportController@pricexairportstatuschange');
-
+    Route::get('pricexairportadd',             'AdminPriceAirportController@pricexairportadd');
+    Route::post('pricexairportadd',            'AdminPriceAirportController@pricexairportadd');
 
 
 
