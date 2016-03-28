@@ -95,12 +95,12 @@
 
                                         <div class="form-group col-md-2">
                                             <label for="ap_price_web_app">Scontrino Wrap</label>
-                                            <input type="text" class="form-control" id="ap_scontrino_wrap" name="ap_scontrino_wrap"  placeholder="Enter Scontrino Wrap Price" @if($mode == 'edit') value="{{ $apDetails->prezzo_web_app }}" @endif required="required">
+                                            <input type="text" class="form-control" id="ap_scontrino_wrap" name="ap_scontrino_wrap"  placeholder="Enter Scontrino Wrap Price" @if($mode == 'edit') value="{{ $apDetails->scontrino_wrap }}" @endif required="required">
                                         </div>
 
                                         <div class="form-group col-md-2">
                                             <label for="ap_price_airport">Scontrino Tracking</label>
-                                            <input type="text" class="form-control" id="ap_scontrino_smartracking" name="ap_scontrino_smartracking"  placeholder="Enter Scontrino Tracking Price" @if($mode == 'edit') value="{{ $apDetails->prezzo_aeroporto }}" @endif required="required">
+                                            <input type="text" class="form-control" id="ap_scontrino_smartracking" name="ap_scontrino_smartracking"  placeholder="Enter Scontrino Tracking Price" @if($mode == 'edit') value="{{ $apDetails->scontrino_smartracking }}" @endif required="required">
                                         </div>
 
 
@@ -131,13 +131,13 @@
                                         <div class="form-group col-md-2">
                                             <label for="ap_currency">Currency</label>
                                             <select class="form-control" id="ap_currency" name="ap_currency">
-                                                <option value="EUR" >EUR</option>
-                                                <option value="CHF" >CHF</option>
-                                                <option value="USD" >USD</option>
-                                                <option value="BRL" >BRL</option>
-                                                <option value="RUB" >RUB</option>
-                                                <option value="MXN" >MXN</option>
-                                                <option value="GBP" >GBP</option>
+                                                <option value="EUR" @if($apDetails->currency == 'EUR') selected="selected"  @endif>EUR</option>
+                                                <option value="CHF" @if($apDetails->currency == 'CHF') selected="selected"  @endif>CHF</option>
+                                                <option value="USD" @if($apDetails->currency == 'USD') selected="selected"  @endif>USD</option>
+                                                <option value="BRL" @if($apDetails->currency == 'BRL') selected="selected"  @endif>BRL</option>
+                                                <option value="RUB" @if($apDetails->currency == 'RUB') selected="selected"  @endif>RUB</option>
+                                                <option value="MXN" @if($apDetails->currency == 'MXN') selected="selected"  @endif>MXN</option>
+                                                <option value="GBP" @if($apDetails->currency == 'GBP') selected="selected"  @endif>GBP</option>
                                             </select>
                                         </div>
 

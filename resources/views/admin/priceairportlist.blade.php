@@ -69,7 +69,7 @@
                             <td>{{ date('d-m-Y', $products->start_date) }}</td>
                             <td>{{ date('d-m-Y', $products->end_date) }}</td>
                             <td>@if ($products->stato == 1)  <i class="fa fa-check-circle" onclick="changeairproductstatus({{ $products->id_prodotto }}, this);" style="cursor:pointer;"></i>  @else  <i class="fa fa-circle-o" onclick="changeairproductstatus({{ $products->id_prodotto }}, this);" style="cursor:pointer;"></i>  @endif </td>
-                            <td><a href="{{ URL::to('admin/editairportproduct') }}/{{ $products->id_prodotto }}"><i class="fa fa-edit"></i></a> &nbsp; <!--a href=""><i class="fa fa-trash-o"></i></a--></td>
+                            <td><a href="{{ URL::to('admin/editpricexairport') }}/{{ $products->id_prodotto }}"><i class="fa fa-edit"></i></a> &nbsp; <!--a href=""><i class="fa fa-trash-o"></i></a--></td>
                         </tr>
                     @endforeach
                     </tbody>

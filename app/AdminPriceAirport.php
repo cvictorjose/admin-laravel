@@ -60,7 +60,18 @@ class AdminPriceAirport extends Model {
         return $status;
     }
 
-
+    /*
+         * name:    updateAirportProduct
+         * params:  $apdata, $apid
+         * return:
+         * desc:    change the details of the Airport Product Admin
+         */
+    public static function updateAirportProduct($apdata, $apid)    {
+        $status     = array('stat'=>'error', 'msg'=>'Something went wrong');
+        DB::table('sfb_products')->where('id_prodotto', $apid)->update( $apdata );
+        $status     = array('stat'=>'ok', 'msg'=>'Airport Product Edited Successfully');
+        return $status;
+    }
 
 
 
