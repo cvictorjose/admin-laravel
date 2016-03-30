@@ -100,6 +100,15 @@ Route::group(['prefix' => 'admin'], function() {
 
 
 
+    /* Terms and Conditions */
+    Route::get('termslist',            'AdminTermsController@termslist');
+    Route::get('termsadd',             'AdminTermsController@termsadd');
+    Route::post('termsadd',            'AdminTermsController@termsadd');
+    Route::get('editterms/{id}',       'AdminTermsController@editterms');
+    Route::post('editterms/{id}',      'AdminTermsController@editterms');
+
+
+
 });
 
 

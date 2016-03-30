@@ -6,7 +6,7 @@
         <small>Safe-bag Admin</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-files-o"></i> Home</a></li>
+        <li><a href="/"><i class="fa fa-files-o"></i> Home</a></li>
         <li class="active">Service Contents </li>
         <li class="active">Service Contents List</li>
     </ol>

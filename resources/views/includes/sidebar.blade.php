@@ -50,27 +50,42 @@
                 </ul>
             </li>
 
+
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-plane"></i>
-                    <span>Airlines</span>
+                    <i class="fa fa-credit-card"></i>
+
+                    <span>Sales Products by Airport</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ URL::to('admin/airlineslist') }}"><i class="fa fa-list"></i> List Airlines </a></li>
-                    <li><a href="{{ URL::to('admin/airlineadd') }}"><i class="fa fa-plane"></i> Add Airline </a></li>
+                    <li><a href="{{ URL::to('admin/pricexairportlist') }}"><i class="fa fa-list"></i> List Airport Products </a></li>
+                    <li><a href="{{ URL::to('admin/airportproductadd') }}"><i class="fa fa-plus-circle"></i></i> Add Airport Product </a></li>
                 </ul>
             </li>
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-rocket"></i>
-                    <span>Airports</span>
+                    <i class="fa fa-file-text-o"></i>
+                    <span>Terms and Conditions</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ URL::to('admin/airportslist') }}"><i class="fa fa-list"></i> List Airports </a></li>
-                    <li><a href="{{ URL::to('admin/airportadd') }}"><i class="fa fa-rocket"></i> Add Airport </a></li>
+                    <li><a href="{{ URL::to('admin/termslist') }}"><i class="fa fa-list"></i> List Terms and Conditions</a></li>
+                    <li><a href="{{ URL::to('admin/termsadd') }}"><i class="fa fa-plus-circle"></i> Add Terms and Conditions</a></li>
+                </ul>
+            </li>
+
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-file-text-o"></i>
+                    <span>Content Services Safe Bag</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ URL::to('admin/servicecontentlist') }}"><i class="fa fa-list"></i> List Content Services </a></li>
+                    <li><a href="{{ URL::to('admin/servicecontentadd') }}"><i class="fa fa-plus-circle"></i> Add Content Service </a></li>
                 </ul>
             </li>
 
@@ -84,7 +99,7 @@
                 <ul class="treeview-menu">
                     <li><a href="{{ URL::to('admin/sbairportslist') }}"><i class="fa fa-list"></i> List SB Airports
                         </a></li>
-                    <li><a href="{{ URL::to('admin/sbairportadd') }}"><i class="fa fa-rocket"></i> Add SB Airport
+                    <li><a href="{{ URL::to('admin/sbairportadd') }}"><i class="fa fa-plus-circle"></i> Add SB Airport
                         </a></li>
                 </ul>
             </li>
@@ -97,47 +112,51 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ URL::to('admin/airportproductlist') }}"><i class="fa fa-list"></i> List Airport Products </a></li>
-                    <li><a href="{{ URL::to('admin/airportproductadd') }}"><i class="fa fa-fighter-jet"></i> Add Airport Product </a></li>
+                    <li><a href="{{ URL::to('admin/airportproductadd') }}"><i class="fa fa-plus-circle"></i> Add Airport Product </a></li>
                 </ul>
             </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-fighter-jet"></i>
-                    <span>Price x Product by Airport</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ URL::to('admin/pricexairportlist') }}"><i class="fa fa-list"></i> List Airport Products </a></li>
-                    <li><a href="{{ URL::to('admin/airportproductadd') }}"><i class="fa fa-fighter-jet"></i> Add Airport Product </a></li>
-                </ul>
-            </li>
-
 
 
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-fighter-jet"></i>
-                    <span>Point Sale by Airports</span>
+                    <span>Point Sales by Airports</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ URL::to('admin/airportcontentlist') }}"><i class="fa fa-list"></i> List Point Sale </a></li>
-                    <li><a href="{{ URL::to('admin/airportcontentadd') }}"><i class="fa fa-fighter-jet"></i> Add Point Sale</a></li>
+                    <li><a href="{{ URL::to('admin/airportcontentlist') }}"><i class="fa fa-list"></i> List Point
+                            Sales</a></li>
+                    <li><a href="{{ URL::to('admin/airportcontentadd') }}"><i class="fa fa-plus-circle"></i> Add
+                            Point Sales</a></li>
+                </ul>
+            </li>
+
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-plane"></i>
+                    <span>Airlines</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ URL::to('admin/airlineslist') }}"><i class="fa fa-list"></i> List Airlines </a></li>
+                    <li><a href="{{ URL::to('admin/airlineadd') }}"><i class="fa fa-plus-circle"></i> Add Airline </a></li>
                 </ul>
             </li>
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-file-text-o"></i>
-                    <span>Content Services Safe Bag</span>
+                    <i class="fa fa-rocket"></i>
+                    <span>Airports</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ URL::to('admin/servicecontentlist') }}"><i class="fa fa-list"></i> List Content Services </a></li>
-                    <li><a href="{{ URL::to('admin/servicecontentadd') }}"><i class="fa fa-file-text-o"></i> Add Content Service </a></li>
+                    <li><a href="{{ URL::to('admin/airportslist') }}"><i class="fa fa-list"></i> List Airports </a></li>
+                    <li><a href="{{ URL::to('admin/airportadd') }}"><i class="fa fa-plus-circle"></i> Add Airport </a></li>
                 </ul>
             </li>
+
+
 
         </ul>
     </section>

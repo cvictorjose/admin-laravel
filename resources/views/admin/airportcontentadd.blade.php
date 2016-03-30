@@ -10,7 +10,7 @@
         <small>Safe-bag Admin</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-files-o"></i> Home</a></li>
+        <li><a href="/"><i class="fa fa-files-o"></i> Home</a></li>
         <li>News </li>
         <li><a href="{{ URL::to('admin/airportcontentlist') }}">Airport Content List</a></li>
         @if($mode == 'edit')
