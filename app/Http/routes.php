@@ -14,6 +14,9 @@
 
 Route::get('/', 'AdminController@login');
 
+// Authentication routes...
+Route::get('auth/login', 'AdminController@login');
+
 Route::group(['prefix' => 'admin'], function() {
 	Route::get('/',                             'AdminController@login');
 	Route::post('/',                            'AdminController@login');
