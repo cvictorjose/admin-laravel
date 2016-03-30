@@ -4,6 +4,7 @@ use Validator;
 use Session;
 use \App\AdminSBAirports;
 use \App\AdminPriceAirport;
+use \App\AdminTerms;
 use \Illuminate\Support\Facades\Input;
 use \Illuminate\Support\Facades\Redirect;
 
@@ -78,7 +79,7 @@ class AdminPriceAirportController  extends Controller {
                 'ap_price_web_app'               => 'required',
                 'ap_price_airport'               => 'required',
                 'ap_lang'                        => 'required',
-                'ap_airport_sales'               => 'required',
+                'ap_airport_sales'               => 'required|array',
                 'ap_expiry_date'                 => 'required',
                 'ap_start_date'                  => 'required',
                 'ap_end_date'                    => 'required',
@@ -138,6 +139,7 @@ class AdminPriceAirportController  extends Controller {
             }
         }
         $data['airportsList']  = AdminSBAirports::getAirportsList();
+        $data['termsList']  = AdminTerms::getTermsList();
         return \View::make('admin.priceairportadd')->with('data', $data);
     }
 
@@ -228,6 +230,7 @@ class AdminPriceAirportController  extends Controller {
         $data['airproductsList']         = $airproductslist;
 
         $data['airportsList']  = AdminSBAirports::getAirportsList();
+        $data['termsList']  = AdminTerms::getTermsList();
         return \View::make('admin.priceairportadd')->with('data', $data);
     }
 

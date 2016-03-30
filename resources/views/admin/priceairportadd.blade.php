@@ -11,8 +11,7 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-files-o"></i> Home</a></li>
-        <li>News </li>
-        <li><a href="{{ URL::to('admin/priceairportlist') }}">Airport Product List</a></li>
+        <li><a href="{{ URL::to('admin/pricexairportlist') }}">Airport Product List</a></li>
         @if($mode == 'edit')
             <li class="active">Airport Product Edit</li>
         @else
@@ -70,18 +69,15 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group col-md-6">
-                                        <label for="ap_title">Title</label>
-                                        <input type="text" class="form-control" id="ap_title" name="ap_title"  placeholder="Enter Title" @if($mode == 'edit') value="{{ $apDetails->titolo }}" @endif required="required">
-                                    </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="ap_title">Title</label>
+                                            <input type="text" class="form-control" id="ap_title" name="ap_title"  placeholder="Enter Title" @if($mode == 'edit') value="{{ $apDetails->titolo }}" @endif required="required">
+                                        </div>
 
-                                    <div class="form-group col-md-3">
-                                        <label for="ap_product_code">Product Code</label>
-                                        <input type="text" class="form-control" id="ap_product_code" name="ap_product_code"  placeholder="Enter Product Code" @if($mode == 'edit') value="{{ $apDetails->codice_prodotto }}" @endif required="required">
-                                    </div>
-
-
-
+                                        <div class="form-group col-md-3">
+                                            <label for="ap_product_code">Product Code</label>
+                                            <input type="text" class="form-control" id="ap_product_code" name="ap_product_code"  placeholder="Enter Product Code" @if($mode == 'edit') value="{{ $apDetails->codice_prodotto }}" @endif required="required">
+                                        </div>
 
                                         <div class="form-group col-md-2">
                                             <label for="ap_price_web_app">Web Price</label>
@@ -119,6 +115,7 @@
                                             <input type="text" class="form-control" id="ap_end_date" name="ap_end_date"  placeholder="Enter End Date" @if($mode == 'edit') value="<?php echo date('m/d/Y', $apDetails->end_date ); ?>" @endif required="required">
                                         </div>
 
+
                                     <div class="form-group col-md-2">
                                         <label for="ap_lang">Language</label>
                                         <select name="ap_lang" id="ap_lang" class="form-control">
@@ -131,20 +128,38 @@
                                         <div class="form-group col-md-2">
                                             <label for="ap_currency">Currency</label>
                                             <select class="form-control" id="ap_currency" name="ap_currency">
-                                                <option value="EUR" @if($apDetails->currency == 'EUR') selected="selected"  @endif>EUR</option>
-                                                <option value="CHF" @if($apDetails->currency == 'CHF') selected="selected"  @endif>CHF</option>
-                                                <option value="USD" @if($apDetails->currency == 'USD') selected="selected"  @endif>USD</option>
-                                                <option value="BRL" @if($apDetails->currency == 'BRL') selected="selected"  @endif>BRL</option>
-                                                <option value="RUB" @if($apDetails->currency == 'RUB') selected="selected"  @endif>RUB</option>
-                                                <option value="MXN" @if($apDetails->currency == 'MXN') selected="selected"  @endif>MXN</option>
-                                                <option value="GBP" @if($apDetails->currency == 'GBP') selected="selected"  @endif>GBP</option>
+                                                <option value="EUR" @if($mode == 'edit') @if($apDetails->currency ==
+                                                'EUR') selected="selected"  @endif @endif>EUR</option>
+                                                <option value="CHF" @if($mode == 'edit') @if($apDetails->currency ==
+                                                'CHF') selected="selected"  @endif @endif>CHF</option>
+                                                <option value="USD" @if($mode == 'edit') @if($apDetails->currency ==
+                                                'USD') selected="selected"  @endif @endif>USD</option>
+                                                <option value="BRL" @if($mode == 'edit') @if($apDetails->currency ==
+                                                'BRL') selected="selected"  @endif @endif>BRL</option>
+                                                <option value="RUB" @if($mode == 'edit') @if($apDetails->currency ==
+                                                'RUB') selected="selected"  @endif @endif>RUB</option>
+                                                <option value="MXN" @if($mode == 'edit') @if($apDetails->currency ==
+                                                'MXN') selected="selected"  @endif @endif>MXN</option>
+                                                <option value="GBP" @if($mode == 'edit') @if($apDetails->currency ==
+                                                'GBP') selected="selected"  @endif @endif>GBP</option>
                                             </select>
                                         </div>
 
 
                                         <div class="form-group col-md-5">
                                             <label for="ap_terms">Terms</label>
-                                            <input type="text" class="form-control" id="ap_terms" name="ap_terms"  placeholder="Enter Terms" @if($mode == 'edit') value="{{ $apDetails->terms }}" @endif required="required">
+                                            {{--<input type="text" class="form-control" id="ap_terms" name="ap_terms"  placeholder="Enter Terms" @if($mode == 'edit') value="{{ $apDetails->terms }}" @endif required="required">--}}
+                                       {{----}}
+
+                                            <select name="ap_terms" id="ap_terms" class="form-control">
+                                                @foreach($termsList as $ports)
+                                                    <option value="{{ $ports->term_id }}" @if($mode == 'edit')  @if($apDetails->terms == $ports->term_id) selected="selected" @endif @endif>{{
+                                                    $ports->title
+                                                }}</option>
+                                                @endforeach
+
+                                            </select>
+
                                         </div>
 
 
@@ -153,7 +168,8 @@
                                         <input type="file" id="ap_image" name="ap_image"  accept="image/*" >
                                         @if($mode == 'edit')
                                             @if($apDetails->image != '')
-                                                <img src="{{ asset('/airproductpictures') }}/{{ $apDetails->image }}" height="30" width="30"></p>
+                                                <img src="http://www.safe-bag.com/cmproducts/images/{{
+                                                $apDetails->image }}" height="50" width="50"></p>
                                             @endif
                                         @endif
                                     </div>

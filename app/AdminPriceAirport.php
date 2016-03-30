@@ -20,7 +20,7 @@ class AdminPriceAirport extends Model {
                 $aplist->where('id_prodotto', $qryArray['apId']);
                 $aplist->take(1);
             }
-        }   else $aplist->orderBy('titolo', 'asc');
+        }   else $aplist->orderBy('id_prodotto', 'desc');
         $aplist         = $aplist->get();
         return $aplist;
     }
