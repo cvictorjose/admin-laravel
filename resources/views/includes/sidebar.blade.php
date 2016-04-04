@@ -38,23 +38,39 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
+
+            <li class="header">SAFEBAG 24</li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-users"></i>
-                    <span>Users</span>
+                    <i class="fa fa-gift"></i>
+                    <span>PromoCode SB24</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ URL::to('admin/userlist') }}"><i class="fa fa-list"></i> List Users</a></li>
-                    <li><a href="{{ URL::to('admin/useradd') }}"><i class="fa fa-user-plus"></i> Add Users</a></li>
+                    <li><a href="{{ URL::to('admin/promocodelist') }}"><i class="fa fa-list"></i> List All
+                            PromoCode</a></li>
+                    <li><a href="{{ URL::to('admin/promocoderegistrationlist') }}"><i class="fa fa-list"></i> Code -
+                            Registration</a></li>
+                    <li><a href="{{ URL::to('admin/promocodetrackinglist') }}"><i class="fa fa-list"></i> Code -
+                            Tracking</a></li>
+                 </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-bar-chart"></i>
+                    <span>Tracking SB24</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ URL::to('admin/trackinglist') }}"><i class="fa fa-list"></i> List All
+                            Tracking</a></li>
                 </ul>
             </li>
 
-
+            <li class="header">SAFE BAG</li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-credit-card"></i>
-
                     <span>Sales Products by Airport</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -131,7 +147,18 @@
                 </ul>
             </li>
 
-
+            <li class="header">OTHERS</li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i>
+                    <span>Users</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ URL::to('admin/userlist') }}"><i class="fa fa-list"></i> List Users</a></li>
+                    <li><a href="{{ URL::to('admin/useradd') }}"><i class="fa fa-user-plus"></i> Add Users</a></li>
+                </ul>
+            </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-plane"></i>
