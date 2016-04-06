@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\AdminPromocode;
+use App\AdminTracking;
 use Validator;
 use Auth;
 use Session;
@@ -10,6 +11,7 @@ use \App\AdminAirports;
 use \App\AdminAirlines;
 use \App\AdminClient;
 use \App\AdminTransaction;
+
 use \Illuminate\Support\Facades\Input;
 use \Illuminate\Support\Facades\Redirect;
 
@@ -138,7 +140,12 @@ class AdminController extends Controller {
 
         /* Total Transactions */
         $scid=1;
-        $data['total_transactions']         = AdminTransaction::getTransactionList(array('scId'=>$scid));
+        $data['total_transactions']= AdminTransaction::getTransactionList(array('scId'=>$scid));
+        /* End */
+
+        /* Total Tracking */
+        $scid=1;
+        $data['total_Track']= AdminTracking::gettrackingList(array('scId'=>$scid));
         /* End */
 
 

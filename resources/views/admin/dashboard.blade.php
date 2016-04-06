@@ -34,10 +34,16 @@
         </div><!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Likes</span>
-                    <span class="info-box-number">41,410</span>
+                <span class="info-box-icon bg-red"><i class="fa fa-bar-chart"></i></span>
+                <div class="info-box-content">Tracking</span>
+
+                    <span class="info-box-number">
+                        @if (count($total_Track)>0)
+                            @foreach ($total_Track as $clientsb4)
+                            {{$clientsb4->totaltracks}} Flights
+                            @endforeach
+                        @endif
+                      </span>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
         </div><!-- /.col -->

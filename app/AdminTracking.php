@@ -14,14 +14,18 @@ class AdminTracking extends Model {
         $aclist         = DB::table('codebagflights')
             ->join('sfb_smartcards', 'codebagflights.idCode', '=', 'sfb_smartcards.card_id')
             ->join('claims_client', 'sfb_smartcards.idclient', '=', 'claims_client.idclient')
-            ->join('flight', 'codebagflights.idFlights', '=', 'flight.idFlights')
-            ->select('codebagflights.*', 'sfb_smartcards.*', 'claims_client.*', 'flight.*') ;
+            ->join('flight', 'codebagflights.idFlights', '=', 'flight.idFlights');
+
         if(count($qryArray)>0)  {
-            if(isset($qryArray['acId']) && $qryArray['acId']>'0'){
-                $aclist->where('idCode', $qryArray['acId']);
-                $aclist->take(1);
+            if(isset($qryArray['scId']) && $qryArray['scId']>'0'){
+                $aclist->select(DB::raw('count(flight.idFlights) as totaltracks'));
             }
-        }   else $aclist->orderBy('date', 'desc');
+            $aclist= $aclist->get();
+            return $aclist;
+        }   else
+
+        $aclist->select('codebagflights.*', 'sfb_smartcards.*', 'claims_client.*', 'flight.*') ;
+        $aclist->orderBy('date', 'desc');
         $aclist         = $aclist->get();
         return $aclist;
     }
