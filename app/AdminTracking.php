@@ -1,17 +1,13 @@
 <?php namespace App;
-
 use DB;
 use Illuminate\Database\Eloquent\Model;
-
 class AdminTracking extends Model {
-
     /*
      * name:    getAirportContentList
      * params:  $qryArray
      * return:
      * desc:    getAirportContentList admin
      */
-
     public static function gettrackingList($qryArray=array()){
         $aclist         = array();
         $wheredata      = array();
@@ -29,9 +25,4 @@ class AdminTracking extends Model {
         $aclist         = $aclist->get();
         return $aclist;
     }
-
-
-
-
-
 }

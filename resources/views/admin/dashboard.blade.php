@@ -45,8 +45,12 @@
             <div class="info-box">
                 <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">New Members</span>
-                    <span class="info-box-number">2,000</span>
+                    <span class="info-box-text">Clients</span>
+                         @if (count($totalclient)>0)    <?php $i = 0; ?>
+                            @foreach ($totalclient as $client)  <?php $i++; ?>
+                            - <strong>{{ strtoupper($client->nationality)}} </strong> {{$client->nat}}
+                            @endforeach
+                        @endif
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
         </div><!-- /.col -->
@@ -62,7 +66,7 @@
                     <!-- TOP LAST ACTIVITIES USERS LIST -->
                     <div class="box box-danger">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Top Last Activities Users</h3>
+                            <h3 class="box-title">Top Last Activities Users SafeBag</h3>
                             <div class="box-tools pull-right">
                                 <!--span class="label label-danger">8 New Members</span-->
                                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -128,7 +132,7 @@
                 </div><!-- /.table-responsive -->
             </div><!-- /.box-body -->
             <div class="box-footer text-center">
-                <a href="{{ URL::to('admin/airportslist') }}" class="uppercase">View All Airports</a>
+                <a href="{{ URL::to('admin/airlineslist') }}" class="uppercase">View All Airlines</a>
             </div><!-- /.box-footer -->
         </div><!-- /.box -->
         </div>

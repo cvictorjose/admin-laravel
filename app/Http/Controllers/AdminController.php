@@ -7,6 +7,7 @@ use \App\User;
 use \App\AdminUser;
 use \App\AdminAirports;
 use \App\AdminAirlines;
+use \App\AdminClient;
 use \Illuminate\Support\Facades\Input;
 use \Illuminate\Support\Facades\Redirect;
 
@@ -118,6 +119,12 @@ class AdminController extends Controller {
 		/* Recently Added Airlines */
 		$lastairlines           = 1;
 		$data['lastAirlines']   = AdminAirlines::getAirlinesList(array('lastAirlines'=>$lastairlines));
+		/* End */
+
+
+		/* Recently Added Airlines */
+		$totalclient           = 1;
+		$data['totalclient']   = AdminClient::getClientList();
 		/* End */
 
 
