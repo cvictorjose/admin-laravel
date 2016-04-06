@@ -67,6 +67,18 @@
                 </ul>
             </li>
 
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-bar-chart"></i>
+                    <span>Transactions SB24</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ URL::to('admin/transactionlist') }}"><i class="fa fa-list"></i> List All
+                            Transactions</a></li>
+                </ul>
+            </li>
+
             <li class="header">SAFE BAG</li>
             <li class="treeview">
                 <a href="#">

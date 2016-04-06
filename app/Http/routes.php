@@ -117,7 +117,8 @@ Route::group(['prefix' => 'admin'], function() {
     /* Tracking Functionalities*/
     Route::get('trackinglist',            'AdminTrackingController@trackinglist');
 
-
+    /* Transactions Functionalities*/
+    Route::get('transactionlist',            'AdminTransactionController@transactionlist');
 
 
 });
