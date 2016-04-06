@@ -121,7 +121,8 @@
 <script src="{{ asset('/plugins/fastclick/fastclick.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/dist/js/app.min.js') }}" type="text/javascript"></script>
-
+<!-- ChartJS 1.0.1 -->
+<script src="{{ asset('/plugins/chartjs/Chart.min.js') }}" type="text/javascript"></script>
 
 
 </body>

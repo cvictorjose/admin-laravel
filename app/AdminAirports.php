@@ -18,7 +18,7 @@ class AdminAirports extends Model {
         if(count($qryArray)>0)  {
             if(isset($qryArray['lastAirports']) && $qryArray['lastAirports']=='1'){
                 $airportslist->orderBy('id', 'desc');
-                $airportslist->take(10);
+                $airportslist->take(7);
             }
             if(isset($qryArray['portId']) && $qryArray['portId']>'0'){
                 $airportslist->where('id', $qryArray['portId']);

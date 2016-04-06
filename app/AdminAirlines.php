@@ -18,7 +18,7 @@ class AdminAirlines  extends Model {
         if(count($qryArray)>0)  {
             if(isset($qryArray['lastAirlines']) && $qryArray['lastAirlines']=='1'){
                 $airlineslist->orderBy('idairline', 'desc');
-                $airlineslist->take(5);
+                $airlineslist->take(7);
             }
             if(isset($qryArray['alId']) && $qryArray['alId']>'0'){
                 $airlineslist->where('idairline', $qryArray['alId']);

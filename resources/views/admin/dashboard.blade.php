@@ -14,7 +14,7 @@
             <div class="info-box">
                 <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">CPU Traffic</span>
+                    <span class="info-box-text">PromoCode</span>
                     <span class="info-box-number">90<small>%</small></span>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
@@ -55,10 +55,8 @@
     <!-- Main row -->
     <div class="row">
         <!-- Left col -->
-        <div class="col-md-8">
+        <div class="col-md-5">
             <!-- MAP & BOX PANE -->
-
-
             <div class="row">
                 <div class="col-md-12">
                     <!-- TOP LAST ACTIVITIES USERS LIST -->
@@ -94,156 +92,90 @@
                     </div><!--/.box -->
                 </div><!-- /.col -->
             </div><!-- /.row -->
-
             <!-- TABLE: LATEST ORDERS -->
 
         </div><!-- /.col -->
 
+        <div class="col-md-3">
+
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Recently Added Airlines</h3>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table no-margin">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Country</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if (count($lastAirlines)>0)    <?php $i = 0; ?>
+                            @foreach ($lastAirlines as $airlines)  <?php $i++; ?>
+                            <tr>
+                                <td>{{ $airlines->name_airline }}</td>
+                                <td>{{ $airlines->country_airline }}</td>
+                            </tr>
+                            @endforeach
+                        @endif
+                        </tbody>
+                    </table>
+                </div><!-- /.table-responsive -->
+            </div><!-- /.box-body -->
+            <div class="box-footer text-center">
+                <a href="{{ URL::to('admin/airportslist') }}" class="uppercase">View All Airports</a>
+            </div><!-- /.box-footer -->
+        </div><!-- /.box -->
+        </div>
+
         <div class="col-md-4">
-
-        </div><!-- /.col -->
-    </div><!-- /.row -->
-
-
-@endsection
-
-
-    <!-- Main row -->
-    <div class="row">
-        <!-- Left col -->
-        <section class="col-lg-7 connectedSortable">
-
-        </section><!-- /.Left col -->
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-5 connectedSortable">
-            <!-- Map box -->
-            <div class="box box-solid bg-light-blue-gradient">
-                <div class="box-header">
-                    <!-- tools box -->
-                    <div class="pull-right box-tools">
-                        <button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>
-                        <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
-                    </div><!-- /. tools -->
-                    <i class="fa fa-map-marker"></i>
-                    <h3 class="box-title">
-                        Visitors
-                    </h3>
-                </div>
-                <div class="box-body">
-                    <div id="world-map" style="height: 250px; width: 100%;"></div>
-                </div><!-- /.box-body-->
-                <div class="box-footer no-border">
-                    <div class="row">
-                        <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                            <div id="sparkline-1"></div>
-                            <div class="knob-label">Visitors</div>
-                        </div><!-- ./col -->
-                        <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                            <div id="sparkline-2"></div>
-                            <div class="knob-label">Online</div>
-                        </div><!-- ./col -->
-                        <div class="col-xs-4 text-center">
-                            <div id="sparkline-3"></div>
-                            <div class="knob-label">Exists</div>
-                        </div><!-- ./col -->
-                    </div><!-- /.row -->
-                </div>
-            </div>
-            <!-- /.box -->
-            <!-- solid sales graph -->
-            <div class="box box-solid bg-teal-gradient">
-                <div class="box-header">
-                    <i class="fa fa-th"></i>
-                    <h3 class="box-title">Sales Graph</h3>
+            <!-- TABLE: LATEST ORDERS -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Recently Added Airports</h3>
                     <div class="box-tools pull-right">
-                        <button class="btn bg-teal btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        <button class="btn bg-teal btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <!--button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button-->
                     </div>
-                </div>
-                <div class="box-body border-radius-none">
-                    <div class="chart" id="line-chart" style="height: 250px;"></div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="table no-margin">
+                            <thead>
+                            <tr>
+                                <th>Iata</th>
+                                <th>Airport
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @if (count($lastAirports)>0)    <?php $i = 0; ?>
+                            @foreach ($lastAirports as $ports)  <?php $i++; ?>
+                            <tr>
+                                <td>{{ $ports->iata }}</td>
+                                <td>{{ $ports->city }}</td>
+                            </tr>
+                            @endforeach
+                            @endif
+                            </tbody>
+                        </table>
+                    </div><!-- /.table-responsive -->
                 </div><!-- /.box-body -->
-                <div class="box-footer no-border">
-                    <div class="row">
-                        <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                            <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60" data-fgColor="#39CCCC"/>
-                            <div class="knob-label">Mail-Orders</div>
-                        </div><!-- ./col -->
-                        <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                            <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60" data-fgColor="#39CCCC"/>
-                            <div class="knob-label">Online</div>
-                        </div><!-- ./col -->
-                        <div class="col-xs-4 text-center">
-                            <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60" data-fgColor="#39CCCC"/>
-                            <div class="knob-label">In-Store</div>
-                        </div><!-- ./col -->
-                    </div><!-- /.row -->
+                <div class="box-footer text-center">
+                    <a href="{{ URL::to('admin/airportslist') }}" class="uppercase">View All Airports</a>
                 </div><!-- /.box-footer -->
             </div><!-- /.box -->
-            <!-- Calendar -->
-            <div class="box box-solid bg-green-gradient">
-                <div class="box-header">
-                    <i class="fa fa-calendar"></i>
-                    <h3 class="box-title">Calendar</h3>
-                    <!-- tools box -->
-                    <div class="pull-right box-tools">
-                        <!-- button with a dropdown -->
-                        <div class="btn-group">
-                            <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></button>
-                            <ul class="dropdown-menu pull-right" role="menu">
-                                <li><a href="#">Add new event</a></li>
-                                <li><a href="#">Clear events</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">View calendar</a></li>
-                            </ul>
-                        </div>
-                        <button class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        <button class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
-                    </div><!-- /. tools -->
-                </div><!-- /.box-header -->
-                <div class="box-body no-padding">
-                    <!--The calendar -->
-                    <div id="calendar" style="width: 100%"></div>
-                </div><!-- /.box-body -->
-                <div class="box-footer text-black">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <!-- Progress bars -->
-                            <div class="clearfix">
-                                <span class="pull-left">Task #1</span>
-                                <small class="pull-right">90%</small>
-                            </div>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
-                            </div>
-                            <div class="clearfix">
-                                <span class="pull-left">Task #2</span>
-                                <small class="pull-right">70%</small>
-                            </div>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-green" style="width: 70%;"></div>
-                            </div>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <div class="clearfix">
-                                <span class="pull-left">Task #3</span>
-                                <small class="pull-right">60%</small>
-                            </div>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-green" style="width: 60%;"></div>
-                            </div>
-                            <div class="clearfix">
-                                <span class="pull-left">Task #4</span>
-                                <small class="pull-right">40%</small>
-                            </div>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-green" style="width: 40%;"></div>
-                            </div>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div>
-            </div><!-- /.box -->
-        </section><!-- right col -->
-    </div><!-- /.row (main row) -->
+        </div><!-- /.col -->
+
+
+
+    </div><!-- /.row -->
 @endsection
+
+
+
 

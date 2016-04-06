@@ -5,6 +5,8 @@ use Auth;
 use Session;
 use \App\User;
 use \App\AdminUser;
+use \App\AdminAirports;
+use \App\AdminAirlines;
 use \Illuminate\Support\Facades\Input;
 use \Illuminate\Support\Facades\Redirect;
 
@@ -106,6 +108,19 @@ class AdminController extends Controller {
         $lastactivities        = 1;
         $data['topUsersList']  = AdminUser::getUserList(array('lastActivities'=>$lastactivities));
         /* End */
+
+
+		/* Recently Added Airports */
+		$lastairports           = 1;
+		$data['lastAirports']   = AdminAirports::getAirportsList(array('lastAirports'=>$lastairports));
+		/* End */
+
+		/* Recently Added Airlines */
+		$lastairlines           = 1;
+		$data['lastAirlines']   = AdminAirlines::getAirlinesList(array('lastAirlines'=>$lastairlines));
+		/* End */
+
+
         return \View::make('admin.dashboard')->with('data', $data);
     }
 
