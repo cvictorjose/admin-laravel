@@ -9,6 +9,7 @@ use \App\AdminUser;
 use \App\AdminAirports;
 use \App\AdminAirlines;
 use \App\AdminClient;
+use \App\AdminTransaction;
 use \Illuminate\Support\Facades\Input;
 use \Illuminate\Support\Facades\Redirect;
 
@@ -124,16 +125,20 @@ class AdminController extends Controller {
 
 
 		/* Total Clients + Nationality */
-		$totalclient           = 1;
 		$data['totalclient']   = AdminClient::getNationalityList();
         $data['totalclientsb']   = AdminClient::getTotalClientList();
 		/* End */
 
 
         /* Total PromoCode registered + Tracking */
-        $totalclient           = 1;
         $data['totalpromocode_registered']   = AdminPromocode::get_dashboard_promocodeList_byregistration();
         $data['totalpromocode_tracking']   = AdminPromocode::get_dashboard_promocodeList_bytracking();
+        /* End */
+
+
+        /* Total Transactions */
+        $scid=1;
+        $data['total_transactions']         = AdminTransaction::getTransactionList(array('scId'=>$scid));
         /* End */
 
 

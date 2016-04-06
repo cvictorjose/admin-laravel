@@ -56,27 +56,27 @@
                  </ul>
             </li>
             <li class="treeview">
-                <a href="#">
+                <a href="{{ URL::to('admin/trackinglist') }}">
                     <i class="fa fa-bar-chart"></i>
                     <span>Tracking SB24</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
-                <ul class="treeview-menu">
+                {{--<ul class="treeview-menu">
                     <li><a href="{{ URL::to('admin/trackinglist') }}"><i class="fa fa-list"></i> List All
                             Tracking</a></li>
-                </ul>
+                </ul>--}}
             </li>
 
             <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-bar-chart"></i>
+                <a href="{{ URL::to('admin/transactionlist') }}">
+                    <i class="fa fa-eur"></i>
                     <span>Transactions SB24</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
-                <ul class="treeview-menu">
+               {{-- <ul class="treeview-menu">
                     <li><a href="{{ URL::to('admin/transactionlist') }}"><i class="fa fa-list"></i> List All
                             Transactions</a></li>
-                </ul>
+                </ul>--}}
             </li>
 
             <li class="header">SAFE BAG</li>

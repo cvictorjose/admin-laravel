@@ -50,7 +50,14 @@
                 <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Trasactions</span>
-                    <span class="info-box-number">760</span>
+                    <span class="info-box-number">
+
+                        @if (count($total_transactions)>0)
+                            @foreach ($total_transactions as $clientsb3)
+                                {{$clientsb3->totaltrans}} Payments
+                            @endforeach
+                        @endif
+                    </span>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
         </div><!-- /.col -->

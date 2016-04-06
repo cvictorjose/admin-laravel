@@ -30,7 +30,8 @@ class AdminTransactionController  extends Controller {
      * desc:    Traackinglist admin
      */
     public function transactionlist(){
-        $data['acList']         = AdminTransaction::getTransactionList();
+        $scid=0;
+        $data['acList']         = AdminTransaction::getTransactionList(array('scId'=>$scid));
         return \View::make('admin.transactionlist')->with('data', $data);
     }
 
