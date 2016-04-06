@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\AdminPromocode;
 use Validator;
 use Auth;
 use Session;
@@ -122,10 +123,18 @@ class AdminController extends Controller {
 		/* End */
 
 
-		/* Recently Added Airlines */
+		/* Total Clients + Nationality */
 		$totalclient           = 1;
-		$data['totalclient']   = AdminClient::getClientList();
+		$data['totalclient']   = AdminClient::getNationalityList();
+        $data['totalclientsb']   = AdminClient::getTotalClientList();
 		/* End */
+
+
+        /* Total PromoCode registered + Tracking */
+        $totalclient           = 1;
+        $data['totalpromocode_registered']   = AdminPromocode::get_dashboard_promocodeList_byregistration();
+        $data['totalpromocode_tracking']   = AdminPromocode::get_dashboard_promocodeList_bytracking();
+        /* End */
 
 
         return \View::make('admin.dashboard')->with('data', $data);

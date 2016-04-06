@@ -15,7 +15,20 @@
                 <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">PromoCode</span>
-                    <span class="info-box-number">90<small>%</small></span>
+                    <strong>Registered:</strong>
+                    @if (count($totalpromocode_registered)>0)
+                        @foreach ($totalpromocode_registered as $clientsb1)
+                            {{$clientsb1->totalclient}} Codes
+                        @endforeach
+                    @endif
+
+                    <br>
+                    <strong>Tracking:</strong>
+                    @if (count($totalpromocode_tracking)>0)
+                        @foreach ($totalpromocode_tracking as $clientsb2)
+                            {{$clientsb2->totaltracking}} Flights
+                        @endforeach
+                    @endif
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
         </div><!-- /.col -->
@@ -36,7 +49,7 @@
             <div class="info-box">
                 <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Sales</span>
+                    <span class="info-box-text">Trasactions</span>
                     <span class="info-box-number">760</span>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
@@ -45,7 +58,14 @@
             <div class="info-box">
                 <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Clients</span>
+                    <span class="info-box-text">
+                        Clients:
+                        @if (count($totalclientsb)>0)    <?php $i = 0; ?>
+                            @foreach ($totalclientsb as $clientsb)  <?php $i++; ?>
+                                {{$clientsb->total}}
+                            @endforeach
+                        @endif
+                      </span>
                          @if (count($totalclient)>0)    <?php $i = 0; ?>
                             @foreach ($totalclient as $client)  <?php $i++; ?>
                             - <strong>{{ strtoupper($client->nationality)}} </strong> {{$client->nat}}
