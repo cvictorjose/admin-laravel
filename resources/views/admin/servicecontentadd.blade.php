@@ -7,7 +7,6 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="/"><i class="fa fa-files-o"></i> Home</a></li>
-        <li>News </li>
         <li><a href="{{ URL::to('admin/servicecontentlist') }}">Service Content List</a></li>
         @if($mode == 'edit')
             <li class="active">Service Content Edit</li>
@@ -80,6 +79,16 @@
                                       @if($mode == 'edit') {{ $scDetails->$varname }} @else Enter the Content in {{ $sclang }}  @endif
                                     </textarea>
                                     </div>
+
+                                    <div class="form-group"><?php $varname = "intro_".$k; ?>
+                                        <label for="sc_intro{{ $k }}">ITEMS GREEN - {{ $sclang }}</label> <span
+                                                class="mandatory">*</span>
+                                        <textarea id="sc_intro{{ $k }}" name="sc_intro[{{ $k }}]" rows="10" cols="80">
+                                          @if($mode == 'edit') {{ $scDetails->$varname }} @else Enter the Intro in {{ $sclang }}  @endif
+                                        </textarea>
+                                    </div>
+
+
                                 </div>
                             @endforeach
                         </div><!-- /. class="div-group" -->
@@ -115,14 +124,15 @@
         </div><!-- /.col -->
     </div><!-- /.row (main row) -->
     <!-- CK Editor -->
-    <script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.5.8/full/ckeditor.js"></script>
 
     <script type="text/javascript">
         $(function () {
             // Replace the <textarea id="editor1"> with a CKEditor
             // instance, using default configuration.
             <?php foreach($scLanguages as $k=>$sclang)  {
-                echo "CKEDITOR.replace('sc_content".$k."');";}?>
+                echo "CKEDITOR.replace('sc_content".$k."');";
+                echo "CKEDITOR.replace('sc_intro".$k."');"; }?>
         });
 
         $(function(){

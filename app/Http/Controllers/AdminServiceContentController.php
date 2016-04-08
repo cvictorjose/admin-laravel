@@ -102,6 +102,10 @@ class AdminServiceContentController  extends Controller {
                 if(empty($inputData['sc_title']['fr'])) {$inputData['sc_title']['fr']=$inputData['sc_title']['en'];}
                 if(empty($inputData['sc_title']['it'])) {$inputData['sc_title']['it']=$inputData['sc_title']['en'];}
 
+
+                if(empty($inputData['sc_intro']['fr'])) {$inputData['sc_intro']['fr']=$inputData['sc_intro']['en'];}
+                if(empty($inputData['sc_intro']['it'])) {$inputData['sc_intro']['it']=$inputData['sc_intro']['en'];}
+
                 $scdata = array(
                     'cont_title_en'         => $inputData['sc_title']['en'],
                     'cont_title_fr'         => $inputData['sc_title']['fr'],
@@ -109,6 +113,9 @@ class AdminServiceContentController  extends Controller {
                     'contents_en'           => $inputData['sc_content']['en'],
                     'contents_fr'           => $inputData['sc_content']['fr'],
                     'contents_it'           => $inputData['sc_content']['it'],
+                    'intro_en'              => $inputData['sc_intro']['en'],
+                    'intro_fr'              => $inputData['sc_intro']['fr'],
+                    'intro_it'              => $inputData['sc_intro']['it'],
                     'status'                   => '1',
 
                 );
@@ -183,6 +190,9 @@ class AdminServiceContentController  extends Controller {
                         move_uploaded_file($_FILES['sc_image']['tmp_name'], config('constants.adminSCImagePath') . $imagename);
                     }*/
 
+                if(empty($inputData['sc_intro']['fr'])) {$inputData['sc_intro']['fr']=$inputData['sc_intro']['en'];}
+                if(empty($inputData['sc_intro']['it'])) {$inputData['sc_intro']['it']=$inputData['sc_intro']['en'];}
+
                 $scdata = array(
                     'cont_title_en'         => $inputData['sc_title']['en'],
                     'cont_title_fr'         => $inputData['sc_title']['fr'],
@@ -190,6 +200,9 @@ class AdminServiceContentController  extends Controller {
                     'contents_en'           => $inputData['sc_content']['en'],
                     'contents_fr'           => $inputData['sc_content']['fr'],
                     'contents_it'           => $inputData['sc_content']['it'],
+                    'intro_en'              => $inputData['sc_intro']['en'],
+                    'intro_fr'              => $inputData['sc_intro']['fr'],
+                    'intro_it'              => $inputData['sc_intro']['it'],
                     'status'                   => '1',
                 );
 

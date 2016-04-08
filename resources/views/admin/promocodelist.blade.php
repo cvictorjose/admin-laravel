@@ -57,10 +57,6 @@
         </div><!-- /.row (col) -->
     </div><!-- /.row (main row) -->
 
-    <script type="text/javascript">
-        $(function () {
-            $("#example1").dataTable();
-        });
-    </script>
+
 
 @endsection

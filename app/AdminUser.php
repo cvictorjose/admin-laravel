@@ -39,6 +39,8 @@ class AdminUser extends Model
     }
 
 
+
+
     /*
     * name:    insertAdminUser
     * params:  $userdata

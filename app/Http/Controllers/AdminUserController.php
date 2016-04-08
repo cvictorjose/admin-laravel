@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use Maatwebsite\Excel\Facades\Excel;
 use Validator;
 use Session;
 use \App\AdminUser;
@@ -36,8 +37,8 @@ class AdminUserController extends Controller {
      * desc:    userlist admin
      */
 	public function userlist(){
-		$data['usersList']  = AdminUser::getUserList();
-		return \View::make('admin.userlist')->with('data', $data);
+        $data['usersList']  = AdminUser::getUserList();
+        return \View::make('admin.userlist')->with('data', $data);
 	}
 
 

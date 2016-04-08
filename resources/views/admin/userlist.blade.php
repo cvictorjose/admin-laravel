@@ -21,6 +21,9 @@
                     <a href="{{ URL::to('admin/useradd') }}" class="btn btn-app" style="float: right;">
                         <i class="fa fa-user-plus"></i> Add new Admin user
                     </a>
+                    <a href="{{ URL::to('admin/download_users_sb') }}" class="btn btn-app" style="float: right;">
+                        <i class="fa fa-download"></i> Download Users List
+                    </a>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -38,9 +41,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php $i = 0; ?>
+                    <?php $i = 0;?>
                     @foreach ($usersList as $user)
-                        <?php $i++; ?>
+                        <?php $i++;?>
                         <tr>
                             <td>{{ $i }}</td>
                             <td align="center">
