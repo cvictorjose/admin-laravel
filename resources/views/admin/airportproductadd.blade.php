@@ -145,7 +145,7 @@
         </div><!-- /.col -->
     </div><!-- /.row (main row) -->
     <!-- CK Editor -->
-    <script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.5.8/full/ckeditor.js"></script>
 
     <script type="text/javascript">
         $(function () {
