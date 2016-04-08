@@ -61,7 +61,7 @@ class AdminUserController extends Controller {
 				'ad_pwd'            => 'required',
 				'ad_cpwd'           => 'required',
 				'ad_designation'    => 'required',
-				'ad_access_level'   => 'required',
+
 			);
 			$validator = Validator::make($inputData, $rules);
 			if ($validator->fails()) {
@@ -85,7 +85,7 @@ class AdminUserController extends Controller {
 				$userdata = array(
 					'username'           => Input::get('ad_username'),
 					'pass'               => sha1(Input::get('ad_pwd')),
-					'access_id'          => Input::get('ad_access_level'),
+					'access_id'          => Input::get('ad_designation'),
 					'f_name'             => Input::get('ad_firstname'),
 					'l_name'             => Input::get('ad_lastname'),
 					'email'              => Input::get('ad_email'),
@@ -123,7 +123,7 @@ class AdminUserController extends Controller {
                 'ad_pwd'            => 'required',
                 'ad_cpwd'           => 'required',
                 'ad_designation'    => 'required',
-                'ad_access_level'   => 'required',
+
             );
             $validator = Validator::make($inputData, $rules);
             if ($validator->fails()) {
@@ -148,7 +148,7 @@ class AdminUserController extends Controller {
                 $userdata = array(
                     'username'           => Input::get('ad_username'),
                     'pass'               => sha1(Input::get('ad_pwd')),
-                    'access_id'          => Input::get('ad_access_level'),
+                    'access_id'          => Input::get('ad_designation'),
                     'f_name'             => Input::get('ad_firstname'),
                     'l_name'             => Input::get('ad_lastname'),
                     'email'              => Input::get('ad_email'),

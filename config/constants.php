@@ -7,10 +7,9 @@ return [
 
     'userDesignations'      =>  array(
         '1' => 'Administrator',
-        '2' => 'CustomerCare',
-        '3' => 'Marketing',
-        '4' => 'Person In-Charge',
-        '5' => 'Head of Operators'),
+        '2' => 'Marketing',
+        '3' => 'Management',
+        '4' => 'CustomerCare'),
 
     'apLanguages'           =>  array(  'en' => 'English',
         'it' => 'Italy',

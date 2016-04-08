@@ -16,7 +16,9 @@
                 @endif
             </div>
             <div class="pull-left info">
-                <p>@if (session('userDetails'))  <?php echo Session::get('userDetails.f_name'). " ".  Session::get('userDetails.l_name'); ?>  @endif</p>
+                <p>@if (session('userDetails'))  <?php echo Session::get('userDetails.f_name'). " ".  Session::get
+                            ('userDetails.l_name'); ?>
+                    @endif</p>
                 <p><a href="{{ URL::to('admin/logout') }}" >Sign out</a></p>
             </div>
         </div>
@@ -31,6 +33,7 @@
         </form>
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
+        <?php $access_menu=Session::get('userDetails.access_id');?>
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="active treeview">
@@ -78,6 +81,10 @@
                             Transactions</a></li>
                 </ul>--}}
             </li>
+
+            <?php
+            if ($access_menu<3){
+            ?>
 
             <li class="header">SAFE BAG</li>
             <li class="treeview">
@@ -195,7 +202,7 @@
                 </ul>
             </li>
 
-
+        <?php } ?>
 
         </ul>
     </section>

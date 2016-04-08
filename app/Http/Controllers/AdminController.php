@@ -86,8 +86,12 @@ class AdminController extends Controller {
 					$userdetails['last_login']  =  $auth->last_login;
 					$userdetails['status']      =  $auth->status;
 
-					Session::put('userDetails', $userdetails);
+					if ($userdetails['designation']==4 || $userdetails['status']==0){
+						Session::flash('error', 'Sorry, you can not access here');
+						return Redirect::intended('admin/login');
+					}
 
+					Session::put('userDetails', $userdetails);
 					return Redirect::intended('admin/dashboard');
                     //return "eccoci loggati";
 				}   else {

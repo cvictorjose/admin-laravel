@@ -96,14 +96,14 @@
                                 @endif
                             </select>
                         </div>
-                        <div class="form-group">
+                        {{--<div class="form-group">
                             <select class="form-control"  id="ad_access_level" name="ad_access_level">
                                 <option value="">Select Access Level</option>
-                                @for($i = 1; $i <= 10; $i++)
+                                @for($i = 1; $i <= 4; $i++)
                                     <option value="{{ $i }}"  @if($mode == 'edit') @if($i == $userDetails->access_id ) selected="selected" @endif @endif >{{ $i }}</option>
                                 @endfor
                             </select>
-                        </div>
+                        </div>--}}
                         <div class="form-group">
                             <input type="file" id="ad_profileimg" name="ad_profileimg"><p class="help-block">Profile Picture
                                 @if($mode == 'edit')
