@@ -48,34 +48,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminDownloadController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdminDownloadController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminDownloadController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.346153">
+            <state vertical-scroll-proportion="0.7314974">
               <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
               <folding>
                 <element signature="e#39#75#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="servicecontentadd.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/servicecontentadd.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.6538463">
-              <caret line="126" column="69" selection-start-line="126" selection-start-column="69" selection-end-line="126" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="airportproductadd.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/airportproductadd.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.10499139">
-              <caret line="147" column="69" selection-start-line="147" selection-start-column="69" selection-end-line="147" selection-end-column="69" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -107,7 +87,6 @@
         <option value="$PROJECT_DIR$/app/AdminPriceAirport.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/termslist.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminTermsController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/termsadd.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/airlineadd.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminPromocodeController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminTrackingController.php" />
@@ -136,6 +115,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminDownloadController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/servicecontentadd.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/airportproductadd.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/termsadd.blade.php" />
       </list>
     </option>
   </component>
@@ -396,13 +376,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/includes/header.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/constants.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5765921">
@@ -750,20 +723,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminDownloadController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/termsadd.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.346153">
-          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
-          <folding>
-            <element signature="e#39#75#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/servicecontentadd.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6538463">
-          <caret line="126" column="69" selection-start-line="126" selection-start-column="69" selection-end-line="126" selection-end-column="69" />
+        <state vertical-scroll-proportion="0.35111877">
+          <caret line="84" column="69" selection-start-line="84" selection-start-column="69" selection-end-line="84" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -773,6 +736,24 @@
         <state vertical-scroll-proportion="0.10499139">
           <caret line="147" column="69" selection-start-line="147" selection-start-column="69" selection-end-line="147" selection-end-column="69" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/servicecontentadd.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29776248">
+          <caret line="126" column="69" selection-start-line="126" selection-start-column="69" selection-end-line="126" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminDownloadController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7314974">
+          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+          <folding>
+            <element signature="e#39#75#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
