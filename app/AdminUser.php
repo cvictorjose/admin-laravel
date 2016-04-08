@@ -32,7 +32,7 @@ class AdminUser extends Model
             if (!empty($sessionData) && isset($sessionData['userDetails']) && count($sessionData['userDetails']) > 0) {
                 $userlist->where('id', '!=', $sessionData['userDetails']['id']);
             }
-            $userlist->orderBy('id', 'desc');
+            $userlist->orderBy('last_login', 'desc');
         }
         $userlist = $userlist->get();
         return $userlist;

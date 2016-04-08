@@ -38,10 +38,18 @@ class AdminDownloadController extends Controller {
      */
 	public function download_users_sb(){
 
+
         $usersList  = AdminUser::getUserList();
 
-        Excel::create('victorexcel', function($excel) use($usersList) {
-            $excel->sheet('Sheetshit', function($sheet) use($usersList) {
+        Excel::create('SB_UserSafeBag_List', function($excel) use($usersList) {
+            $excel->sheet('UserSafeBag_List', function($sheet) use($usersList) {
+
+                $sheet->cells('A1:G1', function($cells) {
+
+                    // call cell manipulation methods
+                    $cells->setBackground('#f2f2f2');
+                    $cells->setFontWeight('bold');
+                });
 
                 $datax= [];
                 $head = array(
@@ -50,14 +58,16 @@ class AdminDownloadController extends Controller {
                     'Last Name',
                     'Email',
                     'Designation',
-                    'Status'
+                    'Status',
+                    'Last_login'
                 );
 
-
+                $userDesignations    =  config('constants.userDesignations');
                 $datax = array($head);
                 foreach ($usersList as $user){
-                    array_push($datax, array($user->username, $user->f_name, $user->l_name, $user->email, '',
-                        $user->status));
+                    if ($user->status == 1) {$new_status="Active";}else{$new_status="Disabled";} ;
+                    array_push($datax, array($user->username, $user->f_name, $user->l_name, $user->email, $userDesignations[$user->designation],
+                        $new_status,$user->last_login));
 
                 }
                 $sheet->FromArray($datax, null, 'A1', false, false);
