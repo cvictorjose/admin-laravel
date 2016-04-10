@@ -126,6 +126,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('download_code_registration',        'AdminDownloadController@download_code_registration');
     Route::get('download_code_registration_track',  'AdminDownloadController@download_code_registration_track');
     Route::get('download_all_track',                'AdminDownloadController@download_all_track');
+    Route::get('download_all_transactions',         'AdminDownloadController@download_all_transactions');
 
 
 });

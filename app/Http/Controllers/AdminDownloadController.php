@@ -1,11 +1,13 @@
 <?php namespace App\Http\Controllers;
 
+use App\AdminTransaction;
 use Maatwebsite\Excel\Facades\Excel;
 use Validator;
 use Session;
 use \App\AdminUser;
 use \App\AdminPromocode;
 use \App\AdminTracking;
+
 use \Illuminate\Support\Facades\Input;
 use \Illuminate\Support\Facades\Redirect;
 
@@ -194,6 +196,48 @@ class AdminDownloadController extends Controller {
                     $flight=$user->company." ".$user->number;
                     array_push($datax, array($user->card_number, $client, $user->email, $flight,
                         $user->fromAirport,$user->toAirport,$status_flight[$user->status],$user->date));
+                }
+                $sheet->FromArray($datax, null, 'A1', false, false);
+            });
+        })->download('xls');
+    }
+
+
+
+    /*
+    * name:    download_all_transactions
+    * params:
+    * return:
+    * desc:    Download  ALL transactions list admin
+    */
+    public function download_all_transactions(){
+        $usersList  = AdminTransaction::getTransactionList();
+
+        Excel::create('SB_All Transactions', function($excel) use($usersList) {
+            $excel->sheet('All Transactions List', function($sheet) use($usersList) {
+                $sheet->cells('A1:I1', function($cells) {
+                    // call cell manipulation methods
+                    $cells->setBackground('#f2f2f2');
+                    $cells->setFontWeight('bold');
+                });
+
+                $datax= [];
+                $head = array(
+                    'Client',
+                    'Email',
+                    'Paypal ID',
+                    'Price',
+                    'Currency',
+                    'Device',
+                    'Num. Flights',
+                    'Date',
+                    'Status'
+                );
+                $datax = array($head);
+                foreach ($usersList as $user){
+                    $client=$user->name." ". $user->surname;
+                    array_push($datax, array($client, $user->email,
+                        $user->paypal_id,$user->price,$user->currency,$user->device,$user->numflights,$user->date,$user->status));
                 }
                 $sheet->FromArray($datax, null, 'A1', false, false);
             });

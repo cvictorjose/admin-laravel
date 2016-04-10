@@ -19,6 +19,9 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Transactions</h3>
+                    <a href="{{ URL::to('admin/download_all_transactions') }}" class="btn btn-app" style="float: right;">
+                        <i class="fa fa-download"></i> All Tracking List
+                    </a>
                 </div><!-- /.box-header -->
                 <div class="box-body"  id="table_filtered_content">
                 <table id="example1" class="table table-bordered table-striped">

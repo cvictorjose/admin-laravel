@@ -21,7 +21,7 @@ class AdminTransaction extends Model {
                 $aclist= $aclist->get();
                 return $aclist;
             }   else
-            $aclist->select('sfb_transaction.*', 'claims_client.name', 'claims_client.surname');
+            $aclist->select('sfb_transaction.*', 'claims_client.name', 'claims_client.surname', 'claims_client.email');
             $aclist->orderBy('sfb_transaction.date', 'DESC');
             $aclist = $aclist->get();
          return $aclist;
