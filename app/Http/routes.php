@@ -121,8 +121,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('transactionlist',            'AdminTransactionController@transactionlist');
 
 
-    /* Transactions Functionalities*/
+    /* Download Functionalities*/
     Route::get('download_users_sb',            'AdminDownloadController@download_users_sb');
+    Route::get('download_code_registration',            'AdminDownloadController@download_code_registration');
 
 
 });

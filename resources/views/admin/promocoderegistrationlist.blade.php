@@ -2,7 +2,7 @@
 @extends('admin.app')
 @section('header')
     <h1>
-        Promocode List
+        Promocode registered List
         <small>Safe-bag Admin</small>
     </h1>
     <ol class="breadcrumb">
@@ -18,9 +18,10 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Promocode</h3>
-
-
+                    <h3 class="box-title">Promocode registered</h3>
+                    <a href="{{ URL::to('admin/download_code_registration') }}" class="btn btn-app" style="float: right;">
+                        <i class="fa fa-download"></i> Promocode registered List
+                    </a>
                 </div><!-- /.box-header -->
                 <div class="box-body"  id="table_filtered_content">
                 <table id="example1" class="table table-bordered table-striped">

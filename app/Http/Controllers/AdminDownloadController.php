@@ -4,6 +4,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Validator;
 use Session;
 use \App\AdminUser;
+use \App\AdminPromocode;
 use \Illuminate\Support\Facades\Input;
 use \Illuminate\Support\Facades\Redirect;
 
@@ -31,21 +32,17 @@ class AdminDownloadController extends Controller {
 	}
 
 	/*
-     * name:    userlist
+     * name:    download_users_sb
      * params:
      * return:
-     * desc:    userlist admin
+     * desc:    Download User SafeBag list admin
      */
 	public function download_users_sb(){
-
-
         $usersList  = AdminUser::getUserList();
 
         Excel::create('SB_UserSafeBag_List', function($excel) use($usersList) {
             $excel->sheet('UserSafeBag_List', function($sheet) use($usersList) {
-
                 $sheet->cells('A1:G1', function($cells) {
-
                     // call cell manipulation methods
                     $cells->setBackground('#f2f2f2');
                     $cells->setFontWeight('bold');
@@ -68,14 +65,54 @@ class AdminDownloadController extends Controller {
                     if ($user->status == 1) {$new_status="Active";}else{$new_status="Disabled";} ;
                     array_push($datax, array($user->username, $user->f_name, $user->l_name, $user->email, $userDesignations[$user->designation],
                         $new_status,$user->last_login));
-
                 }
                 $sheet->FromArray($datax, null, 'A1', false, false);
             });
         })->download('xls');
-
-
 	}
+
+
+    /*
+     * name:    download_users_sb
+     * params:
+     * return:
+     * desc:    Download  code registration list admin
+     */
+    public function download_code_registration(){
+        $usersList  = AdminPromocode::getPromocodeList_byregistration();
+
+        Excel::create('SB_PromocodeList_byregistration', function($excel) use($usersList) {
+            $excel->sheet('PromocodeList_byregistration', function($sheet) use($usersList) {
+                $sheet->cells('A1:H1', function($cells) {
+                    // call cell manipulation methods
+                    $cells->setBackground('#f2f2f2');
+                    $cells->setFontWeight('bold');
+                });
+
+                $datax= [];
+                $head = array(
+                    'Promocode',
+                    'Client',
+                    'Email',
+                    'Platform',
+                    'Mobile',
+                    'Country',
+                    'Credits',
+                    'Date'
+                );
+
+
+                $datax = array($head);
+
+                foreach ($usersList as $user){
+                    $client=$user->name." ". $user->surname;
+                    array_push($datax, array($user->promocode, $client, $user->email, $user->os,
+                        $user->mobile,$user->nationality,$user->credits,$user->date));
+                }
+                $sheet->FromArray($datax, null, 'A1', false, false);
+            });
+        })->download('xls');
+    }
 
 
 
