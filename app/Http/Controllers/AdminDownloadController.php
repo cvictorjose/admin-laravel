@@ -144,11 +144,12 @@ class AdminDownloadController extends Controller {
                     'Date'
                 );
                 $datax = array($head);
+                $status_flight    =  config('constants.fStatus');
                 foreach ($usersList as $user){
                     $client=$user->name." ". $user->surname;
                     $flight=$user->company." ".$user->number;
                     array_push($datax, array($user->card_number, $client, $user->email, $flight,
-                        $user->fromAirport,$user->toAirport,$user->status,$user->date));
+                        $user->fromAirport,$user->toAirport,$status_flight[$user->status],$user->date));
                 }
                 $sheet->FromArray($datax, null, 'A1', false, false);
             });
@@ -187,11 +188,12 @@ class AdminDownloadController extends Controller {
                     'Date'
                 );
                 $datax = array($head);
+                $status_flight    =  config('constants.fStatus');
                 foreach ($usersList as $user){
                     $client=$user->name." ". $user->surname;
                     $flight=$user->company." ".$user->number;
                     array_push($datax, array($user->card_number, $client, $user->email, $flight,
-                        $user->fromAirport,$user->toAirport,$user->status,$user->date));
+                        $user->fromAirport,$user->toAirport,$status_flight[$user->status],$user->date));
                 }
                 $sheet->FromArray($datax, null, 'A1', false, false);
             });
