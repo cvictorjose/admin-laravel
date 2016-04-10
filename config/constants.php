@@ -33,6 +33,13 @@ return [
         'sab'=> 'Saturday',
         'dom'=> 'Sunday'),
 
+    'fStatus'      =>  array(
+        'L' => 'Landed',
+        'A' => 'Active',
+        'H' => 'History',
+        'S' => 'Scheduled'),
+
 ];
+
 
 
