@@ -22,7 +22,7 @@
                 <p><a href="{{ URL::to('admin/logout') }}" >Sign out</a></p>
             </div>
         </div>
-        <!-- search form -->
+        {{--<!-- search form -->
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search..."/>
@@ -31,7 +31,7 @@
                 </span>
             </div>
         </form>
-        <!-- /.search form -->
+        <!-- /.search form -->--}}
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <?php $access_menu=Session::get('userDetails.access_id');?>
         <ul class="sidebar-menu">
@@ -62,7 +62,6 @@
                 <a href="{{ URL::to('admin/trackinglist') }}">
                     <i class="fa fa-bar-chart"></i>
                     <span>Tracking SB24</span>
-                    <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 {{--<ul class="treeview-menu">
                     <li><a href="{{ URL::to('admin/trackinglist') }}"><i class="fa fa-list"></i> List All
@@ -74,7 +73,6 @@
                 <a href="{{ URL::to('admin/transactionlist') }}">
                     <i class="fa fa-eur"></i>
                     <span>Transactions SB24</span>
-                    <i class="fa fa-angle-left pull-right"></i>
                 </a>
                {{-- <ul class="treeview-menu">
                     <li><a href="{{ URL::to('admin/transactionlist') }}"><i class="fa fa-list"></i> List All

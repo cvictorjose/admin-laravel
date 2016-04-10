@@ -32,14 +32,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminDownloadController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdminDownloadController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminDownloadController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9810671">
+            <state vertical-scroll-proportion="-21.923077">
               <caret line="151" column="89" selection-start-line="151" selection-start-column="89" selection-end-line="151" selection-end-column="89" />
               <folding>
                 <element signature="e#39#75#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebar.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/includes/sidebar.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7607573">
+              <caret line="74" column="50" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -144,7 +154,6 @@
         <option value="$PROJECT_DIR$/app/AdminUser.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/useradd.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminUserController.php" />
-        <option value="$PROJECT_DIR$/resources/views/includes/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/promocoderegistrationlist.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
@@ -152,6 +161,7 @@
         <option value="$PROJECT_DIR$/resources/views/admin/trackinglist.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/promocodetrackinglist.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminDownloadController.php" />
+        <option value="$PROJECT_DIR$/resources/views/includes/sidebar.blade.php" />
       </list>
     </option>
   </component>
@@ -235,6 +245,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmsales2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmsales2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="includes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -764,14 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/includes/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79518074">
-          <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/AdminPromocode.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.09122203">
@@ -850,11 +874,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminDownloadController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9810671">
+        <state vertical-scroll-proportion="-21.923077">
           <caret line="151" column="89" selection-start-line="151" selection-start-column="89" selection-end-line="151" selection-end-column="89" />
           <folding>
             <element signature="e#39#75#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/includes/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7607573">
+          <caret line="74" column="50" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
