@@ -95,8 +95,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('pricexairportstatuschange',   'AdminPriceAirportController@pricexairportstatuschange');
     Route::get('pricexairportadd',             'AdminPriceAirportController@pricexairportadd');
     Route::post('pricexairportadd',            'AdminPriceAirportController@pricexairportadd');
-    Route::get('editpricexairport/{id}',             'AdminPriceAirportController@editpricexairport');
-    Route::post('editpricexairport/{id}',            'AdminPriceAirportController@editpricexairport');
+    Route::get('editpricexairport/{id}',       'AdminPriceAirportController@editpricexairport');
+    Route::post('editpricexairport/{id}',      'AdminPriceAirportController@editpricexairport');
 
 
 
@@ -110,8 +110,8 @@ Route::group(['prefix' => 'admin'], function() {
 
     /* PromoCode Functionalities*/
     Route::get('promocodelist',            'AdminPromocodeController@promocodelist');
-    Route::get('promocoderegistrationlist',            'AdminPromocodeController@promocoderegistrationlist');
-    Route::get('promocodetrackinglist',            'AdminPromocodeController@promocodetrackinglist');
+    Route::get('promocoderegistrationlist', 'AdminPromocodeController@promocoderegistrationlist');
+    Route::get('promocodetrackinglist',     'AdminPromocodeController@promocodetrackinglist');
 
 
     /* Tracking Functionalities*/
@@ -122,8 +122,10 @@ Route::group(['prefix' => 'admin'], function() {
 
 
     /* Download Functionalities*/
-    Route::get('download_users_sb',            'AdminDownloadController@download_users_sb');
-    Route::get('download_code_registration',            'AdminDownloadController@download_code_registration');
+    Route::get('download_users_sb',                 'AdminDownloadController@download_users_sb');
+    Route::get('download_code_registration',        'AdminDownloadController@download_code_registration');
+    Route::get('download_code_registration_track',  'AdminDownloadController@download_code_registration_track');
+    Route::get('download_all_track',                'AdminDownloadController@download_all_track');
 
 
 });

@@ -19,25 +19,22 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Tracking</h3>
-
-
+                    <a href="{{ URL::to('admin/download_all_track') }}" class="btn btn-app" style="float: right;">
+                        <i class="fa fa-download"></i> All Tracking List
+                    </a>
                 </div><!-- /.box-header -->
                 <div class="box-body"  id="table_filtered_content">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>CODICE</th>
+                        <th>Code</th>
                         <th style="width: 200px;">Client</th>
-
                         <th>Flight</th>
                         <th>From</th>
                         <th>To</th>
-
-
                         <th>Status</th>
                         <th style="width: 200px;">Date</th>
-
                     </tr>
                     </thead>
                     <tbody>
@@ -49,12 +46,9 @@
                             <td>{{ $i }}</td>
                             <td>{{ $content->card_number }}</td>
                             <td>{{ $content->name." ". $content->surname }}</td>
-
                             <td>{{ $content->company." ".$content->number }}</td>
                             <td>{{ $content->fromAirport }}</td>
                             <td>{{ $content->toAirport }}</td>
-
-
                             <td>{{ $content->status }}</td>
                             <td>{{ $content->date }}</td>
                            </tr>
@@ -70,7 +64,5 @@
         $(function () {
             $("#example1").dataTable();
         });
-
     </script>
-
 @endsection

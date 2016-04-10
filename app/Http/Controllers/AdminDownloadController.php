@@ -5,6 +5,7 @@ use Validator;
 use Session;
 use \App\AdminUser;
 use \App\AdminPromocode;
+use \App\AdminTracking;
 use \Illuminate\Support\Facades\Input;
 use \Illuminate\Support\Facades\Redirect;
 
@@ -100,14 +101,97 @@ class AdminDownloadController extends Controller {
                     'Credits',
                     'Date'
                 );
-
-
                 $datax = array($head);
-
                 foreach ($usersList as $user){
                     $client=$user->name." ". $user->surname;
                     array_push($datax, array($user->promocode, $client, $user->email, $user->os,
                         $user->mobile,$user->nationality,$user->credits,$user->date));
+                }
+                $sheet->FromArray($datax, null, 'A1', false, false);
+            });
+        })->download('xls');
+    }
+
+
+
+
+    /*
+     * name:    download_code_registration_track
+     * params:
+     * return:
+     * desc:    Download  code registration + tracking list admin
+     */
+    public function download_code_registration_track(){
+        $usersList  = AdminPromocode::getPromocodeList_bytracking();
+
+        Excel::create('SB_PromocodeList_byregistration-tracking', function($excel) use($usersList) {
+            $excel->sheet('code registered + tracking', function($sheet) use($usersList) {
+                $sheet->cells('A1:H1', function($cells) {
+                    // call cell manipulation methods
+                    $cells->setBackground('#f2f2f2');
+                    $cells->setFontWeight('bold');
+                });
+
+                $datax= [];
+                $head = array(
+                    'Code',
+                    'Client',
+                    'Email',
+                    'Flight',
+                    'From',
+                    'To',
+                    'Status',
+                    'Date'
+                );
+                $datax = array($head);
+                foreach ($usersList as $user){
+                    $client=$user->name." ". $user->surname;
+                    $flight=$user->company." ".$user->number;
+                    array_push($datax, array($user->card_number, $client, $user->email, $flight,
+                        $user->fromAirport,$user->toAirport,$user->status,$user->date));
+                }
+                $sheet->FromArray($datax, null, 'A1', false, false);
+            });
+        })->download('xls');
+    }
+
+
+
+
+    /*
+     * name:    download_code_registration_track
+     * params:
+     * return:
+     * desc:    Download  ALL tracking list admin
+     */
+    public function download_all_track(){
+        $usersList  = AdminTracking::gettrackingList();
+
+        Excel::create('SB_All Tracking', function($excel) use($usersList) {
+            $excel->sheet('All Tracking List', function($sheet) use($usersList) {
+                $sheet->cells('A1:H1', function($cells) {
+                    // call cell manipulation methods
+                    $cells->setBackground('#f2f2f2');
+                    $cells->setFontWeight('bold');
+                });
+
+                $datax= [];
+                $head = array(
+                    'Code',
+                    'Client',
+                    'Email',
+                    'Flight',
+                    'From',
+                    'To',
+                    'Status',
+                    'Date'
+                );
+                $datax = array($head);
+                foreach ($usersList as $user){
+                    $client=$user->name." ". $user->surname;
+                    $flight=$user->company." ".$user->number;
+                    array_push($datax, array($user->card_number, $client, $user->email, $flight,
+                        $user->fromAirport,$user->toAirport,$user->status,$user->date));
                 }
                 $sheet->FromArray($datax, null, 'A1', false, false);
             });
