@@ -1,4 +1,4 @@
-<?php foreach($data as $k=>$v) $$k=$v;  ?>
+<?php foreach($data as $k=>$v) $$k=$v;  $status_flight    =  config('constants.fStatus');?>
 @extends('admin.app')
 @section('header')
     <h1>
@@ -49,7 +49,7 @@
                             <td>{{ $content->company." ".$content->number }}</td>
                             <td>{{ $content->fromAirport }}</td>
                             <td>{{ $content->toAirport }}</td>
-                            <td>{{ $content->status }}</td>
+                            <td>{{ $status_flight[$content->status] }}</td>
                             <td>{{ $content->date }}</td>
                            </tr>
                     @endforeach
