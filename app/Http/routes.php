@@ -112,6 +112,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('promocodelist',            'AdminPromocodeController@promocodelist');
     Route::get('promocoderegistrationlist', 'AdminPromocodeController@promocoderegistrationlist');
     Route::get('promocodetrackinglist',     'AdminPromocodeController@promocodetrackinglist');
+    Route::post('search_promocode',            'AdminPromocodeController@search_promocode');
 
 
     /* Tracking Functionalities*/

@@ -1,24 +1,11 @@
 <?php foreach($data as $k=>$v) $$k=$v;  ?>
-@extends('admin.app')
-@section('header')
-    <h1>
-        Promocode List
-        <small>Safe-bag Admin</small>
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-files-o"></i> Home</a></li>
-        <li class="active">Promocode </li>
-        <li class="active">Promocode List</li>
-    </ol>
-@endsection
 @section('content')
-
     <script type="text/javascript" src="{{ asset('/js/promocode.js') }}" ></script>
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Promocode Search</h3>
+                    <h3 class="box-title">Promocode</h3>
                     <div class="input-group input-group-sm">
                         <input type="search" name="promocode" id="promocode" class="form-control" placeholder="Input
                         the Promocode"/>
@@ -42,8 +29,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php $i = 0;  if(empty($filter_lang))
-                        $filter_lang    = "en";?>
+                    <?php $i = 0; ?>
                     @foreach ($acList as $content)
                         <?php $i++; ?>
                         <tr>

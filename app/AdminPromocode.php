@@ -17,7 +17,7 @@ class AdminPromocode extends Model {
         $wheredata      = array();
         $aclist         = DB::table('sfb_promocode');
         $aclist->orderBy('id', 'desc');
-        $aclist         = $aclist->get();
+        $aclist         = $aclist->take(500)->get();
         return $aclist;
     }
 
@@ -89,6 +89,20 @@ class AdminPromocode extends Model {
             ->join('sfb_promocode', 'claims_client.idclient', '=', 'sfb_promocode.id_used_by')
             ->select(DB::raw('count(claims_client.idclient) as totaltracking'));
         $aclist         = $aclist->get();
+        return $aclist;
+    }
+
+
+
+    /*
+     * name:    search_promocode
+     * params:  $code
+     * return:
+     * desc:    Search a promocode into Db
+     */
+    public static function search_promocode($code){
+        $aclist       = array();
+        $aclist = DB::table('sfb_promocode')->where('promocode', 'like', '%' .$code.'%')->get();
         return $aclist;
     }
 
