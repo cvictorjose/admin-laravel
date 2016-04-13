@@ -99,16 +99,21 @@
             <div class="info-box">
                 <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Registration</span>
-                    <span class="info-box-number">
-                        @if (count($totalclientsb)>0)    <?php $i = 0; ?>
-                        @foreach ($totalclientsb as $clientsb)  <?php $i++; ?>
-                        {{$clientsb->total}} new users
-                        @endforeach
+                  <span class="info-box-text">CLIENTS</span>
+
+                  <span class="info-box-number">
+                        @if (count($totalclientsb_1)>0)
+                          @foreach ($totalclientsb_1 as $tc1)
+                              {{$tc1->total}} new users
+                          @endforeach
+                      @endif
+                    </span>
+                    <span>
+                      @if (count($totalclientsb_2)>0)
+                            @foreach ($totalclientsb_2 as $tc2)
+                                {{$tc2->total}} users
+                            @endforeach
                         @endif
-                   </span>
-                  <span>
-                      345 users
                   </span>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->

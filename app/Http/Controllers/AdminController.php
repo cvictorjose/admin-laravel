@@ -132,12 +132,15 @@ class AdminController extends Controller {
 
 		/* Total Clients + Nationality */
 		//$data['totalclient']   = AdminClient::getNationalityList();
-        $data['totalclientsb']   = AdminClient::getTotalClientList();
+		for($i = 1; $i <= 2; $i++){
+			$month = date("m");
+			if ($i>1)$month=$month-1;
+			$data['totalclientsb_'.$i]   = AdminClient::get_dashboard_registration(array('scId'=>$month));
+		}
 		/* End */
 
 
         /* Total PromoCode registered + Tracking */
-
 		for($i = 1; $i <= 2; $i++){
 			$month = date("m");
 			if ($i>1)$month=$month-1;
