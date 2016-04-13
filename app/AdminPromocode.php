@@ -65,9 +65,17 @@ class AdminPromocode extends Model {
     public static function get_dashboard_promocodeList_byregistration($qryArray=array()){
         $aclist         = array();
         $wheredata      = array();
+
+        $y = date("Y");
+        $m=$qryArray['scId'];
+        $today=$y."-".$m;
+        $start=$today."-01";
+        $final=$today."-31";
+
         $aclist         = DB::table('sfb_promocode')
             ->join('claims_client', 'sfb_promocode.id_used_by', '=', 'claims_client.idclient')
             ->select(DB::raw('count(claims_client.idclient) as totalclient'));
+        $aclist->whereBetween('sfb_promocode.date', [$start, $final]);
         $aclist         = $aclist->get();
         return $aclist;
     }
@@ -82,12 +90,20 @@ class AdminPromocode extends Model {
     public static function get_dashboard_promocodeList_bytracking($qryArray=array()){
         $aclist         = array();
         $wheredata      = array();
+
+        $y = date("Y");
+        $m=$qryArray['scId'];
+        $today=$y."-".$m;
+        $start=$today."-01";
+        $final=$today."-31";
+
         $aclist         = DB::table('codebagflights')
             ->join('sfb_smartcards', 'codebagflights.idCode', '=', 'sfb_smartcards.card_id')
             ->join('claims_client', 'sfb_smartcards.idclient', '=', 'claims_client.idclient')
             ->join('flight', 'codebagflights.idFlights', '=', 'flight.idFlights')
             ->join('sfb_promocode', 'claims_client.idclient', '=', 'sfb_promocode.id_used_by')
             ->select(DB::raw('count(claims_client.idclient) as totaltracking'));
+        $aclist->whereBetween('codebagflights.date', [$start, $final]);
         $aclist         = $aclist->get();
         return $aclist;
     }

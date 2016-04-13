@@ -137,8 +137,13 @@ class AdminController extends Controller {
 
 
         /* Total PromoCode registered + Tracking */
-        $data['totalpromocode_registered']   = AdminPromocode::get_dashboard_promocodeList_byregistration();
-        $data['totalpromocode_tracking']   = AdminPromocode::get_dashboard_promocodeList_bytracking();
+
+		for($i = 1; $i <= 2; $i++){
+			$month = date("m");
+			if ($i>1)$month=$month-1;
+			$data['totalpromocode_registered_'.$i]   = AdminPromocode::get_dashboard_promocodeList_byregistration(array('scId'=>$month));
+			$data['totalpromocode_tracking_'.$i]   = AdminPromocode::get_dashboard_promocodeList_bytracking(array('scId'=>$month));
+		}
         /* End */
 
 

@@ -20,17 +20,29 @@
                 <div class="info-box-content">
                     <span class="info-box-text">PromoCode</span>
                     <strong>Registered:</strong>
-                    @if (count($totalpromocode_registered)>0)
-                        @foreach ($totalpromocode_registered as $clientsb1)
-                            {{$clientsb1->totalclient}} Codes
+                    @if (count($totalpromocode_registered_1)>0)
+                        @foreach ($totalpromocode_registered_1 as $tc1)
+                            {{$tc1->totalclient}}
+                        @endforeach
+                    @endif
+                    -
+                    @if (count($totalpromocode_registered_2)>0)
+                        @foreach ($totalpromocode_registered_2 as $tc2)
+                            {{$tc2->totalclient}}
                         @endforeach
                     @endif
 
                     <br>
                     <strong>Tracking:</strong>
-                    @if (count($totalpromocode_tracking)>0)
-                        @foreach ($totalpromocode_tracking as $clientsb2)
-                            {{$clientsb2->totaltracking}} Flights
+                    @if (count($totalpromocode_tracking_1)>0)
+                        @foreach ($totalpromocode_tracking_1 as $tc1)
+                            {{$tc1->totaltracking}}
+                        @endforeach
+                    @endif
+                    -
+                    @if (count($totalpromocode_tracking_2)>0)
+                        @foreach ($totalpromocode_tracking_2 as $tc2)
+                            {{$tc2->totaltracking}}
                         @endforeach
                     @endif
                 </div><!-- /.info-box-content -->
