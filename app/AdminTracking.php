@@ -18,7 +18,13 @@ class AdminTracking extends Model {
 
         if(count($qryArray)>0)  {
             if(isset($qryArray['scId']) && $qryArray['scId']>'0'){
+                $y = date("Y");
+                $m=$qryArray['scId'];
+                $today=$y."-".$m;
+                $start=$today."-01";
+                $final=$today."-31";
                 $aclist->select(DB::raw('count(flight.idFlights) as totaltracks'));
+                $aclist->whereBetween('codebagflights.date', [$start, $final]);
             }
             $aclist= $aclist->get();
             return $aclist;

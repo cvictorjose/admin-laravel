@@ -148,8 +148,11 @@ class AdminController extends Controller {
         /* End */
 
         /* Total Tracking */
-        $scid=1;
-        $data['total_Track']= AdminTracking::gettrackingList(array('scId'=>$scid));
+		for($i = 1; $i <= 2; $i++){
+			$month = date("m");
+			if ($i>1)$month=$month-1;
+			$data['total_Track_'.$i]= AdminTracking::gettrackingList(array('scId'=>$month));
+		}
         /* End */
 
 		/* Total Tracking Status S */
@@ -164,8 +167,6 @@ class AdminController extends Controller {
 		$scid2="02";
 		$data['top_airlines_dash2']= AdminTracking::get_top_airlines_dashboard($scid2);
 		/* End */
-
-
         return \View::make('admin.dashboard')->with('data', $data);
     }
 

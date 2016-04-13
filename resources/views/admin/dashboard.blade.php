@@ -41,14 +41,18 @@
                 <span class="info-box-icon bg-red"><i class="fa fa-bar-chart"></i></span>
                 <div class="info-box-content">TRACKING</span>
                     <span class="info-box-number">
-                        @if (count($total_Track)>0)
-                            @foreach ($total_Track as $clientsb4)
-                                {{$clientsb4->totaltracks}} Flights
+                        @if (count($total_Track_1)>0)
+                            @foreach ($total_Track_1 as $tc1)
+                                {{$tc1->totaltracks}} Flights
                             @endforeach
                         @endif
                       </span>
                       <span>
-                          3452 Flights
+                          @if (count($total_Track_2)>0)
+                              @foreach ($total_Track_2 as $tc2)
+                                  {{$tc2->totaltracks}} Flights
+                              @endforeach
+                          @endif
                       </span>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
