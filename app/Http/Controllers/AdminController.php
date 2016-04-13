@@ -114,8 +114,8 @@ class AdminController extends Controller {
         $this->middleware('auth');
 
         /* Top last activities users */
-        $lastactivities        = 1;
-        $data['topUsersList']  = AdminUser::getUserList(array('lastActivities'=>$lastactivities));
+        //$lastactivities        = 1;
+        //$data['topUsersList']  = AdminUser::getUserList(array('lastActivities'=>$lastactivities));
         /* End */
 
 
@@ -172,12 +172,22 @@ class AdminController extends Controller {
 		/* End */
 
 
+
+
+        /* Top Arrival airport for month */
+        $month = date("m");
+        $data['top_flights_dash']= AdminTracking::get_top_flights_dashboard($month);
+        $data['top_departure_dash']= AdminTracking::get_top_departure_dashboard($month);
+        $data['top_arrival_dash']= AdminTracking::get_top_arrival_dashboard($month);
+        /* End */
+
+
 		/* Top Airlines for month */
-		$scid="03";
-		$data['top_airlines_dash']= AdminTracking::get_top_airlines_dashboard($scid);
-		$scid2="02";
-		$data['top_airlines_dash2']= AdminTracking::get_top_airlines_dashboard($scid2);
+        $month = date("m");
+		$data['top_airlines_dash']= AdminTracking::get_top_airlines_dashboard($month);
 		/* End */
+
+
         return \View::make('admin.dashboard')->with('data', $data);
     }
 

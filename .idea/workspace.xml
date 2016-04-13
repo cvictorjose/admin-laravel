@@ -25,13 +25,20 @@
       <file leaf-file-name="dashboard.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47644928">
-              <caret line="101" column="53" selection-start-line="101" selection-start-column="53" selection-end-line="101" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.32702237">
+              <caret line="217" column="54" selection-start-line="217" selection-start-column="54" selection-end-line="217" selection-end-column="54" />
               <folding>
-                <element signature="e#7808#7827#0#HTML" expanded="true" />
-                <element signature="e#7961#7980#0#HTML" expanded="true" />
-                <element signature="e#8319#8337#0#HTML" expanded="true" />
-                <element signature="e#9073#9092#0#HTML" expanded="true" />
+                <element signature="e#277#324#0#HTML" expanded="true" />
+                <element signature="e#5217#5243#0#HTML" expanded="true" />
+                <element signature="e#5259#5306#0#HTML" expanded="true" />
+                <element signature="e#5728#5753#0#HTML" expanded="true" />
+                <element signature="e#5848#5867#0#HTML" expanded="true" />
+                <element signature="e#6903#6929#0#HTML" expanded="true" />
+                <element signature="e#7024#7043#0#HTML" expanded="true" />
+                <element signature="e#7980#8005#0#HTML" expanded="true" />
+                <element signature="e#8100#8119#0#HTML" expanded="true" />
+                <element signature="e#9041#9067#0#HTML" expanded="true" />
+                <element signature="e#9162#9181#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -40,28 +47,8 @@
       <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.192307">
-              <caret line="137" column="66" selection-start-line="137" selection-start-column="66" selection-end-line="137" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminClient.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/AdminClient.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.0">
-              <caret line="51" column="81" selection-start-line="51" selection-start-column="81" selection-end-line="51" selection-end-column="81" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminPromocode.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/AdminPromocode.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.269231">
-              <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+            <state vertical-scroll-proportion="-7.6538463">
+              <caret line="178" column="75" selection-start-line="178" selection-start-column="50" selection-end-line="178" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -70,8 +57,8 @@
       <file leaf-file-name="AdminTracking.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/AdminTracking.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.615385">
-              <caret line="85" column="43" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="43" />
+            <state vertical-scroll-proportion="-16.461538">
+              <caret line="160" column="113" selection-start-line="160" selection-start-column="113" selection-end-line="160" selection-end-column="113" />
               <folding />
             </state>
           </provider>
@@ -126,12 +113,12 @@
         <option value="$PROJECT_DIR$/resources/views/admin/promocodelist.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/includes/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/trackinglist.blade.php" />
-        <option value="$PROJECT_DIR$/app/AdminTracking.php" />
         <option value="$PROJECT_DIR$/app/AdminTransaction.php" />
         <option value="$PROJECT_DIR$/app/AdminPromocode.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
         <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/app/AdminClient.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/app/AdminTracking.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" />
       </list>
     </option>
@@ -211,7 +198,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -226,6 +213,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmsales2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmsales2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -721,22 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AdminTracking.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.615385">
-          <caret line="85" column="43" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.192307">
-          <caret line="137" column="66" selection-start-line="137" selection-start-column="66" selection-end-line="137" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7607573">
@@ -761,15 +758,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.6538463">
+          <caret line="178" column="75" selection-start-line="178" selection-start-column="50" selection-end-line="178" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AdminTracking.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.461538">
+          <caret line="160" column="113" selection-start-line="160" selection-start-column="113" selection-end-line="160" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47644928">
-          <caret line="101" column="53" selection-start-line="101" selection-start-column="53" selection-end-line="101" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.32702237">
+          <caret line="217" column="54" selection-start-line="217" selection-start-column="54" selection-end-line="217" selection-end-column="54" />
           <folding>
-            <element signature="e#7808#7827#0#HTML" expanded="true" />
-            <element signature="e#7961#7980#0#HTML" expanded="true" />
-            <element signature="e#8319#8337#0#HTML" expanded="true" />
-            <element signature="e#9073#9092#0#HTML" expanded="true" />
+            <element signature="e#277#324#0#HTML" expanded="true" />
+            <element signature="e#5217#5243#0#HTML" expanded="true" />
+            <element signature="e#5259#5306#0#HTML" expanded="true" />
+            <element signature="e#5728#5753#0#HTML" expanded="true" />
+            <element signature="e#5848#5867#0#HTML" expanded="true" />
+            <element signature="e#6903#6929#0#HTML" expanded="true" />
+            <element signature="e#7024#7043#0#HTML" expanded="true" />
+            <element signature="e#7980#8005#0#HTML" expanded="true" />
+            <element signature="e#8100#8119#0#HTML" expanded="true" />
+            <element signature="e#9041#9067#0#HTML" expanded="true" />
+            <element signature="e#9162#9181#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

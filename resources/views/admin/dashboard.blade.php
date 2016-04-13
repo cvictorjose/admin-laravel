@@ -2,18 +2,16 @@
 @extends('admin.app')
 @section('header')
     <h1>
-        Tracking List
+        DashBoard
         <small>Safe-bag Admin</small>
     </h1>
-    <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-files-o"></i> Home</a></li>
-        <li class="active">Tracking </li>
-        <li class="active">Tracking List</li>
-    </ol>
+
 @endsection
 @section('content')
 
     <div class="row">
+        <div style="padding-bottom: 5px; padding-left:15px;" class="text-bold text-uppercaInfse">STATS - Month
+            04/03</div>
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
                 <span class="info-box-icon bg-aqua"><i class="fa fa-gift"></i></span>
@@ -122,6 +120,128 @@
 
 
 
+
+
+    <div class="row panel panel-default" style="padding-top: 15px;">
+
+        <div style="padding-bottom: 5px; padding-left:15px;" class="text-bold text-uppercase">Information About Tracking
+            SafeBag24 - Month 04</div>
+
+        <div class="col-md-4">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Top Flights - Tracking</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <table class="table table-striped" style="font-size:smaller">
+                        <tbody>
+                        <tr>
+                            <th style="width: 10px">Total</th>
+                            <th>From</th>
+                            <th>To</th>
+                        </tr>
+                        @if (count($top_flights_dash)>0)
+                            @foreach ($top_flights_dash as $tf)
+                                <tr>
+                                    <td>{{$tf->total}}</td>
+                                    <td>{{$tf->fromAirport}}</td>
+                                    <td>{{$tf->toAirport}}</td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody></table>
+                </div><!-- /.box-body -->
+            </div>
+        </div><!-- /.col -->
+
+
+
+
+        <div class="col-md-3">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Top Departure - Track</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <table class="table table-striped" style="font-size: smaller">
+                        <tbody>
+                        <tr>
+                            <th style="width: 10px">Total</th>
+
+                            <th>From Airport</th>
+                        </tr>
+                        @if (count($top_departure_dash)>0)
+                            @foreach ($top_departure_dash as $td)
+                                <tr>
+                                    <td>{{$td->total}}</td>
+
+                                    <td>{{$td->city}}</td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody></table>
+                </div><!-- /.box-body -->
+            </div>
+        </div><!-- /.col -->
+
+        <div class="col-md-3">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Top Arrival - Tracking</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <table class="table table-striped" style="font-size:smaller">
+                        <tbody>
+                        <tr>
+                            <th style="width: 10px">Total</th>
+
+                            <th>To Airport</th>
+                        </tr>
+                        @if (count($top_arrival_dash)>0)
+                            @foreach ($top_arrival_dash as $ta)
+                                <tr>
+                                    <td>{{$ta->total}}</td>
+
+                                    <td>{{$ta->city}}</td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody></table>
+                </div><!-- /.box-body -->
+            </div>
+        </div><!-- /.col -->
+
+
+        <div class="col-md-2">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Top Airlines</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <table class="table table-striped" style="font-size: x-small">
+                        <tbody>
+                        <tr>
+                            <th style="width: 10px">Total</th>
+                            <th>Airline</th>
+                        </tr>
+                        @if (count($top_airlines_dash)>0)
+                            @foreach ($top_airlines_dash as $topairlines)
+                                <tr>
+                                    <td>{{$topairlines->total}}</td>
+                                    <td>{{$topairlines->name_airline."-".$topairlines->code_airline}}</td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody></table>
+                </div><!-- /.box-body -->
+            </div>
+
+        </div><!-- /.col -->
+
+    </div><!-- /.row (main row) -->
+
+
+
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
@@ -164,64 +284,6 @@
                 </div><!-- /.box-body -->
             </div><!-- /.row (box) -->
         </div><!-- /.row (col) -->
-    </div><!-- /.row (main row) -->
-
-    <div class="row">
-        <div class="col-md-4">
-            <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">Status Flight - Tracking</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body no-padding">
-                    <table class="table table-striped">
-                        <tbody><tr>
-                            <th style="width: 10px">03/02</th>
-                            <th>Device</th>
-                            <th>Entrance</th>
-                            <th style="width: 40px">Label</th>
-                        </tr>
-                        <tr>
-                            <td>120/123</td>
-                            <td>IOS</td>
-                            <td>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 15%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-red">15%</span></td>
-                        </tr>
-
-                        </tbody></table>
-                </div><!-- /.box-body -->
-            </div>
-        </div><!-- /.col -->
-
-        <div class="col-md-3">
-            <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">Top Departure - Tracking</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body no-padding">
-                    <table class="table table-striped">
-                        <tbody>
-                        <tr>
-                            <th style="width: 10px">Total</th>
-                            <th>Code</th>
-                            <th>Airline</th>
-                        </tr>
-                        @if (count($top_airlines_dash)>0)
-                            @foreach ($top_airlines_dash as $topairlines)
-                                <tr>
-                                    <td>{{$topairlines->total}}</td>
-                                    <td>{{$topairlines->code_airline}}</td>
-                                    <td>{{$topairlines->name_airline}}</td>
-                                </tr>
-                            @endforeach
-                        @endif
-                        </tbody></table>
-                </div><!-- /.box-body -->
-            </div>
-        </div><!-- /.col -->
     </div><!-- /.row (main row) -->
 
     <script type="text/javascript">
