@@ -143,8 +143,11 @@ class AdminController extends Controller {
 
 
         /* Total Transactions */
-        $scid=1;
-        $data['total_transactions']= AdminTransaction::getTransactionList(array('scId'=>$scid));
+		for($i = 1; $i <= 2; $i++){
+			$month = date("m");
+			if ($i>1)$month=$month-1;
+			$data['total_transactions_'.$i]= AdminTransaction::getTransactionList(array('scId'=>$month));
+		}
         /* End */
 
         /* Total Tracking */

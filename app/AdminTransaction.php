@@ -16,7 +16,13 @@ class AdminTransaction extends Model {
             ->join('claims_client', 'sfb_transaction.idclient', '=', 'claims_client.idclient');
             if(count($qryArray)>0)  {
                 if(isset($qryArray['scId']) && $qryArray['scId']>'0'){
+                    $y = date("Y");
+                    $m=$qryArray['scId'];
+                    $today=$y."-".$m;
+                    $start=$today."-01";
+                    $final=$today."-31";
                     $aclist->select(DB::raw('count(sfb_transaction.idclient) as totaltrans'));
+                    $aclist->whereBetween('sfb_transaction.date', [$start, $final]);
                 }
                 $aclist= $aclist->get();
                 return $aclist;

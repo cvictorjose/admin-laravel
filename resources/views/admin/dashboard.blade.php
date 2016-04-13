@@ -67,14 +67,18 @@
                 <div class="info-box-content">
                     <span class="info-box-text">Trasactions</span>
                     <span class="info-box-number">
-                        @if (count($total_transactions)>0)
-                            @foreach ($total_transactions as $clientsb3)
-                                {{$clientsb3->totaltrans}} Payments
+                        @if (count($total_transactions_1)>0)
+                            @foreach ($total_transactions_1 as $tc1)
+                                {{$tc1->totaltrans}} Payments
                             @endforeach
                         @endif
                     </span>
                     <span>
-                      345 Payments
+                      @if (count($total_transactions_2)>0)
+                            @foreach ($total_transactions_2 as $tc2)
+                                {{$tc2->totaltrans}} Payments
+                            @endforeach
+                        @endif
                   </span>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->

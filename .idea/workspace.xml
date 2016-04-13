@@ -22,26 +22,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dashboard.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashboard.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.5454545">
-              <caret line="41" column="54" selection-start-line="41" selection-start-column="54" selection-end-line="41" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.4311594">
+              <caret line="71" column="38" selection-start-line="71" selection-start-column="38" selection-end-line="71" selection-end-column="38" />
               <folding>
-                <element signature="e#6908#6927#0#HTML" expanded="true" />
-                <element signature="e#7061#7080#0#HTML" expanded="true" />
-                <element signature="e#7419#7437#0#HTML" expanded="true" />
-                <element signature="e#8173#8192#0#HTML" expanded="true" />
+                <element signature="e#7126#7145#0#HTML" expanded="true" />
+                <element signature="e#7279#7298#0#HTML" expanded="true" />
+                <element signature="e#7637#7655#0#HTML" expanded="true" />
+                <element signature="e#8391#8410#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1227437">
-              <caret line="149" column="28" selection-start-line="149" selection-start-column="28" selection-end-line="149" selection-end-column="28" />
+            <state vertical-scroll-proportion="-4.6792455">
+              <caret line="148" column="69" selection-start-line="148" selection-start-column="69" selection-end-line="148" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -50,8 +50,8 @@
       <file leaf-file-name="AdminTransaction.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/AdminTransaction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.384615">
-              <caret line="23" column="116" selection-start-line="23" selection-start-column="116" selection-end-line="23" selection-end-column="116" />
+            <state vertical-scroll-proportion="-15.038462">
+              <caret line="24" column="84" selection-start-line="24" selection-start-column="84" selection-end-line="24" selection-end-column="84" />
               <folding />
             </state>
           </provider>
@@ -60,8 +60,8 @@
       <file leaf-file-name="AdminTracking.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/AdminTracking.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="16.23077">
-              <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+            <state vertical-scroll-proportion="-10.576923">
+              <caret line="26" column="79" selection-start-line="25" selection-start-column="16" selection-end-line="26" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -110,7 +110,6 @@
         <option value="$PROJECT_DIR$/config/constants.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/promocodetrackinglist.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/transactionlist.blade.php" />
-        <option value="$PROJECT_DIR$/app/AdminTransaction.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminDownloadController.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/public/js/promocode.js" />
@@ -120,9 +119,10 @@
         <option value="$PROJECT_DIR$/resources/views/includes/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/app/AdminPromocode.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/trackinglist.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" />
         <option value="$PROJECT_DIR$/app/AdminTracking.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/app/AdminTransaction.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" />
       </list>
     </option>
   </component>
@@ -765,40 +765,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.6792455">
+          <caret line="148" column="69" selection-start-line="148" selection-start-column="69" selection-end-line="148" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/AdminTracking.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="16.23077">
-          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+        <state vertical-scroll-proportion="-10.576923">
+          <caret line="26" column="79" selection-start-line="25" selection-start-column="16" selection-end-line="26" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/AdminTransaction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.384615">
-          <caret line="23" column="116" selection-start-line="23" selection-start-column="116" selection-end-line="23" selection-end-column="116" />
+        <state vertical-scroll-proportion="-15.038462">
+          <caret line="24" column="84" selection-start-line="24" selection-start-column="84" selection-end-line="24" selection-end-column="84" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5454545">
-          <caret line="41" column="54" selection-start-line="41" selection-start-column="54" selection-end-line="41" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.4311594">
+          <caret line="71" column="38" selection-start-line="71" selection-start-column="38" selection-end-line="71" selection-end-column="38" />
           <folding>
-            <element signature="e#6908#6927#0#HTML" expanded="true" />
-            <element signature="e#7061#7080#0#HTML" expanded="true" />
-            <element signature="e#7419#7437#0#HTML" expanded="true" />
-            <element signature="e#8173#8192#0#HTML" expanded="true" />
+            <element signature="e#7126#7145#0#HTML" expanded="true" />
+            <element signature="e#7279#7298#0#HTML" expanded="true" />
+            <element signature="e#7637#7655#0#HTML" expanded="true" />
+            <element signature="e#8391#8410#0#HTML" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1227437">
-          <caret line="149" column="28" selection-start-line="149" selection-start-column="28" selection-end-line="149" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
