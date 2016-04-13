@@ -120,18 +120,18 @@ class AdminController extends Controller {
 
 
 		/* Recently Added Airports */
-		$lastairports           = 1;
-		$data['lastAirports']   = AdminAirports::getAirportsList(array('lastAirports'=>$lastairports));
+		//$lastairports           = 1;
+		//$data['lastAirports']   = AdminAirports::getAirportsList(array('lastAirports'=>$lastairports));
 		/* End */
 
 		/* Recently Added Airlines */
-		$lastairlines           = 1;
-		$data['lastAirlines']   = AdminAirlines::getAirlinesList(array('lastAirlines'=>$lastairlines));
+		//$lastairlines           = 1;
+		//$data['lastAirlines']   = AdminAirlines::getAirlinesList(array('lastAirlines'=>$lastairlines));
 		/* End */
 
 
 		/* Total Clients + Nationality */
-		$data['totalclient']   = AdminClient::getNationalityList();
+		//$data['totalclient']   = AdminClient::getNationalityList();
         $data['totalclientsb']   = AdminClient::getTotalClientList();
 		/* End */
 
@@ -151,6 +151,19 @@ class AdminController extends Controller {
         $scid=1;
         $data['total_Track']= AdminTracking::gettrackingList(array('scId'=>$scid));
         /* End */
+
+		/* Total Tracking Status S */
+		$scid="S";
+		$data['total_track_scheduled']= AdminTracking::get_top_track_scheduled_dashboard($scid);
+		/* End */
+
+
+		/* Top Airlines for month */
+		$scid="03";
+		$data['top_airlines_dash']= AdminTracking::get_top_airlines_dashboard($scid);
+		$scid2="02";
+		$data['top_airlines_dash2']= AdminTracking::get_top_airlines_dashboard($scid2);
+		/* End */
 
 
         return \View::make('admin.dashboard')->with('data', $data);

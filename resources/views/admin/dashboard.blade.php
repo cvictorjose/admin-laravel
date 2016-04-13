@@ -1,18 +1,22 @@
+<?php foreach($data as $k=>$v) $$k=$v;  $status_flight    =  config('constants.fStatus');?>
 @extends('admin.app')
 @section('header')
-<h1>Dashboard <small>Safe Bag Admin</small></h1>
-<ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Dashboard</li>
-</ol>
+    <h1>
+        Tracking List
+        <small>Safe-bag Admin</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-files-o"></i> Home</a></li>
+        <li class="active">Tracking </li>
+        <li class="active">Tracking List</li>
+    </ol>
 @endsection
-<?php foreach($data as $k=>$v) $$k=$v; ?>
 @section('content')
-    <!-- Info boxes -->
+
     <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-aqua"><i class="ion ion-plane"></i></span>
+                <span class="info-box-icon bg-aqua"><i class="fa fa-gift"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">PromoCode</span>
                     <strong>Registered:</strong>
@@ -35,14 +39,16 @@
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
                 <span class="info-box-icon bg-red"><i class="fa fa-bar-chart"></i></span>
-                <div class="info-box-content">Tracking</span>
-
+                <div class="info-box-content">TRACKING</span>
                     <span class="info-box-number">
                         @if (count($total_Track)>0)
                             @foreach ($total_Track as $clientsb4)
-                            {{$clientsb4->totaltracks}} Flights
+                                {{$clientsb4->totaltracks}} Flights
                             @endforeach
                         @endif
+                      </span>
+                      <span>
+                          3452 Flights
                       </span>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
@@ -53,17 +59,19 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+                <span class="info-box-icon bg-green"><i class="fa fa-eur"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Trasactions</span>
                     <span class="info-box-number">
-
                         @if (count($total_transactions)>0)
                             @foreach ($total_transactions as $clientsb3)
                                 {{$clientsb3->totaltrans}} Payments
                             @endforeach
                         @endif
                     </span>
+                    <span>
+                      345 Payments
+                  </span>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
         </div><!-- /.col -->
@@ -71,148 +79,129 @@
             <div class="info-box">
                 <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">
-                        Clients:
+                    <span class="info-box-text">Registration</span>
+                    <span class="info-box-number">
                         @if (count($totalclientsb)>0)    <?php $i = 0; ?>
-                            @foreach ($totalclientsb as $clientsb)  <?php $i++; ?>
-                                {{$clientsb->total}}
-                            @endforeach
+                        @foreach ($totalclientsb as $clientsb)  <?php $i++; ?>
+                        {{$clientsb->total}} new users
+                        @endforeach
                         @endif
-                      </span>
-                         @if (count($totalclient)>0)    <?php $i = 0; ?>
-                            @foreach ($totalclient as $client)  <?php $i++; ?>
-                            - <strong>{{ strtoupper($client->nationality)}} </strong> {{$client->nat}}
-                            @endforeach
-                        @endif
+                   </span>
+                  <span>
+                      345 users
+                  </span>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
         </div><!-- /.col -->
     </div><!-- /.row -->
 
-    <!-- Main row -->
+
+
     <div class="row">
-        <!-- Left col -->
-        <div class="col-md-5">
-            <!-- MAP & BOX PANE -->
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- TOP LAST ACTIVITIES USERS LIST -->
-                    <div class="box box-danger">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Top Last Activities Users SafeBag</h3>
-                            <div class="box-tools pull-right">
-                                <!--span class="label label-danger">8 New Members</span-->
-                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                                <!--button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button-->
-                            </div>
-                        </div><!-- /.box-header -->
-                        <div class="box-body no-padding">
-                            <ul class="users-list clearfix">
-                                @if (count($topUsersList)>0)
-                                @foreach ($topUsersList as $user)
-                                    <li>
-                                        @if($user->profile_picture != '')
-                                            <img src="{{ asset('/adminpictures') }}/{{ $user->profile_picture }}" alt="User Image" style="height:100px;"/>
-                                        @else
-                                            <img src="{{ asset('public/images/blank-male.jpg') }}" alt="User Image" style="height:100px;"/>
-                                        @endif
-                                        <a class="users-list-name" href="#">{{ $user->f_name }} &nbsp; {{ $user->l_name }}</a>
-                                        <span class="users-list-date"><?php echo date("d,M. Y", strtotime($user->last_login)); ?></span>
-                                    </li>
-                                @endforeach
-                                @endif
-                            </ul><!-- /.users-list -->
-                        </div><!-- /.box-body -->
-                        <div class="box-footer text-center">
-                            <a href="{{ URL::to('admin/userlist') }}" class="uppercase">View All Users</a>
-                        </div><!-- /.box-footer -->
-                    </div><!--/.box -->
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-            <!-- TABLE: LATEST ORDERS -->
-
-        </div><!-- /.col -->
-
-        <div class="col-md-3">
-
-        <div class="box box-info">
-            <div class="box-header with-border">
-                <h3 class="box-title">Recently Added Airlines</h3>
-                <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                </div>
-            </div><!-- /.box-header -->
-            <div class="box-body">
-                <div class="table-responsive">
-                    <table class="table no-margin">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Flights with Status Scheduled - Tracking </h3>
+                </div><!-- /.box-header -->
+                <div class="box-body"  id="table_filtered_content">
+                    <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Country</th>
+                            <th>Id</th>
+                            <th>Code</th>
+                            <th style="width: 200px;">Client</th>
+                            <th>Flight</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Status</th>
+                            <th style="width: 200px;">Departure Date</th>
+                            <th style="width: 200px;">Arrival Date</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @if (count($lastAirlines)>0)    <?php $i = 0; ?>
-                            @foreach ($lastAirlines as $airlines)  <?php $i++; ?>
+                        <?php $i = 0;  ?>
+                        @foreach ($total_track_scheduled as $content)
+                            <?php $i++; ?>
                             <tr>
-                                <td>{{ $airlines->name_airline }}</td>
-                                <td>{{ $airlines->country_airline }}</td>
+                                <td>{{ $i }}</td>
+                                <td>{{ $content->card_number }}</td>
+                                <td>{{ $content->name." ". $content->surname }}</td>
+                                <td>{{ $content->company." ".$content->number }}</td>
+                                <td>{{ $content->fromAirport }}</td>
+                                <td>{{ $content->toAirport }}</td>
+                                <td>{{ $status_flight[$content->status] }}</td>
+                                <td>{{ $content->departureDayLocal }}</td>
+                                <td>{{ $content->arrivalDayLocal }}</td>
                             </tr>
-                            @endforeach
-                        @endif
+                        @endforeach
                         </tbody>
                     </table>
-                </div><!-- /.table-responsive -->
-            </div><!-- /.box-body -->
-            <div class="box-footer text-center">
-                <a href="{{ URL::to('admin/airlineslist') }}" class="uppercase">View All Airlines</a>
-            </div><!-- /.box-footer -->
-        </div><!-- /.box -->
-        </div>
-
-        <div class="col-md-4">
-            <!-- TABLE: LATEST ORDERS -->
-            <div class="box box-info">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Recently Added Airports</h3>
-                    <div class="box-tools pull-right">
-                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        <!--button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button-->
-                    </div>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                    <div class="table-responsive">
-                        <table class="table no-margin">
-                            <thead>
-                            <tr>
-                                <th>Iata</th>
-                                <th>Airport
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @if (count($lastAirports)>0)    <?php $i = 0; ?>
-                            @foreach ($lastAirports as $ports)  <?php $i++; ?>
-                            <tr>
-                                <td>{{ $ports->iata }}</td>
-                                <td>{{ $ports->city }}</td>
-                            </tr>
-                            @endforeach
-                            @endif
-                            </tbody>
-                        </table>
-                    </div><!-- /.table-responsive -->
                 </div><!-- /.box-body -->
-                <div class="box-footer text-center">
-                    <a href="{{ URL::to('admin/airportslist') }}" class="uppercase">View All Airports</a>
-                </div><!-- /.box-footer -->
-            </div><!-- /.box -->
+            </div><!-- /.row (box) -->
+        </div><!-- /.row (col) -->
+    </div><!-- /.row (main row) -->
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Status Flight - Tracking</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <table class="table table-striped">
+                        <tbody><tr>
+                            <th style="width: 10px">03/02</th>
+                            <th>Device</th>
+                            <th>Entrance</th>
+                            <th style="width: 40px">Label</th>
+                        </tr>
+                        <tr>
+                            <td>120/123</td>
+                            <td>IOS</td>
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 15%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-red">15%</span></td>
+                        </tr>
+
+                        </tbody></table>
+                </div><!-- /.box-body -->
+            </div>
         </div><!-- /.col -->
 
+        <div class="col-md-3">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Top Departure - Tracking</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th style="width: 10px">Total</th>
+                            <th>Code</th>
+                            <th>Airline</th>
+                        </tr>
+                        @if (count($top_airlines_dash)>0)
+                            @foreach ($top_airlines_dash as $topairlines)
+                                <tr>
+                                    <td>{{$topairlines->total}}</td>
+                                    <td>{{$topairlines->code_airline}}</td>
+                                    <td>{{$topairlines->name_airline}}</td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody></table>
+                </div><!-- /.box-body -->
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row (main row) -->
 
-
-    </div><!-- /.row -->
+    <script type="text/javascript">
+        $(function () {
+            $("#example1").dataTable();
+        });
+    </script>
 @endsection
-
-
-
-

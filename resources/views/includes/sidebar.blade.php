@@ -50,7 +50,7 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ URL::to('admin/promocodelist') }}"><i class="fa fa-list"></i> List All
+                    <li><a href="{{ URL::to('admin/promocodelist') }}"><i class="fa fa-list"></i> Search
                             PromoCode</a></li>
                     <li><a href="{{ URL::to('admin/promocoderegistrationlist') }}"><i class="fa fa-list"></i> Code -
                             Registration</a></li>

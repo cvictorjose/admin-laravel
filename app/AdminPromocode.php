@@ -17,7 +17,7 @@ class AdminPromocode extends Model {
         $wheredata      = array();
         $aclist         = DB::table('sfb_promocode');
         $aclist->orderBy('id', 'desc');
-        $aclist         = $aclist->take(500)->get();
+        $aclist         = $aclist->take(100)->get();
         return $aclist;
     }
 
