@@ -45,12 +45,12 @@ class AdminPromocode extends Model {
     public static function getPromocodeList_bytracking($qryArray=array()){
         $aclist         = array();
         $wheredata      = array();
-        $aclist         = DB::table('codebagflights')
-            ->join('sfb_smartcards', 'codebagflights.idCode', '=', 'sfb_smartcards.card_id')
+        $aclist         = DB::table('CodeBagFlights')
+            ->join('sfb_smartcards', 'CodeBagFlights.idCode', '=', 'sfb_smartcards.card_id')
             ->join('claims_client', 'sfb_smartcards.idclient', '=', 'claims_client.idclient')
-            ->join('flight', 'codebagflights.idFlights', '=', 'flight.idFlights')
+            ->join('Flight', 'CodeBagFlights.idFlights', '=', 'Flight.idFlights')
             ->join('sfb_promocode', 'claims_client.idclient', '=', 'sfb_promocode.id_used_by')
-            ->select('codebagflights.*', 'sfb_smartcards.*', 'claims_client.*', 'flight.*','sfb_promocode.*') ;
+            ->select('CodeBagFlights.*', 'sfb_smartcards.*', 'claims_client.*', 'Flight.*','sfb_promocode.*') ;
         $aclist->orderBy('sfb_promocode.date', 'desc');
         $aclist         = $aclist->get();
         return $aclist;
@@ -62,20 +62,17 @@ class AdminPromocode extends Model {
      * return:
      * desc:    Total clients - registered code admin
      */
-    public static function get_dashboard_promocodeList_byregistration($qryArray=array()){
+    public static function get_dashboard_promocodeList_byregistration($code){
         $aclist         = array();
         $wheredata      = array();
-
         $y = date("Y");
-        $m=$qryArray['scId'];
-        $today=$y."-".$m;
-        $start=$today."-01";
-        $final=$today."-31";
-
-        $aclist         = DB::table('sfb_promocode')
+        $aclist= DB::table('sfb_promocode')
             ->join('claims_client', 'sfb_promocode.id_used_by', '=', 'claims_client.idclient')
-            ->select(DB::raw('count(claims_client.idclient) as totalclient'));
-        $aclist->whereBetween('sfb_promocode.date', [$start, $final]);
+            ->select(DB::raw('count(*) as total, MONTH(sfb_promocode.date) as month'));
+        $aclist->where('sfb_promocode.date', 'like', '%'.$y.'-%');
+        $aclist->where('sfb_promocode.promocode', 'like', '%'.$code.'%');
+
+        $aclist->groupBy('month');
         $aclist         = $aclist->get();
         return $aclist;
     }
@@ -97,13 +94,13 @@ class AdminPromocode extends Model {
         $start=$today."-01";
         $final=$today."-31";
 
-        $aclist         = DB::table('codebagflights')
-            ->join('sfb_smartcards', 'codebagflights.idCode', '=', 'sfb_smartcards.card_id')
+        $aclist         = DB::table('CodeBagFlights')
+            ->join('sfb_smartcards', 'CodeBagFlights.idCode', '=', 'sfb_smartcards.card_id')
             ->join('claims_client', 'sfb_smartcards.idclient', '=', 'claims_client.idclient')
-            ->join('flight', 'codebagflights.idFlights', '=', 'flight.idFlights')
+            ->join('Flight', 'CodeBagFlights.idFlights', '=', 'Flight.idFlights')
             ->join('sfb_promocode', 'claims_client.idclient', '=', 'sfb_promocode.id_used_by')
             ->select(DB::raw('count(claims_client.idclient) as totaltracking'));
-        $aclist->whereBetween('codebagflights.date', [$start, $final]);
+        $aclist->whereBetween('CodeBagFlights.date', [$start, $final]);
         $aclist         = $aclist->get();
         return $aclist;
     }

@@ -113,10 +113,76 @@ class AdminController extends Controller {
     public function dashboard(){
         $this->middleware('auth');
 
-        /* Top last activities users */
-        //$lastactivities        = 1;
-        //$data['topUsersList']  = AdminUser::getUserList(array('lastActivities'=>$lastactivities));
+		/* Total Clients */
+            $data['total_client_sb24']   = AdminClient::get_dashboard_registration();
+        /* Total Clients + PromoCode */
+			$code="";
+            $data['total_client_with_promocode']   =AdminPromocode::get_dashboard_promocodeList_byregistration($code);
+		/* Total Clients + PromoCode VC */
+
+			$code_list =  array('VC' => 'VC','IV' => 'IV',);
+			foreach ($code_list as $tc1){
+				$data['total_client_with_promocode_'.$tc1]=AdminPromocode::get_dashboard_promocodeList_byregistration
+				($tc1);
+            }
+		/* End */
+
+
+
+
+
+        /* Total PromoCode registered + Tracking */
+		/*for($i = 1; $i <= 2; $i++){
+			$month = date("m");
+			if ($i>1)$month=$month-1;
+			$data['totalpromocode_registered_'.$i]   = AdminPromocode::get_dashboard_promocodeList_byregistration(array('scId'=>$month));
+			$data['totalpromocode_tracking_'.$i]   = AdminPromocode::get_dashboard_promocodeList_bytracking(array('scId'=>$month));
+		}*/
         /* End */
+
+
+        /* Total Transactions */
+		/*for($i = 1; $i <= 2; $i++){
+			$month = date("m");
+			if ($i>1)$month=$month-1;
+			$data['total_transactions_'.$i]= AdminTransaction::getTransactionList(array('scId'=>$month));
+		}*/
+        /* End */
+
+        /* Total Tracking */
+		/*for($i = 1; $i <= 2; $i++){
+			$month = date("m");
+			if ($i>1)$month=$month-1;
+			$data['total_Track_'.$i]= AdminTracking::gettrackingList(array('scId'=>$month));
+		}*/
+        /* End */
+
+		/* Total Tracking Status S */
+		/*$scid="S";
+		$data['total_track_scheduled']= AdminTracking::get_top_track_scheduled_dashboard($scid);*/
+		/* End */
+
+
+
+
+        /* Top Arrival airport for month */
+        /*$month = date("m");
+        $data['top_flights_dash']= AdminTracking::get_top_flights_dashboard($month);
+        $data['top_departure_dash']= AdminTracking::get_top_departure_dashboard($month);
+        $data['top_arrival_dash']= AdminTracking::get_top_arrival_dashboard($month);*/
+        /* End */
+
+
+		/* Top Airlines for month */
+        /*$month = date("m");
+		$data['top_airlines_dash']= AdminTracking::get_top_airlines_dashboard($month);*/
+		/* End */
+
+
+		/* Top last activities users */
+		//$lastactivities        = 1;
+		//$data['topUsersList']  = AdminUser::getUserList(array('lastActivities'=>$lastactivities));
+		/* End */
 
 
 		/* Recently Added Airports */
@@ -130,65 +196,8 @@ class AdminController extends Controller {
 		/* End */
 
 
-		/* Total Clients + Nationality */
-		//$data['totalclient']   = AdminClient::getNationalityList();
-		for($i = 1; $i <= 2; $i++){
-			$month = date("m");
-			if ($i>1)$month=$month-1;
-			$data['totalclientsb_'.$i]   = AdminClient::get_dashboard_registration(array('scId'=>$month));
-		}
-		/* End */
 
-
-        /* Total PromoCode registered + Tracking */
-		for($i = 1; $i <= 2; $i++){
-			$month = date("m");
-			if ($i>1)$month=$month-1;
-			$data['totalpromocode_registered_'.$i]   = AdminPromocode::get_dashboard_promocodeList_byregistration(array('scId'=>$month));
-			$data['totalpromocode_tracking_'.$i]   = AdminPromocode::get_dashboard_promocodeList_bytracking(array('scId'=>$month));
-		}
-        /* End */
-
-
-        /* Total Transactions */
-		for($i = 1; $i <= 2; $i++){
-			$month = date("m");
-			if ($i>1)$month=$month-1;
-			$data['total_transactions_'.$i]= AdminTransaction::getTransactionList(array('scId'=>$month));
-		}
-        /* End */
-
-        /* Total Tracking */
-		for($i = 1; $i <= 2; $i++){
-			$month = date("m");
-			if ($i>1)$month=$month-1;
-			$data['total_Track_'.$i]= AdminTracking::gettrackingList(array('scId'=>$month));
-		}
-        /* End */
-
-		/* Total Tracking Status S */
-		$scid="S";
-		$data['total_track_scheduled']= AdminTracking::get_top_track_scheduled_dashboard($scid);
-		/* End */
-
-
-
-
-        /* Top Arrival airport for month */
-        $month = date("m");
-        $data['top_flights_dash']= AdminTracking::get_top_flights_dashboard($month);
-        $data['top_departure_dash']= AdminTracking::get_top_departure_dashboard($month);
-        $data['top_arrival_dash']= AdminTracking::get_top_arrival_dashboard($month);
-        /* End */
-
-
-		/* Top Airlines for month */
-        $month = date("m");
-		$data['top_airlines_dash']= AdminTracking::get_top_airlines_dashboard($month);
-		/* End */
-
-
-        return \View::make('admin.dashboard')->with('data', $data);
+		return \View::make('admin.dashboard')->with('data', $data);
     }
 
 

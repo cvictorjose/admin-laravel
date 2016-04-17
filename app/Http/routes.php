@@ -10,7 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+/*Event::listen('illuminate.query', function($query)
+{
+    var_dump($query);
+});*/
 
 Route::get('/', 'AdminController@login');
 

@@ -29,29 +29,25 @@ class AdminClient extends Model
 
 
     /*
-        * name:    getTotalClientList
-        * params:  $array
-        * return:
-        * desc:    get the List of Clients  SafeBag
-        */
-    public static function  get_dashboard_registration($qryArray=array()){
-    {
-        $aclist         = array();
-        $wheredata      = array();
-
-        $y = date("Y");
-        $m=$qryArray['scId'];
-        $today=$y."-".$m;
-        $start=$today."-01";
-        $final=$today."-31";
-
-        $aclist= DB::table('codebagflights')
-            ->join('sfb_smartcards', 'codebagflights.idCode', '=', 'sfb_smartcards.card_id')
-            ->join('claims_client', 'sfb_smartcards.idclient', '=', 'claims_client.idclient')
-            ->select(DB::raw('count(claims_client.idclient) as total'));
-        $aclist->whereBetween('claims_client.usr_signup_date', [$start, $final]);
-        $aclist = $aclist->get();
-        return $aclist;
-    }
+    * name:    getTotalClientList
+    * params:  $array
+    * return:
+    * desc:    get the List of Clients  SafeBag
+    */
+    public static function  get_dashboard_registration(){
+        {
+            $y = date("Y");
+            $aclist= DB::table('CodeBagFlights')
+                ->join('sfb_smartcards', 'CodeBagFlights.idCode', '=', 'sfb_smartcards.card_id')
+                ->join('claims_client', 'sfb_smartcards.idclient', '=', 'claims_client.idclient')
+                ->select(DB::raw('count(*) as total, MONTH(claims_client.usr_signup_date) as month'));
+            $aclist->where('claims_client.usr_signup_date', 'like', '%'.$y.'-%');
+            $aclist->groupBy('month');
+            $aclist = $aclist->get();
+            return $aclist;
+        }
    }
+
+
+
 }
