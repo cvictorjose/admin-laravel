@@ -90,6 +90,69 @@ $conf_moths    =  config('constants.acMonths');
                     </table>
                 </div><!-- /.box-body -->
             </div><!-- /.row (box) -->
+
+
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Credits</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body"  id="table_filtered_content">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th style="width: 300px;">Description</th>
+                            <th style="width: 300px;">xxx</th>
+                            <th style="width: 300px;">Usati</th>
+                            <th style="width: 300px;">non usati</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Total</td>
+                            <td>xx</td>
+                            <td>
+
+                            </td>
+                            <td>x</td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td>Free Services</td>
+                            <td>
+                                <?php
+                                echo $total_promocode=$total_promocode[0]->total;
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                echo $total_promocode_used=$total_promocode_used[0]->total;
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                echo $total_promocode_used=$total_promocode-$total_promocode_used;
+                                ?>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Pay Services</td>
+                            <td>
+
+                            </td>
+                            <td>
+
+
+                            </td>
+                            <td>x</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- /.row (box) -->
         </div><!-- /.row (col) -->
     </div><!-- /.row (main row) -->
 

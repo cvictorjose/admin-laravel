@@ -56,6 +56,19 @@ class AdminPromocode extends Model {
         return $aclist;
     }
 
+
+    /*
+     * name:    search_promocode
+     * params:  $code
+     * return:
+     * desc:    Search a promocode into Db
+     */
+    public static function search_promocode($code){
+        $aclist       = array();
+        $aclist = DB::table('sfb_promocode')->where('promocode', 'like', '%' .$code.'%')->get();
+        return $aclist;
+    }
+
     /*
      * name:    get_dashboard_promocodeList_byregistration
      * params:  $qryArray
@@ -76,6 +89,42 @@ class AdminPromocode extends Model {
         $aclist         = $aclist->get();
         return $aclist;
     }
+
+
+
+    /*
+    * name:    get_total_promocode
+    * params:  $qryArray
+    * return:
+    * desc:    Total promocode into market
+    */
+    public static function get_dashboard_total_promocode(){
+        $aclist         = array();
+        $aclist= DB::table('sfb_promocode')
+            ->select(DB::raw('count(*) as total'));
+        $aclist = $aclist->get();
+        return $aclist;
+    }
+
+
+    /*
+    * name:    get_total_promocode_used
+    * params:  $qryArray
+    * return:
+    * desc:    Total promocode into market
+    */
+    public static function get_dashboard_total_promocode_used(){
+        $aclist         = array();
+        $aclist= DB::table('sfb_promocode')
+            ->select(DB::raw('count(*) as total'));
+        $aclist->where('id_used_by', ">", "0");
+        $aclist = $aclist->get();
+        return $aclist;
+    }
+
+
+
+
 
 
     /*
@@ -107,16 +156,6 @@ class AdminPromocode extends Model {
 
 
 
-    /*
-     * name:    search_promocode
-     * params:  $code
-     * return:
-     * desc:    Search a promocode into Db
-     */
-    public static function search_promocode($code){
-        $aclist       = array();
-        $aclist = DB::table('sfb_promocode')->where('promocode', 'like', '%' .$code.'%')->get();
-        return $aclist;
-    }
+
 
 }

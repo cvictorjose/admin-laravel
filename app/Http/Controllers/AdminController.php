@@ -118,14 +118,20 @@ class AdminController extends Controller {
         /* Total Clients + PromoCode */
 			$code="";
             $data['total_client_with_promocode']   =AdminPromocode::get_dashboard_promocodeList_byregistration($code);
-		/* Total Clients + PromoCode VC */
 
+		/* Total Clients + PromoCode VC */
 			$code_list =  array('VC' => 'VC','IV' => 'IV',);
 			foreach ($code_list as $tc1){
 				$data['total_client_with_promocode_'.$tc1]=AdminPromocode::get_dashboard_promocodeList_byregistration
 				($tc1);
             }
 		/* End */
+
+
+        /* Total promocode */
+        $data['total_promocode']   = AdminPromocode::get_dashboard_total_promocode();
+        $data['total_promocode_used']   = AdminPromocode::get_dashboard_total_promocode_used();
+
 
 
 
