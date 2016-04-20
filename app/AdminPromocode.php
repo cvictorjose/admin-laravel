@@ -123,8 +123,45 @@ class AdminPromocode extends Model {
     }
 
 
+    /*
+    * name:    get_dashboard_total_numflights
+    * params:  $qryArray
+    * return:
+    * desc:    Total credits payed
+    */
+    public static function get_dashboard_total_numflights(){
+        $aclist         = array();
+        $aclist= DB::table('sfb_transaction')
+            ->select(DB::raw('sum(numflights) as total'));
+        $aclist = $aclist->get();
+        return $aclist;
+    }
 
 
+    /*
+    * name:    get_dashboard_total_numflights
+    * params:  $qryArray
+    * return:
+    * desc:    Total credits payed
+    */
+    public static function get_dashboard_total_numflights_used(){
+        $aclist         = array();
+        $wheredata      = array();
+        $aclist         = DB::table('CodeBagFlights')
+            ->join('sfb_smartcards', 'CodeBagFlights.idCode', '=', 'sfb_smartcards.card_id')
+            ->join('claims_client', 'sfb_smartcards.idclient', '=', 'claims_client.idclient')
+            ->select(DB::raw('count(claims_client.idclient) as total'));
+
+        $aclist->whereIn('claims_client.idclient', function($query)
+        {
+            $query->select('idclient')
+                ->from('sfb_transaction');
+        });
+
+        $aclist->where('CodeBagFlights.idFlights', '>', '0');
+        $aclist         = $aclist->get();
+        return $aclist;
+    }
 
 
     /*

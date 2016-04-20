@@ -34,4 +34,49 @@ class AdminTransaction extends Model {
     }
 
 
+
+    /*
+     * name:    get_dashboard_total_transactions
+     * params:  $qryArray
+     * return:
+     * desc:    Total transactions registered + total price for month
+     */
+    public static function get_dashboard_total_transactions(){
+        $aclist         = array();
+        $wheredata      = array();
+        $y = date("Y");
+        $aclist= DB::table('sfb_transaction')
+            ->select(DB::raw('MONTH(date) as month, sum(price) as total'));
+        $aclist->where('date', 'like', '%'.$y.'-%');
+        $aclist->groupBy('month');
+        $aclist= $aclist->get();
+        return $aclist;
+    }
+
+
+
+    /*
+     * name:    get_dashboard_total_transactions_by_numfights
+     * params:  $qryArray
+     * return:
+     * desc:    Total transactions registered + total price for month
+     */
+    public static function get_dashboard_total_transactions_by_numfights($num_flights){
+        $aclist         = array();
+        $wheredata      = array();
+        $y = date("Y");
+        $aclist= DB::table('sfb_transaction')
+            ->select(DB::raw('MONTH(date) as month, sum(price) as total, numflights'));
+        $aclist->where('date', 'like', '%'.$y.'-%');
+        $aclist->where('numflights', ''.$num_flights.'');
+        $aclist->groupBy('numflights','month');
+        $aclist->orderBy('month', 'ASC');
+        $aclist= $aclist->get();
+        return $aclist;
+    }
+
+
+
+
+
 }
