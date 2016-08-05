@@ -80,6 +80,19 @@
                 </ul>--}}
             </li>
 
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-credit-card"></i>
+                    <span>Partners</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ URL::to('admin/partnerslist') }}"><i class="fa fa-list"></i> List Partners </a></li>
+                    <li><a href="{{ URL::to('admin/partnersadd') }}"><i class="fa fa-plus-circle"></i></i> Add Partner </a></li>
+                </ul>
+            </li>
+
             <?php
             if ($access_menu<3){
             ?>
@@ -163,6 +176,21 @@
                             Point Sales</a></li>
                 </ul>
             </li>
+
+
+            <li class="header">CUSTOMER CARE</li>
+            <li class="treeview">
+                <a href="{{ URL::to('admin/cclist') }}">
+                    <i class="fa fa-bar-chart"></i>
+                    <span>Pratiche/Rimborsi</span>
+                </a>
+                {{--<ul class="treeview-menu">
+                    <li><a href="{{ URL::to('admin/trackinglist') }}"><i class="fa fa-list"></i> List All
+                            Tracking</a></li>
+                </ul>--}}
+            </li>
+
+
 
             <li class="header">OTHERS</li>
             <li class="treeview">

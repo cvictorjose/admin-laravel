@@ -37,8 +37,8 @@ class AdminClient extends Model
     public static function  get_dashboard_registration(){
         {
             $y = date("Y");
-            $aclist= DB::table('CodeBagFlights')
-                ->join('sfb_smartcards', 'CodeBagFlights.idCode', '=', 'sfb_smartcards.card_id')
+            $aclist= DB::table('sb24_CodeBagFlights')
+                ->join('sfb_smartcards', 'sb24_CodeBagFlights.idCode', '=', 'sfb_smartcards.card_id')
                 ->join('claims_client', 'sfb_smartcards.idclient', '=', 'claims_client.idclient')
                 ->select(DB::raw('count(*) as total, MONTH(claims_client.usr_signup_date) as month'));
             $aclist->where('claims_client.usr_signup_date', 'like', '%'.$y.'-%');

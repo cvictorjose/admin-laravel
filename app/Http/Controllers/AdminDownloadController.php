@@ -7,6 +7,7 @@ use Session;
 use \App\AdminUser;
 use \App\AdminPromocode;
 use \App\AdminTracking;
+use \App\AdminCc;
 
 use \Illuminate\Support\Facades\Input;
 use \Illuminate\Support\Facades\Redirect;
@@ -238,6 +239,122 @@ class AdminDownloadController extends Controller {
                     $client=$user->name." ". $user->surname;
                     array_push($datax, array($client, $user->email,
                         $user->paypal_id,$user->price,$user->currency,$user->device,$user->numflights,$user->date,$user->status));
+                }
+                $sheet->FromArray($datax, null, 'A1', false, false);
+            });
+        })->download('xls');
+    }
+
+
+
+    /*
+    * name:    download_all_refund
+    * params:
+    * return:
+    * desc:    Download  ALL refund list admin
+    */
+    public function download_all_refund(){
+        $usersList  = AdminCc::getCCList();
+
+        Excel::create('SB_All Refund Request', function($excel) use($usersList) {
+            $excel->sheet('All Refund Request List', function($sheet) use($usersList) {
+                $sheet->cells('A1:O1', function($cells) {
+                    // call cell manipulation methods
+                    $cells->setBackground('#f2f2f2');
+                    $cells->setFontWeight('bold');
+                });
+
+                $datax= [];
+                $head = array(
+                    'Id',
+                    'Codice Sinistro',
+                    'Cliente',
+                    'Nazione',
+                    'Servizio',
+                    'Scalo partenza',
+                    'Tipo sinistro',
+                    'Stato Pratica',
+                    'Data Partenza',
+                    'Apertura Pratica',
+                    'Conferma Quietanza',
+                    'Data pagamento',
+                    'Rimborso Richiesto',
+                    'Rimborso Airline',
+                    'Rimborso SafeBag'
+
+                );
+
+                $datax = array($head);
+                foreach ($usersList as $user){
+                    $stato_pratica   =  config('constants.stato_pratica');
+                    $client=$user->name." ". $user->surname;
+
+                    if($user->flight_reg_via==4){$type_service="SafeBag24";}else{
+                        if($user->smartcardcode != ''){ $type_service="Smart Track"; }else{$type_service="Wrapping";}
+                    }
+                    $data_partenza=date('Y-m-d', $user->depdate);
+                    $data_apertura=date('Y-m-d', $user->sigdate);
+                    $invio_quietanza="";
+                    if ($user->date_conferma_quietanza > 0)   $invio_quietanza=date('Y-m-d', $user->date_conferma_quietanza);
+                    $data_pagamento="";
+                    if ($user->payed > 0)   $data_pagamento=date('Y-m-d', $user->closuredate);
+
+                    $ctype = "";
+                    $total_ritardatac=0;$total_ritardatacd=0;$total_ritardatacf=0;
+                    $total_damaged=0;$total_damagedf=0;
+                    $total_lost=0;
+                    $total_nsop=0;
+                    $total_nsop_d=0;$total_nsop_df=0;
+                    $total_nsop_l=0;
+                    $total_nsop_r=0;$total_nsop_rd=0;$total_nsop_rf=0;
+
+
+                    $total_ritardatac=$user->rt;
+                    $total_ritardatacd=$user->rt_d;
+                    $total_ritardatacf=$user->rt_f;
+                    $total_damaged=$user->damaged;
+                    $total_damagedf=$user->damaged_f;
+                    $total_lost=$user->lost;
+                    $total_nsop=$user->nsop;
+                    $total_nsop_d=$user->op_damaged;
+                    $total_nsop_df=$user->op_damaged_f;
+                    $total_nsop_l=$user->op_lost;
+                    $total_nsop_r=$user->op_rt;
+                    $total_nsop_rd=$user->op_rt_d;
+                    $total_nsop_rf=$user->op_rt_f;
+
+                    if($total_ritardatac>0) $ctype .= "Rit.Consegna($total_ritardatac) " ;
+                    if($total_ritardatacd>0) $ctype .= "Rit.Consegna+Danno($total_ritardatacd) ";
+                    if($total_ritardatacf>0) $ctype .= "Rit.Consegna+Furto($total_ritardatacf) ";
+                    if($total_damaged>0) $ctype .= "Danno($total_damaged) ";
+                    if($total_damagedf>0) $ctype .= "Danno+Furto($total_damagedf) ";
+                    if($total_lost>0) $ctype .= "Smarrimento($total_lost) ";
+                    if($total_nsop>0) $ctype .= "Operatore($total_nsop) ";
+                    if($total_nsop_d>0) $ctype .= "Operatore + Danno($total_nsop_d) ";
+                    if($total_nsop_df>0) $ctype .= "Operatore + Danno + Furto($total_nsop_df) ";
+                    if($total_nsop_l>0) $ctype .= "Operatore + Smarrimento($total_nsop_l) ";
+                    if($total_nsop_r>0) $ctype .= "Operatore + Rit.Consegna($total_nsop_r) ";
+                    if($total_nsop_rd>0) $ctype .= "Operatore + Rit.Consegna + Danno($total_nsop_rd) ";
+                    if($total_nsop_rf>0) $ctype .= "Operatore + Rit.Consegna + Furto($total_nsop_rf) ";
+
+
+                    array_push($datax, array(
+                        $user->idclaim,
+                        $user->claimcode,
+                        $client,
+                        $user->nationality,
+                        $type_service,
+                        $user->depport,
+                        $ctype,
+                        $stato_pratica[$user->stato_sinistro],
+                        $data_partenza,
+                        $data_apertura,
+                        $invio_quietanza,
+                        $data_pagamento,
+                        $user->importo_richiesto,
+                        $user->paidbycom,
+                        $user->paidbyus
+                    ));
                 }
                 $sheet->FromArray($datax, null, 'A1', false, false);
             });

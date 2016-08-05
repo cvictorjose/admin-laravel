@@ -131,19 +131,19 @@ class AdminController extends Controller {
         /* Total promocode */
             $data['total_promocode']   = AdminPromocode::get_dashboard_total_promocode();
             $data['total_promocode_used']   = AdminPromocode::get_dashboard_total_promocode_used();
-            $data['total_numflights_payed']   = AdminPromocode::get_dashboard_total_numflights();
-            $data['total_numflights_payed_used']   = AdminPromocode::get_dashboard_total_numflights_used();
+            // $data['total_numflights_payed']   = AdminPromocode::get_dashboard_total_numflights();
+			//$data['total_numflights_payed_used']   = AdminPromocode::get_dashboard_total_numflights_used();
         /* End */
 
 
         /* Total promocode */
         $data['total_transactions']   = AdminTransaction::get_dashboard_total_transactions();
 
-        $code_list =  array('p1' => '1','p2' => '2','p10' => '10');
-        foreach ($code_list as $p){
-            $data['total_money_p'.$p]=AdminTransaction::get_dashboard_total_transactions_by_numfights
-            ($p);
-        }
+//        $code_list =  array('p1' => '1','p2' => '2','p10' => '10');
+//        foreach ($code_list as $p){
+//            $data['total_money_p'.$p]=AdminTransaction::get_dashboard_total_transactions_by_numfights
+//            ($p);
+//        }
         /* End */
 
 

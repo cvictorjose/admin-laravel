@@ -54,6 +54,20 @@ return [
         '11'=> 'Nov',
         '12'=> 'Dic'),
 
+
+    'stato_pratica'                =>  array(
+        '10' => 'Tutte',
+        '0' => 'Pratica aperta correttamente',
+        '1' => 'Modulo di Risarcimento inviato',
+        '2' => 'Raccolta documenti completata',
+        '3' => 'Modulo di quietanza inviato',
+        '4' => 'Modulo di quietanza approvato',
+        '5' => 'Rimborso Pagato',
+        '6' => 'Pratica di Risarcimento Chiusa',
+        '7' => 'Pratica di Risarcimento Chiusa per decorrenza dei termini',
+        '8' => 'Bagaglio ritrovato',
+        '9' => 'Pratica di Risarcimento in contenzioso'),
+
 ];
 
 

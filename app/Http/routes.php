@@ -132,6 +132,21 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('download_all_track',                'AdminDownloadController@download_all_track');
     Route::get('download_all_transactions',         'AdminDownloadController@download_all_transactions');
 
+    /* Partners Functionalities*/
+    Route::get('partnerslist',            'AdminPartnersController@partnerslist');
+    Route::get('partnersadd',             'AdminPartnersController@partnersadd');
+    Route::post('partnersadd',            'AdminPartnersController@partnersadd');
+    Route::post('partnercodecheck',       'AdminPartnersController@partnercodecheck');
+    Route::post('partnerschangetatus',    'AdminPartnersController@partnerschangetatus');
+    Route::get('editpartner/{id}',        'AdminPartnersController@editpartner')->where('id', '[0-9]+');
+    Route::post('editpartner/{id}',       'AdminPartnersController@editpartner')->where('id', '[0-9]+');
+
+    /* CC Functionalities*/
+    Route::get('cclist',            'AdminCCController@cclist');
+    Route::post('filtercclist',     'AdminCCController@filtercclist');
+    Route::get('download_all_refund',   'AdminDownloadController@download_all_refund');
+
+
 
 });
 
