@@ -29,11 +29,11 @@
                     <tr>
 
                         <th style="width: 200px;">Client</th>
-                        <th>Paypal ID</th>
+                        <th>Payment</th>
+                        <th>Id Transaction</th>
+                        <th>Auth</th>
                         <th>Price</th>
                         <th>Currency</th>
-                        <th>Device</th>
-                        <th>Num. Flights</th>
                         <th>Date</th>
                         <th>Status</th>
                     </tr>
@@ -45,12 +45,14 @@
                         <?php $i++; ?>
                         <tr>
                             <td>{{ $content->name." ". $content->surname }}</td>
-                            <td>{{ $content->paypal_id }}</td>
-                            <td>{{ $content->price }}</td>
+                            <td>{{ $content->type }}</td>
+                            <td>{{ $content->idtransaction }}</td>
+                            <td>{{ $content->processorauth }}</td>
+                            <td>{{ $content->amount }}</td>
                             <td>{{ $content->currency }}</td>
-                            <td>{{ $content->device }}</td>
-                            <td>{{ $content->numflights }}</td>
-                            <td>{{ $content->date }}</td>
+
+
+                            <td>{{ $content->created_at }}</td>
                             <td>{{ $content->status }}</td>
                          </tr>
                     @endforeach

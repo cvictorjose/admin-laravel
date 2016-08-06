@@ -28,7 +28,7 @@ class AdminTransaction extends Model {
                 return $aclist;
             }   else
             $aclist->select('sb24_transaction.*', 'claims_client.name', 'claims_client.surname', 'claims_client.email');
-            $aclist->orderBy('sb24_transaction.date', 'DESC');
+            $aclist->orderBy('sb24_transaction.created_at', 'DESC');
             $aclist = $aclist->get();
          return $aclist;
     }

@@ -226,19 +226,21 @@ class AdminDownloadController extends Controller {
                 $head = array(
                     'Client',
                     'Email',
-                    'Paypal ID',
+                    'Payment',
                     'Price',
                     'Currency',
-                    'Device',
-                    'Num. Flights',
+                    'Id Transaction',
+                    'Auth',
                     'Date',
                     'Status'
+
+
                 );
                 $datax = array($head);
                 foreach ($usersList as $user){
                     $client=$user->name." ". $user->surname;
                     array_push($datax, array($client, $user->email,
-                        $user->paypal_id,$user->price,$user->currency,$user->device,$user->numflights,$user->date,$user->status));
+                        $user->type,$user->amount,$user->currency,$user->idtransaction,$user->processorauth,$user->created_at,$user->status));
                 }
                 $sheet->FromArray($datax, null, 'A1', false, false);
             });
