@@ -8,7 +8,7 @@
     <ol class="breadcrumb">
         <li><a href="/"><i class="fa fa-files-o"></i> Home</a></li>
         <li class="active">Tracking </li>
-        <li class="active">Tracking List</li>
+        <li class="active"><a href="{{ URL::to('admin/trackinglist') }}">Tracking List</a></li>
     </ol>
 @endsection
 @section('content')

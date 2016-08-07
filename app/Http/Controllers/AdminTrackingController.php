@@ -31,6 +31,8 @@ class AdminTrackingController  extends Controller {
      */
     public function trackinglist(){
         $data['acList']         = AdminTracking::gettrackingList();
+       // var_dump($data['acList']);
+
         return \View::make('admin.trackinglist')->with('data', $data);
     }
 
