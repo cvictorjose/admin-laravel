@@ -43,19 +43,23 @@
                     <?php $i = 0;  if(empty($filter_lang))
                         $filter_lang    = "en";?>
                     @foreach ($acList as $content)
-                        <?php $i++; ?>
+                        <?php $i++;
+                        //echo $content->id_used_by."=".$content->idclient."<br>";
+
+                        if ($content->promocode != $content->uuid){
+                        ?>
                         <tr>
-                            <td>{{ $i }}</td>
+                            <td>{{ $content->id }}</td>
                             <td>{{ $content->promocode }}</td>
                             <td>{{ $content->name." ". $content->surname }}</td>
                             <td>{{ $content->email }}</td>
                             <td>{{ $content->os }}</td>
                             <td>{{ $content->mobile }}</td>
                             <td>{{ $content->nationality }}</td>
-
                             <td>{{  $content->credits }}</td>
                             <td>{{ $content->date }}</td>
                            </tr>
+                        <?php }?>
                     @endforeach
                     </tbody>
                 </table>

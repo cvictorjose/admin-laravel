@@ -31,7 +31,7 @@ class AdminTracking extends Model {
         }   else
 
         $aclist->select('sb24_CodeBagFlights.*', 'sfb_smartcards.*', 'claims_client.*', 'sb24_Flight.*') ;
-       
+
         $aclist->orderBy('sb24_CodeBagFlights.date', 'desc');
         $aclist         = $aclist->get();
 

@@ -28,13 +28,14 @@ class AdminPromocode extends Model {
         $aclist         = DB::table('sb24_promocode')
             ->join('claims_client', 'sb24_promocode.id_used_by', '=', 'claims_client.idclient')
             ->select('sb24_promocode.*', 'claims_client.*');
-
         if(count($qryArray)>0)  {
             if(isset($qryArray['acId']) && $qryArray['acId']>'0'){
                 $aclist->where('id_used_by', $qryArray['acId']);
                 $aclist->take(1);
             }
-        }   else $aclist->orderBy('date', 'desc');
+        }   else
+        $aclist->where('sb24_promocode.promocode', '!=', 'claims_client.uuid');
+        $aclist->orderBy('sb24_promocode.date', 'desc');
         $aclist         = $aclist->get();
         return $aclist;
     }
