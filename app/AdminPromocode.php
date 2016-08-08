@@ -15,7 +15,11 @@ class AdminPromocode extends Model {
     public static function getPromocodeList($qryArray=array()){
         $aclist         = array();
         $wheredata      = array();
-        $aclist         = DB::table('sb24_promocode');
+        $aclist         = DB::table('sb24_promocode')
+        ->join('claims_client', 'sb24_promocode.id_used_by', '=', 'claims_client.idclient')
+        ->join('sb24_promotype', 'sb24_promocode.id_type', '=', 'sb24_promotype.id')
+         ->select('sb24_promocode.*', 'claims_client.*', 'sb24_promotype.name as type');
+        $aclist->where('sb24_promocode.promocode', '!=', 'claims_client.uuid');
         $aclist->orderBy('id', 'desc');
         $aclist         = $aclist->take(100)->get();
         return $aclist;
@@ -52,6 +56,7 @@ class AdminPromocode extends Model {
             ->join('sb24_Flight', 'sb24_CodeBagFlights.idFlights', '=', 'sb24_Flight.idFlights')
             ->join('sb24_promocode', 'claims_client.idclient', '=', 'sb24_promocode.id_used_by')
             ->select('sb24_CodeBagFlights.*', 'sfb_smartcards.*', 'claims_client.*', 'sb24_Flight.*','sb24_promocode.*') ;
+        $aclist->where('sb24_promocode.promocode', '!=', 'claims_client.uuid');
         $aclist->orderBy('sb24_promocode.date', 'desc');
         $aclist         = $aclist->get();
         return $aclist;
