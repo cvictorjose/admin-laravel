@@ -120,7 +120,7 @@ class AdminController extends Controller {
             $data['total_client_with_promocode']   =AdminPromocode::get_dashboard_promocodeList_byregistration($code);
 
 		/* Total Clients + PromoCode VC */
-			$code_list =  array('VC' => 'VC','IV' => 'IV',);
+			$code_list =  array('1' => '1','2' => '2','3' => '3','4' => '4','5' => '5',);
 			foreach ($code_list as $tc1){
 				$data['total_client_with_promocode_'.$tc1]=AdminPromocode::get_dashboard_promocodeList_byregistration
 				($tc1);
@@ -128,26 +128,33 @@ class AdminController extends Controller {
 		/* End */
 
 
-        /* Total promocode */
-            $data['total_promocode']   = AdminPromocode::get_dashboard_total_promocode();
-            $data['total_promocode_used']   = AdminPromocode::get_dashboard_total_promocode_used();
-            // $data['total_numflights_payed']   = AdminPromocode::get_dashboard_total_numflights();
-			//$data['total_numflights_payed_used']   = AdminPromocode::get_dashboard_total_numflights_used();
+        /* total_transactions */
+		$code="";
+        $data['total_transactions']   = AdminTransaction::get_dashboard_total_transactions($code);
+
+		$code_list =  array('CC' => 'credit_card','PP' => 'Paypal');
+		foreach ($code_list as $tc1){
+			$data['total_transactions_'.$tc1]=AdminTransaction::get_dashboard_total_transactions($tc1);
+		}
+
+        $code_list =  array('p1' => '1','p2' => '2','p3' => '3','p4' => '4');
+		$code_list2 =  array('CC' => 'credit_card','PP' => 'Paypal');
+        foreach ($code_list as $p){
+			foreach ($code_list2 as $type){
+            	$data['total_money_p'.$p."_".$type]=AdminTransaction::get_dashboard_total_transactions_by_pack($p,$type);
+			}
+        }
         /* End */
 
 
-        /* Total promocode */
-        $data['total_transactions']   = AdminTransaction::get_dashboard_total_transactions();
+		/* Total credits */
+		 $data['total_promocode']   = AdminPromocode::get_dashboard_total_promocode2();
+		 $data['total_users_bis']   = AdminPromocode::get_dashboard_total_promocode_users_bis();
 
-//        $code_list =  array('p1' => '1','p2' => '2','p10' => '10');
-//        foreach ($code_list as $p){
-//            $data['total_money_p'.$p]=AdminTransaction::get_dashboard_total_transactions_by_numfights
-//            ($p);
-//        }
-        /* End */
-
-
-
+		 $data['total_promocode_used']   = AdminPromocode::get_dashboard_total_promocode_used();
+		 $data['total_numflights_payed']   = AdminPromocode::get_dashboard_total_track_payed();
+		 $data['total_numflights_payed_used']   = AdminPromocode::get_dashboard_total_track_payed_used();
+		/* End */
 
 
         /* Total PromoCode registered + Tracking */

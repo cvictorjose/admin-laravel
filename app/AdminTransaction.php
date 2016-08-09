@@ -41,13 +41,16 @@ class AdminTransaction extends Model {
      * return:
      * desc:    Total transactions registered + total price for month
      */
-    public static function get_dashboard_total_transactions(){
+    public static function get_dashboard_total_transactions($code){
         $aclist         = array();
         $wheredata      = array();
         $y = date("Y");
         $aclist= DB::table('sb24_transaction')
             ->select(DB::raw('MONTH(created_at) as month, sum(amount) as total'));
         $aclist->where('created_at', 'like', '%'.$y.'-%');
+        if ($code!=""){
+            $aclist->where('sb24_transaction.type', "=", "$code");
+        }
         $aclist->groupBy('month');
         $aclist= $aclist->get();
         return $aclist;
@@ -61,16 +64,19 @@ class AdminTransaction extends Model {
      * return:
      * desc:    Total transactions registered + total price for month
      */
-    public static function get_dashboard_total_transactions_by_numfights($num_flights){
+    public static function get_dashboard_total_transactions_by_pack($num_pack,$type){
         $aclist         = array();
         $wheredata      = array();
         $y = date("Y");
         $aclist= DB::table('sb24_transaction')
             ->select(DB::raw('MONTH(created_at) as month, sum(amount) as total, idpack'));
         $aclist->where('created_at', 'like', '%'.$y.'-%');
-        $aclist->where('numflights', ''.$num_flights.'');
-        $aclist->groupBy('numflights','month');
-        $aclist->orderBy('month', 'ASC');
+        $aclist->where('idpack', "=", "$num_pack");
+        if ($type!=""){
+            $aclist->where('sb24_transaction.type', "=", "$type");
+        }
+        $aclist->groupBy('month');
+
         $aclist= $aclist->get();
         return $aclist;
     }

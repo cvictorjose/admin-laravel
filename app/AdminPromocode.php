@@ -89,8 +89,11 @@ class AdminPromocode extends Model {
             ->join('claims_client', 'sb24_promocode.id_used_by', '=', 'claims_client.idclient')
             ->select(DB::raw('count(*) as total, MONTH(sb24_promocode.date) as month'));
         $aclist->where('sb24_promocode.date', 'like', '%'.$y.'-%');
-        $aclist->where('sb24_promocode.promocode', 'like', '%'.$code.'%');
+        if ($code>0){
 
+            $aclist->where('sb24_promocode.id_type', "=", "$code");
+        }
+        $aclist->where('sb24_promocode.promocode', '!=', 'claims_client.uuid');
         $aclist->groupBy('month');
         $aclist         = $aclist->get();
         return $aclist;
@@ -107,7 +110,39 @@ class AdminPromocode extends Model {
     public static function get_dashboard_total_promocode(){
         $aclist         = array();
         $aclist= DB::table('sb24_promocode')
+            ->join('claims_client', 'sb24_promocode.id_used_by', '=', 'claims_client.idclient')
             ->select(DB::raw('count(*) as total'));
+        $aclist->where('sb24_promocode.promocode', '!=', 'claims_client.uuid');
+        $aclist = $aclist->get();
+        return $aclist;
+    }
+
+    /*
+    * name:    get_dashboard_total_promocode2
+    * params:  $qryArray
+    * return:
+    * desc:    Total promocode without where
+    */
+    public static function get_dashboard_total_promocode2(){
+        $aclist         = array();
+        $aclist= DB::table('sb24_promocode')
+            ->select(DB::raw('count(*) as total'));
+        $aclist = $aclist->get();
+        return $aclist;
+    }
+
+    /*
+    * name:    get_dashboard_total_promocode_users_bis
+    * params:  $qryArray
+    * return:
+    * desc:    Total promocode user bis, idem promocode and uuid
+    */
+    public static function get_dashboard_total_promocode_users_bis(){
+        $aclist         = array();
+        $aclist= DB::table('sb24_promocode')
+            ->join('claims_client', 'sb24_promocode.id_used_by', '=', 'claims_client.idclient')
+            ->select(DB::raw('count(*) as total'));
+        $aclist->where('sb24_promocode.promocode', '=', 'claims_client.uuid');
         $aclist = $aclist->get();
         return $aclist;
     }
@@ -135,10 +170,10 @@ class AdminPromocode extends Model {
     * return:
     * desc:    Total credits payed
     */
-    public static function get_dashboard_total_numflights(){
+    public static function get_dashboard_total_track_payed(){
         $aclist         = array();
         $aclist= DB::table('sb24_transaction')
-            ->select(DB::raw('sum(numflights) as total'));
+            ->select(DB::raw('count(*) as total'));
         $aclist = $aclist->get();
         return $aclist;
     }
@@ -148,9 +183,9 @@ class AdminPromocode extends Model {
     * name:    get_dashboard_total_numflights
     * params:  $qryArray
     * return:
-    * desc:    Total credits payed
+    * desc:    Total credits payed + used
     */
-    public static function get_dashboard_total_numflights_used(){
+    public static function get_dashboard_total_track_payed_used(){
         $aclist         = array();
         $wheredata      = array();
         $aclist         = DB::table('sb24_CodeBagFlights')
