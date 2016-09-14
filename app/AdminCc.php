@@ -27,7 +27,7 @@ class AdminCc  extends Model {
                 ->join('claims_closed', 'claims.idclaim', '=', 'claims_closed.idclaim');
                 //->join('claims_close_refund', 'claims.idclaim', '=', 'claims_close_refund.idclaim');
             $aclist->groupBy('claims.claimcode');
-            $aclist->orderBy('claims.claimcode', 'desc');
+            $aclist->orderBy('claims.idclaim', 'desc');
             $aclist = $aclist->get();
             return $aclist;
         }
@@ -48,7 +48,7 @@ class AdminCc  extends Model {
                 $aclist->where('stato_sinistro', $qryArray['Id']);
             }
 
-            if ($start>0){
+            if ($start>0 && !empty($start) ){
                 $aclist->where('sigdate', '>', $start);
             }
 

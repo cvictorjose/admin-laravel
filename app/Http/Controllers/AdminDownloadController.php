@@ -255,8 +255,14 @@ class AdminDownloadController extends Controller {
     * return:
     * desc:    Download  ALL refund list admin
     */
-    public function download_all_refund(){
-        $usersList  = AdminCc::getCCList();
+    public function download_all_refund($id, $dal, $al){
+        //$inputData  = Input::all(); echo "<pre>"; print_r($inputData);
+        $searchdata = array(
+            'Id'           => $id,
+            'dal_date'     => "$dal",
+            'al_date'      => "$al",
+        );
+        $usersList  = AdminCc::getCCList2($searchdata);
 
         Excel::create('SB_All Refund Request', function($excel) use($usersList) {
             $excel->sheet('All Refund Request List', function($sheet) use($usersList) {

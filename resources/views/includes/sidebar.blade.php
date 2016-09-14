@@ -9,10 +9,10 @@
                     <?php $pict = Session::get('userDetails.profile_picture'); if(!empty($pict))  {   ?>
                     <img src="{{ asset('/adminpictures') }}/<?php echo Session::get('userDetails.profile_picture'); ?>" class="img-circle" alt="User Image"/>
                     <?php }     else    {   ?>
-                    <img src="{{ asset('/public/images/profile_foto.png') }}" class="user-image" alt="User Image"/>
+                    <img src="{{ asset('/images/profile_foto.png') }}" class="user-image" alt="User Image"/>
                     <?php } ?>
                 @else
-                    <img src="{{ asset('/public/images/blank-male.jpg') }}" class="img-circle" alt="User Image" />
+                    <img src="{{ asset('/images/blank-male.jpg') }}" class="img-circle" alt="User Image" />
                 @endif
             </div>
             <div class="pull-left info">

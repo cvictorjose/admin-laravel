@@ -31,7 +31,7 @@ $conf_moths    =  config('constants.acMonths');
                             <tr>
                                 <td> Total Clients</td>
                                 <?php
-                                $cm = 1;
+                                $cm = 1;$last_month="0";
                                 for($i = 0; $i < 12; $i++){
                                     if(isset($total_client_sb24[$i]->month)){
                                         $m=$total_client_sb24[$i]->month;
@@ -53,7 +53,7 @@ $conf_moths    =  config('constants.acMonths');
                             <tr>
                                 <td> Total Clients with PromoCode</td>
                                 <?php
-                                $cm = 1;
+                                $cm = 1;$last_month="0";
                                 for($i = 0; $i < 12; $i++){
                                     if(isset($total_client_with_promocode[$i]->month)){
                                         $m=$total_client_with_promocode[$i]->month;

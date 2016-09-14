@@ -36,7 +36,7 @@
                     </thead>
                     <tbody>
                     <?php $i = 0; ?>
-                    @foreach ($airportsList as $ports)
+                    @foreach ($airportslist as $ports)
                         <?php $i++; ?>
                         <tr>
                             <td>{{ $i }}</td>

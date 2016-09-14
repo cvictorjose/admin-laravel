@@ -25,7 +25,7 @@ class AdminAirportController extends Controller {
      * desc:    airportslist admin
      */
     public function airportslist(){
-        $data['partnersList']  = AdminAirports::getAirportsList();
+        $data['airportslist']  = AdminAirports::getAirportsList();
         return \View::make('admin.airportslist')->with('data', $data);
     }
 

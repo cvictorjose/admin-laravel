@@ -18,7 +18,7 @@
                 <div class="box-header">
 
                     <a href="{{ URL::to('admin/download_all_refund ') }}" class="btn btn-app" style="float: right;">
-                        <i class="fa fa-download"></i> Refund Request List
+                        <i class="fa fa-download"></i> Download Refund Request List
                     </a>
 
                     <div class="input-group input-group-sm">
@@ -33,12 +33,12 @@
 
 
                         <div class="form-group col-md-3">
-                            <label for="ap_price_airport">Dal</label>
+                            <label for="ap_price_airport">Dal (Data Apertura)</label>
                             <input type="text" class="form-control" id="ap_start_date" name="ap_start_date"  placeholder="Enter Start Date" >
                         </div>
 
                         <div class="form-group col-md-3">
-                            <label for="ap_price_airport">Al</label>
+                            <label for="ap_price_airport">Al (Data Apertura)</label>
                             <input type="text" class="form-control" id="ap_end_date" name="ap_end_date"  placeholder="Enter End Date" >
                         </div>
 

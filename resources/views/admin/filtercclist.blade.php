@@ -9,30 +9,44 @@ if(empty($filter_lang))
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
+
+                    <a class="btn btn-app" style="float: right;" href="{{ URL::to('admin/download_all_refund') }}/{{
+                    $filter_idairport }}/{{ $filter_dal2 }}/{{ $filter_al2 }}">  <i class="fa fa-download"></i>
+                        Download Refund Request List
+                    </a>
+
                     <div class="input-group input-group-sm">
                         <div class="form-group col-md-6">
                             <label for="ap_price_airport">Stato della pratica</label>
                             <select name="ac_stato" id="acstato"  class="form-control">
                                 @foreach($stato_pratica as $k=>$aclang)
-                                    <option value="{{ $k }}" >{{ $aclang }}</option>
+                                    {{--<option value="{{ $k }}" >{{ $aclang }}</option>--}}
+                                    <option value="{{ $k }}" @if($filter_idairport == $k) selected="selected" @endif >{{ $aclang }}</option>
                                 @endforeach
                             </select>
                         </div>
 
 
                         <div class="form-group col-md-3">
-                            <label for="ap_price_airport">Dal</label>
-                            <input type="text" class="form-control" id="ap_start_date" name="ap_start_date"  placeholder="Enter Start Date" >
+                            <label for="ap_price_airport">Dal (Data Apertura)</label>
+                            <input type="text" class="form-control" id="ap_start_date" name="ap_start_date"
+                                   placeholder="Enter Start Date" value="{{$filter_dal}}">
                         </div>
 
                         <div class="form-group col-md-3">
-                            <label for="ap_price_airport">Al</label>
-                            <input type="text" class="form-control" id="ap_end_date" name="ap_end_date"  placeholder="Enter End Date" >
+                            <label for="ap_price_airport">Al (Data Apertura)</label>
+                            <input type="text" class="form-control" id="ap_end_date" name="ap_end_date"  placeholder="Enter End Date" value="{{$filter_al}}">
                         </div>
 
                            <span class="input-group-btn">
+
                           <button class="btn btn-info btn-flat" name="filter_btn" id="filter_btn" type="button" onclick="filtersearch();">Go!</button>
+
+                          {{--<button class="btn btn-info btn-flat" name="filter_btn" id="filter_btn" type="button" onclick="filtersearch2();">xxxx</button>--}}
+
+
                         </span>
+
                     </div>
                 </div>
 

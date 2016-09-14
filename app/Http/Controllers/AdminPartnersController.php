@@ -25,7 +25,7 @@ class AdminPartnersController extends Controller {
         */
     public function partnerslist(){
         $data['partnersList']  = AdminPartners::getPartnersList();
-        return \View::make('admin.partnersList')->with('data', $data);
+        return \View::make('admin.partnerslist')->with('data', $data);
     }
 
     /*

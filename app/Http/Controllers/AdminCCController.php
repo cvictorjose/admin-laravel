@@ -42,6 +42,21 @@ class AdminCCController  extends Controller {
        $dal_date  = strtotime($inputData['dal_date']);
        $al_date = strtotime($inputData['al_date']);
 
+       $dal_date_filter  = $inputData['dal_date'];
+       $al_date_filter  = $inputData['al_date'];
+
+
+
+        if (empty($dal_date)){$dal_date=0;}
+        if (empty($al_date)){$al_date=0;}
+        $data['filter_dal2']    = $dal_date;
+        $data['filter_al2']    =  $al_date;
+
+
+       $data['filter_idairport'] = $filter_stato;
+       $data['filter_dal']    = $dal_date_filter;
+       $data['filter_al']    =  $al_date_filter;
+
         $searchdata = array(
             'Id'           => Input::get('filter_stato'),
             'dal_date'     => $dal_date,

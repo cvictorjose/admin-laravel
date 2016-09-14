@@ -144,7 +144,10 @@ Route::group(['prefix' => 'admin'], function() {
     /* CC Functionalities*/
     Route::get('cclist',            'AdminCCController@cclist');
     Route::post('filtercclist',     'AdminCCController@filtercclist');
-    Route::get('download_all_refund',   'AdminDownloadController@download_all_refund');
+    //Route::get('download_all_refund',   'AdminDownloadController@download_all_refund');
+
+    Route::get('download_all_refund/{id}/{dal}/{al}',        'AdminDownloadController@download_all_refund') ->where(array('id'
+    => '[0-9]+', 'dal' => '[0-9]+', 'al' => '[0-9]+'));
 
 
 
